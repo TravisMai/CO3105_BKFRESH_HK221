@@ -27,10 +27,10 @@
           padding-top: calc(3.2em) !important
       }
       </style>
-      <nav class="w-100  position-fixed top-0 bg-white text-light" id="login-nav">
+      <nav class="w-100 px-2 py-1 position-fixed top-0 bg-white text-dark" id="login-nav">
         <div class="d-flex justify-content-between w-100"  >
           <div>
-            <p class="m-0 truncate-1 text-bold"><?= $_settings->info('name') ?></p>
+            <p class="m-0 truncate-1"><small><?= $_settings->info('name') ?></small></p>
           </div>
           <div>
             <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') ==3): ?>
@@ -42,19 +42,19 @@
                 <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>" class="img-thumbnail rounded-circle" alt="User Avatar" id="client-img-avatar">  <span class="mx-2">Howdy, <?= !empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="./?page=manage_account">Manage Account</a>
-                  <a class="dropdown-item" href="<?= base_url.'classes/Login.php?f=logout_client' ?>">Logout</a>
+                  <a class="dropdown-item" href="./?page=manage_account">Tài khoản của tôi</a>
+                  <a class="dropdown-item" href="<?= base_url.'classes/Login.php?f=logout_client' ?>">Đăng xuất</a>
                 </div>
               </div>
             <?php else: ?>
-              <a href="./login.php" class="mx-2 text-dark text-decoration-none font-weight-bolder">Client Login</a> | 
-              <a href="./vendor" class="mx-2 text-dark text-decoration-none font-weight-bolder">Vendor Login</a> | 
-              <a href="./admin" class="mx-2 text-dark text-decoration-none font-weight-bolder">Admin Login</a>
+              <a href="./login.php" class="mx-2 text-dark text-decoration-none font-weight-bolder">Khách mua</a> | 
+              <a href="./vendor" class="mx-2 text-dark text-decoration-none font-weight-bolder">Khách bán</a> | 
+              <a href="./admin" class="mx-2 text-dark text-decoration-none font-weight-bolder">Quản trị</a>
             <?php endif; ?>
           </div>
         </div>
       </nav>
-      <nav class="main-header navbar navbar-expand-md navbar-light border-0 text-sm bg-white" id='top-Nav'>
+      <nav class="main-header navbar navbar-expand-md navbar-light border-0 text-sm bg-white shadow" id='top-Nav'>
         
         <div class="container">
           <a href="./" class="navbar-brand">
@@ -63,17 +63,14 @@
 
          
 
-          <div class="collapse navbar-collapse order-3 bg-white" id="navbarCollapse">
+          <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="./" class="nav-link <?= isset($page) && $page =='home' ? "active" : "" ?>">Home</a>
+                <a href="./" class="nav-link <?= isset($page) && $page =='home' ? "active" : "" ?>">Trang chủ</a>
               </li>
               <li class="nav-item">
-                <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>">Products</a>
-              </li>
-              <li class="nav-item">
-                <a href="./?page=about" class="nav-link <?= isset($page) && $page =='about' ? "active" : "" ?>">About Us</a>
+                <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>">Sản phẩm</a>
               </li>
               <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
               <li class="nav-item">
@@ -81,10 +78,10 @@
                 $cart_count = $conn->query("SELECT sum(quantity) FROM `cart_list` where client_id = '{$_settings->userdata('id')}'")->fetch_array()[0];
                 $cart_count = $cart_count > 0 ? $cart_count : 0;
                 ?>
-                <a href="./?page=orders/cart" class="nav-link <?= isset($page) && $page =='orders/cart' ? "active" : "" ?>"><span class="badge badge-secondary rounded-cirlce"><?= format_num($cart_count) ?></span> Cart</a>
+                <a href="./?page=orders/cart" class="nav-link <?= isset($page) && $page =='orders/cart' ? "active" : "" ?>"><span class="badge badge-secondary rounded-cirlce"><?= format_num($cart_count) ?></span> Giỏ hàng</a>
               </li>
               <li class="nav-item">
-                <a href="./?page=orders/my_orders" class="nav-link <?= isset($page) && $page =='orders/my_orders' ? "active" : "" ?>">My Orders</a>
+                <a href="./?page=orders/my_orders" class="nav-link <?= isset($page) && $page =='orders/my_orders' ? "active" : "" ?>">Đơn hàng của tôi</a>
               </li>
               <?php endif; ?>
             </ul>
