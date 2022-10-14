@@ -1,6 +1,31 @@
 <?php require_once('../config.php') ?>
 <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/favicons/sheaf-of-rice.png" height="57" width="57">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/favicons/sheaf-of-rice.png" height="60" width="60">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/favicons/sheaf-of-rice.png" height="72" width="72">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/favicons/sheaf-of-rice.png" height="76" width="76">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/favicons/sheaf-of-rice.png" height="114" width="114">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/favicons/sheaf-of-rice.png" height="120" width="120">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/favicons/sheaf-of-rice.png" height="144" width="144">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/favicons/sheaf-of-rice.png" height="152" width="152">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicons/sheaf-of-rice.png" height="180" width="180">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="16x16">
+    <link rel="manifest" href="../../images/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../../images/favicons/sheaf-of-rice.png">
+    <meta name="msapplication-config" content="../../images/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#66BB6A">
+    <link rel="shortcut icon" href="../../images/favicons/sheaf-of-rice.png">
+    <title>Vfresh | Người bán</title>
+    <link rel="canonical" href="./">
+</head>
  <?php require_once('inc/header.php') ?>
 <body class="hold-transition">
   <script>
@@ -37,30 +62,42 @@
   </style>
   <script>
   </script>
-  <div class="d-flex justify-content-center align-items-center flex-row h-80">
+  <div class="d-flex justify-content-center align-items-center flex-row h-100">
         <div class="col-7 h-100 bg-gradient-light px-4">
             <div class="d-flex justify-content-center align-items-center w-100 h-100">
                 <div class="card card-outline card-primary col-12 rounded-0 shadow">
                     <div class="card-body">
-                    <p class="login-box-msg">Sign in to start your session</p>
+                    <p class="login-box-msg">Đăng ký để bắt đầu</p>
 
                     <form id="vregister-frm" action="" method="post">
                         <input type="hidden" name="id">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="shop_name" class="control-label">Shop Name</label>
+                                <label for="shop_name" class="control-label">Tên cửa hàng</label>
                                 <input type="text" id="shop_name" autofocus name="shop_name" class="form-control form-control-sm form-control-border" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="shop_owner" class="control-label">Shop Owner Fullname</label>
+                                <label for="shop_owner" class="control-label">Tên chủ sở hữu</label>
                                 <input type="text" id="shop_owner" name="shop_owner" class="form-control form-control-sm form-control-border" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="contact" class="control-label">Contact #</label>
+                                <label for="contact" class="control-label">Điện thoại #</label>
                                 <input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="shop_type_id" class="control-label">Shop Type</label>
+                                <label for="email" class="control-label">Email #</label>
+                                <input type="text" id="email" name="email" class="form-control form-control-sm form-control-border" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="username" class="control-label">Tên đăng nhập</label>
+                                <input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="shop_type_id" class="control-label">Thể loại cửa hàng</label>
                                 <select type="text" id="shop_type_id" name="shop_type_id" class="form-control form-control-sm form-control-border select2" required>
                                     <option value="" disabled selected></option>
                                     <?php 
@@ -74,13 +111,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="username" class="control-label">Username</label>
-                                <input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="password" class="control-label">Password</label>
+                                <label for="password" class="control-label">Mật khẩu</label>
                                 <div class="input-group input-group-sm">
                                     <input type="password" id="password" name="password" class="form-control form-control-sm form-control-border" required>
                                     <div class="input-group-append bg-transparent border-top-0 border-left-0 border-right-0 rounded-0">
@@ -91,7 +122,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="cpassword" class="control-label">Confirm Password</label>
+                                <label for="cpassword" class="control-label">Xác nhận mật khẩu</label>
                                 <div class="input-group input-group-sm">
                                     <input type="password" id="cpassword" class="form-control form-control-sm form-control-border" required>
                                     <div class="input-group-append bg-transparent border-top-0 border-left-0 border-right-0 rounded-0">
@@ -102,27 +133,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!--div class="row">
                             <div class="form-group col-md-6">
-                                <label for="logo" class="control-label">Shop Logo</label>
-                                <input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
+                                <label for="avatar" class="control-label">Logo cửa hàng</label>
+                                <input type="file" id="avatar" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6 text-center">
                                 <img src="<?= validate_image('') ?>" alt="Shop Logo" id="cimg" class="border border-gray img-thumbnail">
                             </div>
-                        </div>
+                        </div-->
                         <div class="row align-item-end">
                             <div class="col-8">
-                                <a href="<?= base_url ?>">Back to Site</a>
+                                <a href="<?= base_url ?>">Quay về trang chủ</a>
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block btn-flat">Create Account</button>
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">Tạo tài khoản</button>
                             </div>
                             <div class="col-12 text-center">
-                            <a href="<?= base_url.'vendor/login.php' ?>">Already have an Account</a>
+                            <a href="<?= base_url.'vendor/login.php' ?>">Đã có tài khoản rồi</a>
                             </div>
                         <!-- /.col -->
                         </div>
@@ -168,7 +199,7 @@
     end_loader();
     $('body').height($(window).height())
     $('.select2').select2({
-        placeholder:"Please Select Here",
+        placeholder:"Chọn thể loại",
         width:'100%'
     })
     $('.select2-selection').addClass("form-border")

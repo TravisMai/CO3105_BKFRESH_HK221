@@ -34,7 +34,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <div class="content py-3">
     <div class="card card-outline card-primary rounded-0 shadow">
         <div class="card-header">
-            <h5 class="card-title"><b>Product Details</b></h5>
+            <h5 class="card-title"><b>Chi tiết sản phẩm</b></h5>
         </div>
         <div class="card-body">
             <div class="container-fluid">
@@ -48,15 +48,15 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <h3><b><?= $name ?></b></h3>
                         <div class="d-flex w-100">
-                            <div class="col-auto px-0"><small class="text-muted">Vendor: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Người bán: </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $vendor ?></small></p></div>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Category: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Danh mục: </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $category ?></small></p></div>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Giá mong muốn: </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($price) ?></small></p></div>
                         </div>
                         <div class="row align-items-end">
@@ -64,7 +64,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 <input type="number" min = "1" id= 'qty' value="1" class="form-control rounded-0 text-center">
                             </div>
                             <div class="col-md-3 form-group">
-                                <button class="btn btn-primary btn-flat" type="button" id="add_to_cart"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                                <button class="btn btn-primary btn-flat" type="button" id="add_to_cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
                             </div>
                         </div>
                         <div class="w-100"><?= html_entity_decode($description) ?></div>

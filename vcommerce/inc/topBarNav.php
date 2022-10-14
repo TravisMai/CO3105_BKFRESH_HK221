@@ -72,6 +72,9 @@
               <li class="nav-item">
                 <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>">Sản phẩm</a>
               </li>
+              <li class="nav-item">
+                <a href="./?page=sellers" class="nav-link <?= isset($page) && $page =='sellers' ? "active" : "" ?>">Doanh nghiệp</a>
+              </li>
               <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
               <li class="nav-item">
                 <?php 

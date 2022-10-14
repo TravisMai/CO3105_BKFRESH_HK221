@@ -27,19 +27,29 @@ foreach($user->fetch_array() as $k =>$v){
 					<input type="hidden" name="id" value="<?php echo $_settings->userdata('id') ?>">
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="shop_name" class="control-label">Shop Name</label>
+							<label for="shop_name" class="control-label">Tên cửa hàng</label>
 							<input type="text" id="shop_name" autofocus name="shop_name" class="form-control form-control-sm form-control-border" value="<?= isset($shop_name) ? $shop_name : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="shop_owner" class="control-label">Shop Owner Fullname</label>
+							<label for="shop_owner" class="control-label">Tên chủ sở hữu</label>
 							<input type="text" id="shop_owner" name="shop_owner" class="form-control form-control-sm form-control-border" value="<?= isset($shop_owner) ? $shop_owner : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="contact" class="control-label">Contact #</label>
+							<label for="contact" class="control-label">Điện thoại #</label>
 							<input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" value="<?= isset($contact) ? $contact : "" ?>" required>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="shop_type_id" class="control-label">Shop Type</label>
+                            <label for="email" class="control-label">Email #</label>
+                            <input type="text" id="email" name="email" class="form-control form-control-sm form-control-border" value="<?= isset($email) ? $email : "" ?>" required>
+                        </div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="username" class="control-label">Tên đăng nhập</label>
+							<input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" value="<?= isset($username) ? $username : "" ?>" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="shop_type_id" class="control-label">Thể loại cửa hàng</label>
 							<select type="text" id="shop_type_id" name="shop_type_id" class="form-control form-control-sm form-control-border select2" required>
 								<option value="" disabled selected></option>
 								<?php 
@@ -53,13 +63,7 @@ foreach($user->fetch_array() as $k =>$v){
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="username" class="control-label">Username</label>
-							<input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" value="<?= isset($username) ? $username : "" ?>" required>
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-6">
-							<label for="password" class="control-label">New Password</label>
+							<label for="password" class="control-label">Mật khẩu mới</label>
 							<div class="input-group input-group-sm">
 								<input type="password" id="password" name="password" class="form-control form-control-sm form-control-border">
 								<div class="input-group-append bg-transparent border-top-0 border-left-0 border-right-0 rounded-0">
@@ -70,7 +74,7 @@ foreach($user->fetch_array() as $k =>$v){
 							</div>
 						</div>
 						<div class="form-group col-md-6">
-							<label for="cpassword" class="control-label">Confirm New Password</label>
+							<label for="cpassword" class="control-label">Xác nhận mật khẩu mới</label>
 							<div class="input-group input-group-sm">
 								<input type="password" id="cpassword" class="form-control form-control-sm form-control-border">
 								<div class="input-group-append bg-transparent border-top-0 border-left-0 border-right-0 rounded-0">
@@ -80,11 +84,11 @@ foreach($user->fetch_array() as $k =>$v){
 								</div>
 							</div>
 						</div>
-						<small class="text-muted">Leave the New Password Field Blank if you don't wish to update it.</small>
+						<small class="text-muted">Để trống nếu như bạn không thay đổi mật khẩu.</small>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="logo" class="control-label">Shop Logo</label>
+							<label for="logo" class="control-label">Logo cửa hàng</label>
 							<input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg">
 						</div>
 					</div>
@@ -95,7 +99,7 @@ foreach($user->fetch_array() as $k =>$v){
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="oldpassword" class="control-label">Enter Current Password</label>
+							<label for="oldpassword" class="control-label">Nhập mật khẩu hiện tại</label>
 							<div class="input-group input-group-sm">
 								<input type="password" id="oldpassword" name="oldpassword" class="form-control form-control-sm form-control-border" reqiured>
 								<div class="input-group-append bg-transparent border-top-0 border-left-0 border-right-0 rounded-0">
@@ -112,7 +116,7 @@ foreach($user->fetch_array() as $k =>$v){
 		<div class="card-footer">
 			<div class="col-md-12">
 				<div class="row">
-					<button class="btn btn-sm btn-primary" form="manage-user">Update</button>
+					<button class="btn btn-sm btn-primary" form="manage-user">Cập nhật</button>
 				</div>
 			</div>
 		</div>
@@ -175,7 +179,7 @@ foreach($user->fetch_array() as $k =>$v){
 				dataType: 'json',
 				error:err=>{
 					console.error(err)
-					el.addClass('alert-danger').text("An error occured");
+					el.addClass('alert-danger').text("Lỗi");
 					_this.prepend(el)
 					el.show('.modal')
 					end_loader();
@@ -188,7 +192,7 @@ foreach($user->fetch_array() as $k =>$v){
 						_this.prepend(el)
 						el.show('.modal')
 					}else{
-						el.text("An error occured");
+						el.text("Lỗi");
 						console.error(resp)
 					}
 					$("html, body").scrollTop(0);
