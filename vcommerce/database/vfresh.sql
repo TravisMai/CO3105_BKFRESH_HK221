@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2022 at 03:01 PM
+-- Generation Time: Oct 17, 2022 at 10:11 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -33,6 +33,13 @@ CREATE TABLE `cart_list` (
   `product_id` int(30) NOT NULL,
   `quantity` float NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart_list`
+--
+
+INSERT INTO `cart_list` (`id`, `client_id`, `product_id`, `quantity`) VALUES
+(18, 3, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -88,6 +95,13 @@ CREATE TABLE `client_list` (
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `client_list`
+--
+
+INSERT INTO `client_list` (`id`, `code`, `firstname`, `middlename`, `lastname`, `gender`, `contact`, `address`, `email`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
+(3, '202210-00001', 'Huu Nghia', '', 'Mai', 'Male', '0942262713', '138/1 Ngo Quyen Street, Ward 05, District 10', 'emches1976@gmail.com', '098f6bcd4621d373cade4e832627b4f6', 'uploads/clients/3.png?v=1665815716', 1, 0, '2022-10-15 13:35:16', '2022-10-15 13:35:16');
 
 -- --------------------------------------------------------
 
@@ -155,8 +169,9 @@ INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `descripti
 (16, 5, 12, 'Lê Hưng', '&lt;p&gt;Miễn ph&iacute; free ship&lt;/p&gt;', 0, 'uploads/products/11.png', 1, 0, '2022-10-14 19:39:43', '2022-10-14 19:40:12'),
 (17, 6, 15, 'Hạt điều', '&lt;p&gt;t&ocirc;i biết n&oacute; rất ngon&lt;/p&gt;', 7000000, 'uploads/products/7.png', 1, 0, '2022-10-14 19:49:59', '2022-10-14 19:52:29'),
 (18, 6, 16, 'Nhãn đóng hộp', '&lt;p&gt;đảm bảo tươi&lt;/p&gt;', 3000000, 'uploads/products/8.png', 1, 0, '2022-10-14 19:51:48', '2022-10-14 19:52:44'),
-(19, 7, 17, 'Bò wagyu', '&lt;p&gt;Thượng hạng&lt;/p&gt;', 11000000, 'uploads/products/9.png', 1, 0, '2022-10-14 19:56:13', '2022-10-14 19:57:59'),
-(20, 7, 18, 'Heo ăn chuối ', '&lt;p&gt;Của bầu Đức&lt;/p&gt;', 5000000, 'uploads/products/10.png', 1, 0, '2022-10-14 19:56:46', '2022-10-14 19:58:12');
+(19, 7, 17, 'Bò wagyu', '&lt;p&gt;Thượng hạng&lt;/p&gt;', 11000000, 'uploads/products/9.png', 1, 0, '2022-10-14 19:56:13', '2022-10-15 13:37:49'),
+(20, 7, 18, 'Heo ăn chuối ', '&lt;p&gt;Của bầu Đức&lt;/p&gt;', 5000000, 'uploads/products/10.png', 1, 0, '2022-10-14 19:56:46', '2022-10-14 19:58:12'),
+(21, 5, 12, 'test', '&lt;p&gt;test&lt;/p&gt;', 1, 'uploads/products/21.png?v=1665814526', 1, 1, '2022-10-15 13:15:25', '2022-10-15 13:21:01');
 
 -- --------------------------------------------------------
 
@@ -178,7 +193,7 @@ CREATE TABLE `shop_type_list` (
 --
 
 INSERT INTO `shop_type_list` (`id`, `name`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(6, 'Nông sản cơ bản, thiết yếu', 1, 0, '2022-10-14 18:37:43', '2022-10-14 19:43:40'),
+(6, 'Nông sản cơ bản, thiết yếu', 1, 0, '2022-10-14 18:37:43', '2022-10-16 11:31:53'),
 (7, 'Nông sản phái sinh ', 1, 0, '2022-10-14 18:38:07', '2022-10-14 19:43:49'),
 (8, 'Nông sản chế biến ', 1, 0, '2022-10-14 18:38:43', '2022-10-14 19:43:59');
 
@@ -229,7 +244,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
-(1, 'Adminstrator', 'Admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/avatar-1.png?v=1644472635', NULL, 1, '2021-01-20 14:02:37', '2022-02-10 13:57:15');
+(1, 'Adminstrator', 'Admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/avatar-1.png?v=1644472635', NULL, 1, '2021-01-20 14:02:37', '2022-02-10 13:57:15'),
+(12, 'Staff', 'Staff', 'staff', 'de9bf5643eabf80f4a56fda3bbb84483', 'uploads/avatar-12.png?v=1665894871', NULL, 2, '2022-10-16 11:34:30', '2022-10-16 11:34:31');
 
 -- --------------------------------------------------------
 
@@ -244,25 +260,26 @@ CREATE TABLE `vendor_list` (
   `shop_name` text NOT NULL,
   `shop_owner` text NOT NULL,
   `contact` text NOT NULL,
+  `email` text DEFAULT NULL,
+  `tax_id` text DEFAULT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL,
   `avatar` text DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
-  `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  `email` varchar(255) DEFAULT NULL
+  `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `vendor_list`
 --
 
-INSERT INTO `vendor_list` (`id`, `code`, `shop_type_id`, `shop_name`, `shop_owner`, `contact`, `username`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`, `email`) VALUES
-(5, '202210-00001', 6, 'Nông sản Lê Hưng', 'Lê Tuấn Hưng', '0912345678', 'shop01', '6f253286e4e82bcc67d95a527bd5ffc4', 'uploads/vendors/5.png', 1, 0, '2022-10-14 18:40:27', '2022-10-14 19:20:38', 'hung.lechpro@hcmut.edu.vn'),
-(6, '202210-00002', 8, 'Đóng hộp Lê Tèo', 'Lê Tèo', '09123234234', 'shop02', '21c4eab76f0bd3adc06fe15797ced087', 'uploads/vendors/6.png', 1, 0, '2022-10-14 18:50:30', '2022-10-14 19:20:13', 'donghop@leteo.industry.vn'),
-(7, '202210-00003', 7, 'Gia súc Thăng Thiên', 'Nguyễn An Lành', '0897563412', 'shop03', 'c086acef9556f08fa796b3787c46eaa0', 'uploads/vendors/7.png', 1, 0, '2022-10-14 18:56:37', '2022-10-14 19:19:58', 'anlanh@luagao.shop03.org'),
-(8, '202210-00004', 6, 'Lúa gạo Nevermind', 'Lê Thành Thái', '1800922345', 'shop04', 'aa12af4466408a9f5950cb5efe935a85', 'uploads/vendors/8.png', 1, 0, '2022-10-14 19:10:22', '2022-10-14 19:19:41', 'thanhthai@chongphap.vn');
+INSERT INTO `vendor_list` (`id`, `code`, `shop_type_id`, `shop_name`, `shop_owner`, `contact`, `email`, `tax_id`, `username`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
+(5, '202210-00001', 6, 'Nông sản Lê Hưng', 'Lê Tuấn Hưng', '0912345678', 'hung.lechpro@hcmut.edu.vn', '0710200022', 'shop01', '6f253286e4e82bcc67d95a527bd5ffc4', 'uploads/vendors/5.png?v=1665816024', 1, 0, '2022-10-14 18:40:27', '2022-10-15 14:10:33'),
+(6, '202210-00002', 8, 'Đóng hộp Lê Tèo', 'Lê Tèo', '09123234234', 'donghop@leteo.industry.vn', '7777775000', 'shop02', '21c4eab76f0bd3adc06fe15797ced087', 'uploads/vendors/6.png', 1, 0, '2022-10-14 18:50:30', '2022-10-15 14:05:34'),
+(7, '202210-00003', 7, 'Gia súc Thăng Thiên', 'Nguyễn An Lành', '0897563412', 'anlanh@luagao.shop03.org', '8943955000', 'shop03', 'c086acef9556f08fa796b3787c46eaa0', 'uploads/vendors/7.png', 1, 0, '2022-10-14 18:56:37', '2022-10-15 14:05:56'),
+(8, '202210-00004', 6, 'Lúa gạo Nevermind', 'Lê Thành Thái', '1800922345', 'thanhthai@chongphap.vn', '8943954321', 'shop04', 'aa12af4466408a9f5950cb5efe935a85', 'uploads/vendors/8.png', 1, 0, '2022-10-14 19:10:22', '2022-10-15 14:06:16');
 
 --
 -- Indexes for dumped tables
@@ -345,7 +362,7 @@ ALTER TABLE `vendor_list`
 -- AUTO_INCREMENT for table `cart_list`
 --
 ALTER TABLE `cart_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `category_list`
@@ -357,7 +374,7 @@ ALTER TABLE `category_list`
 -- AUTO_INCREMENT for table `client_list`
 --
 ALTER TABLE `client_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_list`
@@ -369,7 +386,7 @@ ALTER TABLE `order_list`
 -- AUTO_INCREMENT for table `product_list`
 --
 ALTER TABLE `product_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `shop_type_list`
@@ -387,7 +404,7 @@ ALTER TABLE `system_info`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `vendor_list`

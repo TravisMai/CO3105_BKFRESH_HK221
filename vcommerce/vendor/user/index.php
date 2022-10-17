@@ -45,9 +45,9 @@ foreach($user->fetch_array() as $k =>$v){
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="username" class="control-label">Tên đăng nhập</label>
-							<input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" value="<?= isset($username) ? $username : "" ?>" required>
-						</div>
+                            <label for="tax_id" class="control-label">Mã số thuế</label>
+                            <input type="text" id="tax_id" name="tax_id" class="form-control form-control-sm form-control-border" value="<?= isset($tax_id) ? $tax_id : "" ?>" required>
+                        </div>
 						<div class="form-group col-md-6">
 							<label for="shop_type_id" class="control-label">Thể loại cửa hàng</label>
 							<select type="text" id="shop_type_id" name="shop_type_id" class="form-control form-control-sm form-control-border select2" required>
@@ -59,6 +59,12 @@ foreach($user->fetch_array() as $k =>$v){
 								<option value="<?= $row['id'] ?>" <?= isset($shop_type_id) && $shop_type_id == $row['id'] ? 'selected' : '' ?>><?= $row['name'] ?></option>
 								<?php endwhile; ?>
 							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="username" class="control-label">Tên đăng nhập</label>
+							<input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" value="<?= isset($username) ? $username : "" ?>" required>
 						</div>
 					</div>
 					<div class="row">

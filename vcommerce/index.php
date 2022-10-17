@@ -95,9 +95,11 @@
       <div class="content-wrapper pt-5" style="">
         <?php if($page == "home" || $page == "about"): ?>
           <div id="header" class="shadow mb-4">
-              <div class="d-flex justify-content-center h-100 w-100 align-items-center flex-column px-3">
-                  <h1 class="w-100 text-center site-title px-5"><?php echo $_settings->info('name') ?></h1>
-                  <!-- <h3 class="w-100 text-center px-5 site-subtitle"><?php echo $_settings->info('name') ?></h3> -->
+              <div class="d-flex justify-content-center h-100 w-50 align-items-left flex-column px-4">
+                <div class="banner_txtinner" href="../css/responsive.css">
+                    <h1 style="font-family: chivo-regular-webfont; font-weight: bold; " href="../font/chivo-regular-webfont.woff"><span style="color: rgb(0, 0, 0);">Cách mạng hóa chuỗi cung ứng hàng hóa nông sản</span></h1>
+                    <h4 style="font-family: chivo-regular-webfont" href="../font/chivo-regular-webfont.woff"><br />Thông qua công nghệ thông tin, chúng tôi kết nối khách hàng đến với các trang trại trên khắp Việt Nam qua hình thức B2B</h4>
+                </div>
               </div>
           </div>
         <?php endif; ?>

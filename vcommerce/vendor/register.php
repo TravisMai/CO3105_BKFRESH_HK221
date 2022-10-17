@@ -62,7 +62,7 @@
   </style>
   <script>
   </script>
-  <div class="d-flex justify-content-center align-items-center flex-row h-100">
+  <div class="d-flex justify-content-center align-items-center flex-row h-80">
         <div class="col-7 h-100 bg-gradient-light px-4">
             <div class="d-flex justify-content-center align-items-center w-100 h-100">
                 <div class="card card-outline card-primary col-12 rounded-0 shadow">
@@ -91,11 +91,9 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="username" class="control-label">Tên đăng nhập</label>
-                                <input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" required>
+                                <label for="tax_id" class="control-label">Mã số thuế</label>
+                                <input type="text" id="tax_id" name="tax_id" class="form-control form-control-sm form-control-border" required>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="shop_type_id" class="control-label">Thể loại cửa hàng</label>
                                 <select type="text" id="shop_type_id" name="shop_type_id" class="form-control form-control-sm form-control-border select2" required>
@@ -107,6 +105,12 @@
                                     <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
                                     <?php endwhile; ?>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="username" class="control-label">Tên đăng nhập</label>
+                                <input type="text" id="username" name="username" class="form-control form-control-sm form-control-border" required>
                             </div>
                         </div>
                         <div class="row">
@@ -133,7 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--div class="row">
+                        <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="avatar" class="control-label">Logo cửa hàng</label>
                                 <input type="file" id="avatar" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
@@ -143,7 +147,7 @@
                             <div class="form-group col-md-6 text-center">
                                 <img src="<?= validate_image('') ?>" alt="Shop Logo" id="cimg" class="border border-gray img-thumbnail">
                             </div>
-                        </div-->
+                        </div>
                         <div class="row align-item-end">
                             <div class="col-8">
                                 <a href="<?= base_url ?>">Quay về trang chủ</a>

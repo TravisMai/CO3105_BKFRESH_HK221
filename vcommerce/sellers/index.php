@@ -43,7 +43,7 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div-->
                         <div class="row" id="product_list">
                             <?php 
                             $swhere = "";
@@ -52,13 +52,14 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                                 $swhere = " and p.category_id in ({$category_ids}) ";
                             }
                             if(isset($_GET['search']) && !empty($_GET['search'])){
-                                $swhere .= " and (p.name LIKE '%{$_GET['search']}%' or p.description LIKE '%{$_GET['search']}%' or c.name LIKE '%{$_GET['search']}%' or v.shop_name LIKE '%{$_GET['search']}%') ";
+                                $swhere .= " and (v.contact LIKE '%{$_GET['search']}%' or v.tax_id LIKE '%{$_GET['search']}%' or v.email LIKE '%{$_GET['search']}%' or v.shop_owner LIKE '%{$_GET['search']}%' or v.shop_name LIKE '%{$_GET['search']}%') ";
                             }
 
-                            $products = $conn->query("SELECT v.*, s.name as shop_type_name FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join shop_type_list s on s.id = v.shop_type_id where v.delete_flag = 0 and v.`status` =1 order by RAND()");
+                            $products = $conn->query("SELECT DISTINCT v.*, s.name as shop_type_name, v.id as seller_id FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join shop_type_list s on s.id = v.shop_type_id where v.delete_flag = 0 and v.`status` =1 order by RAND()");
                             while($row = $products->fetch_assoc()):
                             ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 product-item">
+                                <a href="./?page=sellers/view_seller&id=<?= $row['seller_id'] ?>" class="card shadow rounded-0 text-reset text-decoration-none">
                                 <div class="product-img-holder position-relative">
                                     <img src="<?= validate_image($row['avatar']) ?>" alt="Product-image" class="img-top product-img bg-gradient-gray">
                                 </div>
@@ -67,6 +68,10 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                                         <div class="d-flex w-100">
                                             <div class="col-auto px-0"><small class="text-muted">Chủ doanh nghiệp:&nbsp;  </small></div>
                                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['shop_owner'] ?></small></p></div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="col-auto px-0"><small class="text-muted">Mã số thuế:&nbsp;  </small></div>
+                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['tax_id'] ?></small></p></div>
                                         </div>
                                         <div class="d-flex">
                                             <div class="col-auto px-0"><small class="text-muted">Chuyên về:&nbsp;  </small></div>

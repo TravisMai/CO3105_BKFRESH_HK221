@@ -61,7 +61,243 @@
     }
   })
 </script>
+<style>
+body {
+    background: #fbfbfd;
+}
+
+.new_footer_area {
+    background: #fbfbfd;
+}
+
+
+.new_footer_top {
+    padding: 50px 0px 50px;
+    position: relative;
+      overflow-x: hidden;
+}
+.new_footer_top .company_widget p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    color: #6a7695;
+    margin-bottom: 20px;
+}
+.new_footer_top .company_widget .f_subscribe_two .btn_get {
+    border-width: 1px;
+    margin-top: 20px;
+}
+.btn_get_two:hover {
+    background: transparent;
+    color: #54c577;
+}
+.btn_get:hover {
+    color: #fff;
+    background: #6754e2;
+    border-color: #6754e2;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+
+
+.new_footer_top .f_widget.about-widget .f_list li a:hover {
+    color: #54c577;
+}
+.new_footer_top .f_widget.about-widget .f_list li {
+    margin-bottom: 11px;
+}
+.f_widget.about-widget .f_list li:last-child {
+    margin-bottom: 0px;
+}
+.f_widget.about-widget .f_list li {
+    margin-bottom: 15px;
+}
+.f_widget.about-widget .f_list {
+    margin-bottom: 0px;
+}
+.new_footer_top .f_social_icon a {
+    width: 44px;
+    height: 44px;
+    line-height: 43px;
+    background: transparent;
+    border: 1px solid #e2e2eb;
+    font-size: 24px;
+}
+.f_social_icon a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 45px;
+    color: #858da8;
+    display: inline-block;
+    background: #ebeef5;
+    text-align: center;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.ti-facebook:before {
+    content: "\e741";
+}
+.ti-twitter-alt:before {
+    content: "\e74b";
+}
+.ti-vimeo-alt:before {
+    content: "\e74a";
+}
+.ti-pinterest:before {
+    content: "\e731";
+}
+
+.btn_get_two {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #54c577;
+    border-color: #54c577;
+    color: #fff;
+}
+
+.btn_get_two:hover {
+    background: transparent;
+    color: #54c577;
+}
+
+.new_footer_top .f_social_icon a:hover {
+    background: #54c577;
+    border-color: #54c577;
+  color:white;
+}
+.new_footer_top .f_social_icon a + a {
+    margin-left: 4px;
+}
+.new_footer_top .f-title {
+    margin-bottom: 30px;
+    color: #263b5e;
+}
+.f_600 {
+    font-weight: 600;
+}
+.f_size_18 {
+    font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #4b505e;
+}
+.new_footer_top .f_widget.about-widget .f_list li a {
+    color: #6a7695;
+}
+
+
+
+@-moz-keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/*************footer End*****************/
+
+
+</style>
     </div>
+    
+
+<footer class="new_footer_area bg_color">
+            <div class="new_footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Kết nối với VFresh</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li>Địa chỉ:<br><a href="https://goo.gl/maps/2eB85GuGJEsxATkh7" target="_blank">268 Lý Thường Kiệt, Phường 14, Quận 10, Thành phố Hồ Chí Minh</a></br></li>
+                                    <li>Số điện thoại:<a href="#">&nbsp;+84 28 3864 7256</a></li>
+                                    <li>Email:<a href="mailto:vfresh@fake.demo.com" target="_blank">&nbsp;vfresh@fake.demo.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">VFresh</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="./">Trang chủ</a></li>
+                                    <li><a href="./?page=products">Sản phẩm</a></li>
+                                    <li><a href="./?page=sellers">Doanh nghiệp</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Tài khoản</h3>
+                                <ul class="list-unstyled f_list">
+                                  <?php if($_settings->userdata('id') <= 0): ?>
+                                  <li>
+                                    <a href="./login.php">Đăng nhập</a>
+                                  </li>
+                                  <li>
+                                    <a href="./register.php">Đăng ký</a>
+                                  </li>
+                                  <?php endif; ?>
+                                  <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
+                                  <li>
+                                    <a href="./?page=manage_account">Tài khoản của tôi</a>
+                                  </li>
+                                  <li>
+                                    <?php 
+                                    $cart_count = $conn->query("SELECT sum(quantity) FROM `cart_list` where client_id = '{$_settings->userdata('id')}'")->fetch_array()[0];
+                                    $cart_count = $cart_count > 0 ? $cart_count : 0;
+                                    ?>
+                                    <a href="./?page=orders/cart" class="<?= isset($page) && $page =='orders/cart' ? "active" : "" ?>"><span class="badge badge-secondary rounded-cirlce"><?= format_num($cart_count) ?></span> Giỏ hàng</a>
+                                  </li>
+                                  <li>
+                                    <a href="./?page=orders/my_orders" class="<?= isset($page) && $page =='orders/my_orders' ? "active" : "" ?>">Đơn hàng của tôi</a>
+                                  </li>
+                                  <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Mạng xã hội</h3>
+                                <div class="f_social_icon">
+                                    <a href="https://www.facebook.com/cse.hcmut" target="_blank" class="fab fa-facebook"></a>
+                                    <a href="https://github.com/TravisMai" target="_blank" class="fab fa-github"></a>
+                                    <a href="https://www.linkedin.com/school/hcmut-bachkhoa/" target="_blank"  class="fab fa-linkedin"></a>
+                                    <a href="https://www.instagram.com/bachkhoa.hcmut/" target="_blank"  class="fab fa-instagram"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     <!-- ./wrapper -->
 <div id="libraries">
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
