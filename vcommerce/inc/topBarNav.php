@@ -47,9 +47,9 @@
                 </div>
               </div>
             <?php else: ?>
-              <a href="./login.php" class="mx-2 text-dark text-decoration-none font-weight-bolder">Khách mua</a> | 
-              <a href="./vendor" class="mx-2 text-dark text-decoration-none font-weight-bolder">Khách bán</a> | 
-              <a href="./admin" class="mx-2 text-dark text-decoration-none font-weight-bolder">Quản trị</a>
+              <a href="./login.php" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách mua</a> | 
+              <a href="./vendor" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách bán</a> | 
+              <a href="./admin" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Quản trị</a>
             <?php endif; ?>
           </div>
         </div>
@@ -57,8 +57,8 @@
       <nav class="main-header navbar navbar-expand-md navbar-light border-0 text-sm bg-white shadow" id='top-Nav'>
         
         <div class="container">
-          <a href="./" class="navbar-brand">
-            <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Site Logo" class="">
+          <a href="<?php echo base_url ?>" class="navbar-brand">
+            <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Site Logo" style="max-width:200px; max-height:auto;">
           </a>
 
          
@@ -67,13 +67,13 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="./" class="nav-link <?= isset($page) && $page =='home' ? "active" : "" ?>">Trang chủ</a>
+                <a href="./" class="nav-link <?= isset($page) && $page =='home' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='home' ? "#54c577" : "#000" ?>">Trang chủ</a>
               </li>
               <li class="nav-item">
-                <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>">Sản phẩm</a>
+                <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='products' ? "#54c577" : "#000" ?>">Sản phẩm</a>
               </li>
               <li class="nav-item">
-                <a href="./?page=sellers" class="nav-link <?= isset($page) && $page =='sellers' ? "active" : "" ?>">Doanh nghiệp</a>
+                <a href="./?page=sellers" class="nav-link <?= isset($page) && $page =='sellers' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='sellers' ? "#54c577" : "#000" ?>">Doanh nghiệp</a>
               </li>
               <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
               <li class="nav-item">
@@ -81,10 +81,10 @@
                 $cart_count = $conn->query("SELECT sum(quantity) FROM `cart_list` where client_id = '{$_settings->userdata('id')}'")->fetch_array()[0];
                 $cart_count = $cart_count > 0 ? $cart_count : 0;
                 ?>
-                <a href="./?page=orders/cart" class="nav-link <?= isset($page) && $page =='orders/cart' ? "active" : "" ?>"><span class="badge badge-secondary rounded-cirlce"><?= format_num($cart_count) ?></span> Giỏ hàng</a>
+                <a href="./?page=orders/cart" class="nav-link <?= isset($page) && $page =='orders/cart' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='orders/cart' ? "#54c577" : "#000" ?>"><span class="badge badge-secondary rounded-cirlce" style="background-color:#54c577"><?= format_num($cart_count) ?></span> Giỏ hàng</a>
               </li>
               <li class="nav-item">
-                <a href="./?page=orders/my_orders" class="nav-link <?= isset($page) && $page =='orders/my_orders' ? "active" : "" ?>">Đơn hàng của tôi</a>
+                <a href="./?page=orders/my_orders" class="nav-link <?= isset($page) && $page =='orders/my_orders' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='orders/my_orders' ? "#54c577" : "#000" ?>">Đơn hàng của tôi</a>
               </li>
               <?php endif; ?>
             </ul>

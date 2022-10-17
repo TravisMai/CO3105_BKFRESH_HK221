@@ -37,9 +37,9 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                             <div class="col-lg-8 col-md-10 col-sm-12">
                                 <form action="" id="search-frm">
                                     <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text">Tìm kiếm</span></div>
+                                        <div class="input-group-prepend"><span class="input-group-text" style="background-color:#C7F2A4">Tìm kiếm</span></div>
                                         <input type="search" id="search" class="form-control" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
-                                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+                                        <div class="input-group-append"><span class="input-group-text" style="background-color:#C7F2A4"><i class="fa fa-search"></i></span></div>
                                     </div>
                                 </form>
                             </div>
@@ -61,7 +61,7 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                             <div class="col-lg-4 col-md-6 col-sm-12 product-item">
                                 <a href="./?page=products/view_product&id=<?= $row['id'] ?>" class="card shadow rounded-0 text-reset text-decoration-none">
                                 <div class="product-img-holder position-relative">
-                                    <img src="<?= validate_image($row['image_path']) ?>" alt="Product-image" class="img-top product-img bg-gradient-gray">
+                                    <img src="<?= validate_image($row['image_path']) ?>" alt="Product-image" class="img-top product-img" style="background-color:#f2faf4">
                                 </div>
                                     <div class="card-body border-top border-gray">
                                         <h5 class="card-title text-truncate w-100"><?= $row['name'] ?></h5>

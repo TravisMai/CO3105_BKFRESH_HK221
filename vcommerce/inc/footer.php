@@ -63,11 +63,11 @@
 </script>
 <style>
 body {
-    background: #fbfbfd;
+    background: #fff;
 }
 
 .new_footer_area {
-    background: #fbfbfd;
+    background: #fff;
 }
 
 
@@ -235,17 +235,21 @@ h1, h2, h3, h4, h5, h6 {
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Kết nối với VFresh</h3>
-                                <ul class="list-unstyled f_list">
-                                    <li>Địa chỉ:<br><a href="https://goo.gl/maps/2eB85GuGJEsxATkh7" target="_blank">268 Lý Thường Kiệt, Phường 14, Quận 10, Thành phố Hồ Chí Minh</a></br></li>
-                                    <li>Số điện thoại:<a href="#">&nbsp;+84 28 3864 7256</a></li>
-                                    <li>Email:<a href="mailto:vfresh@fake.demo.com" target="_blank">&nbsp;vfresh@fake.demo.com</a></li>
-                                </ul>
-                            </div>
+                              <a href="<?php echo base_url ?>../">
+                                <img src="<?php echo base_url ?>../images/VFRESH.png" style="width:65%; height:auto;"/>
+                              </a>
+                              <!--h3 class="f-title f_600 t_color f_size_18">Kết nối với VFresh</h3-->
+                              <br></br>
+                              <ul class="list-unstyled f_list">
+                                  <li>Địa chỉ:<br><a href="https://goo.gl/maps/2eB85GuGJEsxATkh7" target="_blank">268 Lý Thường Kiệt, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a></br></li>
+                                  <li>Số điện thoại:<a href="#">&nbsp;+84 28 3864 7256</a></li>
+                                  <li>Email:<a href="mailto:vfresh@fake.demo.com" target="_blank">&nbsp;vfresh@fake.demo.com</a></li>
+                              </ul>
+                          </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">VFresh</h3>
+                                <h3 class="f-title f_600 t_color f_size_18" style="color:#54c577">VFresh - VConnect</h3>
                                 <ul class="list-unstyled f_list">
                                     <li><a href="./">Trang chủ</a></li>
                                     <li><a href="./?page=products">Sản phẩm</a></li>
@@ -255,7 +259,7 @@ h1, h2, h3, h4, h5, h6 {
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Tài khoản</h3>
+                                <h3 class="f-title f_600 t_color f_size_18" style="color:#54c577">Tài khoản</h3>
                                 <ul class="list-unstyled f_list">
                                   <?php if($_settings->userdata('id') <= 0): ?>
                                   <li>
@@ -285,7 +289,7 @@ h1, h2, h3, h4, h5, h6 {
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Mạng xã hội</h3>
+                                <h3 class="f-title f_600 t_color f_size_18" style="color:#54c577">Liên kết mạng xã hội</h3>
                                 <div class="f_social_icon">
                                     <a href="https://www.facebook.com/cse.hcmut" target="_blank" class="fab fa-facebook"></a>
                                     <a href="https://github.com/TravisMai" target="_blank" class="fab fa-github"></a>

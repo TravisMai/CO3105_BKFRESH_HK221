@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 10:11 AM
+-- Generation Time: Oct 17, 2022 at 06:04 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -193,7 +193,7 @@ CREATE TABLE `shop_type_list` (
 --
 
 INSERT INTO `shop_type_list` (`id`, `name`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(6, 'Nông sản cơ bản, thiết yếu', 1, 0, '2022-10-14 18:37:43', '2022-10-16 11:31:53'),
+(6, 'Nông sản cơ bản', 1, 0, '2022-10-14 18:37:43', '2022-10-17 22:02:58'),
 (7, 'Nông sản phái sinh ', 1, 0, '2022-10-14 18:38:07', '2022-10-14 19:43:49'),
 (8, 'Nông sản chế biến ', 1, 0, '2022-10-14 18:38:43', '2022-10-14 19:43:59');
 
@@ -362,7 +362,7 @@ ALTER TABLE `vendor_list`
 -- AUTO_INCREMENT for table `cart_list`
 --
 ALTER TABLE `cart_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `category_list`

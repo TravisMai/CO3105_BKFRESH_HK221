@@ -42,7 +42,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <div class="row">
                     <div class="col-lg-4 col-md-5 col-sm-12 text-center">
                         <div class="position-relative overflow-hidden" id="prod-img-holder">
-                            <img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" alt="<?= $row['name'] ?>" id="prod-img" class="img-thumbnail bg-gradient-gray">
+                            <img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" alt="<?= $row['name'] ?>" id="prod-img" class="img-thumbnail" style="background-color:#f2faf4">
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-7 col-sm-12">
@@ -64,7 +64,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 <input type="number" min = "1" id= 'qty' value="1" class="form-control rounded-0 text-center">
                             </div>
                             <div class="col-md-3 form-group">
-                                <button class="btn btn-primary btn-flat" type="button" id="add_to_cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
+                                <button class="btn btn-primary btn-flat" type="button" id="add_to_cart" style="background-color:#54c577"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
                             </div>
                         </div>
                         <div class="w-100"><?= html_entity_decode($description) ?></div>
