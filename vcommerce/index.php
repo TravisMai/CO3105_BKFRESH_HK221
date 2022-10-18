@@ -22,8 +22,7 @@
     <meta name="msapplication-TileImage" content="../images/favicons/sheaf-of-rice.png">
     <meta name="msapplication-config" content="../images/favicons/browserconfig.xml">
     <meta name="theme-color" content="#66BB6A">
-    <link rel="shortcut icon" href="../images/favicons/sheaf-of-rice.png">
-    <title>Vfresh | Dự án</title>
+    <title>BkFresh | Dự án</title>
     <link rel="canonical" href="./">
 </head>
 <style>
@@ -129,8 +128,8 @@
       <div class="modal-body rounded-0">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Lưu</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
       </div>
       </div>
     </div>

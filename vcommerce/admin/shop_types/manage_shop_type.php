@@ -27,14 +27,18 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 	<form action="" id="shop_type-form">
 		<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
 		<div class="form-group">
-			<label for="name" class="control-label">Name</label>
+			<label for="name" class="control-label">Tên danh mục</label>
 			<input name="name" id="name" type="text"class="form-control form-control-sm form-control-border" value="<?php echo isset($name) ? $name : ''; ?>" required>
 		</div>
 		<div class="form-group">
-			<label for="status" class="control-label">Status</label>
+			<label for="description" class="control-label">Mô tả</label>
+			<input name="description" id="description" type="text"class="form-control form-control-sm form-control-border" value="<?php echo isset($description) ? $description : ''; ?>">
+		</div>
+		<div class="form-group">
+			<label for="status" class="control-label">Trạng thái</label>
 			<select name="status" id="status" class="custom-select selevt" required>
-			<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-			<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
+			<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Hoạt động</option>
+			<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Tạm dừng</option>
 			</select>
 		</div>
 		

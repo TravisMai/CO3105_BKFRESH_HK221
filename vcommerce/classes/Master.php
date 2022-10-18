@@ -35,7 +35,7 @@ Class Master extends DBConnection {
 			return $this->capture_err();
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = "Shop Type already exists.";
+			$resp['msg'] = "Loại hình doanh nghiệp đã tồn tại";
 		}else{
 			if(empty($id)){
 				$sql = "INSERT INTO `shop_type_list` set {$data} ";
@@ -46,9 +46,9 @@ Class Master extends DBConnection {
 			if($save){
 				$resp['status'] = 'success';
 				if(empty($id))
-				$resp['msg'] = " New Shop Type successfully saved.";
+				$resp['msg'] = " Thêm loại hình doanh nghiệp mới thành công";
 				else
-				$resp['msg'] = " Shop Type successfully updated.";
+				$resp['msg'] = " Loại hình doanh nghiệp cập nhật thành công";
 			}else{
 				$resp['status'] = 'failed';
 				$resp['err'] = $this->conn->error."[{$sql}]";
@@ -63,7 +63,7 @@ Class Master extends DBConnection {
 		$del = $this->conn->query("UPDATE `shop_type_list` set delete_flag = 1 where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success'," Shop Type successfully deleted.");
+			$this->settings->set_flashdata('success'," Loại hình doanh nghiệp xóa thành công");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -86,7 +86,7 @@ Class Master extends DBConnection {
 			return $this->capture_err();
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = " Category already exists.";
+			$resp['msg'] = " Danh mục đã tồn tại";
 		}else{
 			if(empty($id)){
 				$sql = "INSERT INTO `category_list` set {$data} ";
@@ -97,9 +97,9 @@ Class Master extends DBConnection {
 			if($save){
 				$resp['status'] = 'success';
 				if(empty($id))
-				$resp['msg'] = " New Category successfully saved.";
+				$resp['msg'] = " Thêm danh mục mới thành công";
 				else
-				$resp['msg'] = " Category successfully updated.";
+				$resp['msg'] = " Danh mục cập nhật thành công";
 			}else{
 				$resp['status'] = 'failed';
 				$resp['err'] = $this->conn->error."[{$sql}]";
@@ -114,7 +114,7 @@ Class Master extends DBConnection {
 		$del = $this->conn->query("UPDATE `category_list` set delete_flag = 1 where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success'," Category successfully deleted.");
+			$this->settings->set_flashdata('success'," Xóa danh mục thành công");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -135,7 +135,7 @@ Class Master extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `product_list` where vendor_id = '{$vendor_id}' and `name` = '{$name}' and delete_flag = 0 ".(!empty($id) ? " and id != '{$id}'" : ""))->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = ' Product Name Already exists.';
+			$resp['msg'] = ' Sản phẩm đã tồn tại';
 		}else{
 			if(empty($id)){
 				$sql = "INSERT INTO `product_list` set {$data} ";
@@ -148,9 +148,9 @@ Class Master extends DBConnection {
 				$resp['pid'] = $pid;
 				$resp['status'] = 'success';
 				if(empty($id))
-					$resp['msg'] = " New Product successfully saved.";
+					$resp['msg'] = " Thêm sản phẩm mới thành công";
 				else
-					$resp['msg'] = " Product successfully updated.";
+					$resp['msg'] = " Sản phẩm cập nhật thành công";
 				
 				if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
 					if(!is_dir(base_app."uploads/products"))
@@ -161,7 +161,7 @@ Class Master extends DBConnection {
 					$type = mime_content_type($upload);
 					$allowed = array('image/png','image/jpeg');
 					if(!in_array($type,$allowed)){
-						$resp['msg']=" But Image failed to upload due to invalid file type.";
+						$resp['msg']=" Hình ảnh sai định dạng";
 					}else{
 						
 				
@@ -183,7 +183,7 @@ Class Master extends DBConnection {
 									$qry = $this->conn->query("UPDATE `product_list` set image_path = concat('{$fname}','?v=',unix_timestamp(CURRENT_TIMESTAMP)) where id = '$pid' ");
 								}
 						}else{
-						$resp['msg']=" But Image failed to upload due to unkown reason.";
+						$resp['msg']=" Không cập nhật dược ảnh";
 						}
 					}
 					
@@ -191,9 +191,9 @@ Class Master extends DBConnection {
 			}else{
 				$resp['status'] = 'failed';
 				if(empty($id))
-					$resp['msg'] = " Product has failed to save.";
+					$resp['msg'] = " Lưu sản phẩm không thành công";
 				else
-					$resp['msg'] = " Product has failed to update.";
+					$resp['msg'] = " Cập nhật sản phẩm không thành công";
 				$resp['err'] = $this->conn->error."[{$sql}]";
 			}
 		}
@@ -207,7 +207,7 @@ Class Master extends DBConnection {
 		$del = $this->conn->query("UPDATE `product_list` set `delete_flag` = 1 where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success'," Product successfully deleted.");
+			$this->settings->set_flashdata('success'," Sản phẩm đã được xóa");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -234,10 +234,10 @@ Class Master extends DBConnection {
 		$save = $this->conn->query($sql);
 		if($save){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Product has added to cart.";
+			$resp['msg'] = " Thêm vào giỏ hàng thành công";
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = " The product has failed to add to the cart.";
+			$resp['msg'] = " Thêm vào giỏ hàng không thành công";
 			$resp['error'] = $this->conn->error. "[{$sql}]";
 		}
 		if($resp['status'] == 'success')
@@ -249,10 +249,10 @@ Class Master extends DBConnection {
 		$update_cart = $this->conn->query("UPDATE `cart_list` set `quantity` = '{$quantity}' where id = '{$cart_id}'");
 		if($update_cart){
 			$resp['status'] = 'success';
-			$resp['msg'] = ' Product Quantity has updated successfully';
+			$resp['msg'] = ' Đã cập nhật số lượng sản phẩm thành công';
 		}else{
 			$resp['status'] = 'success';
-			$resp['msg'] = ' Product Quantity has failed to update';
+			$resp['msg'] = ' Cập nhật số lượng sản phẩm không thành công';
 			$resp['error'] = $this->conn->error;
 		}
 		
@@ -265,10 +265,10 @@ Class Master extends DBConnection {
 		$del = $this->conn->query("DELETE FROM `cart_list` where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Cart Item has been deleted successfully.";
+			$resp['msg'] = " Sản phẩm đã được xóa thành công";
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = " Cart Item has failed to delete.";
+			$resp['msg'] = " Sản phẩm xóa không thành công";
 			$resp['error'] = $this->conn->error;
 		}
 		if($resp['status'] =='success'){
@@ -327,11 +327,11 @@ Class Master extends DBConnection {
 		endwhile;
 		if(!$has_failed){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Order has been placed";
+			$resp['msg'] = " Đơn hàng tạo thành công";
 			$this->conn->query("DELETE FROM `cart_list` where client_id ='{$this->settings->userdata('id')}'");
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = " Order has failed to place";
+			$resp['msg'] = " Đơn hàng tạo không thành công";
 			$resp['error'] = $this->conn->error;
 			if(count($inserted) > 0){
 				$this->conn->query("DELETE FROM `order_list` where id in (".(implode(',',array_values($inserted))).") ");
@@ -347,7 +347,7 @@ Class Master extends DBConnection {
 		$update = $this->conn->query("UPDATE `order_list` set `status` = 5 where id = '{$id}'");
 		if($update){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Order has been cancelled successfully.";
+			$resp['msg'] = " Đơn hàng hủy thành công";
 		}else{
 			$resp['status'] = 'success';
 			$resp['error'] = $this->conn->error;
@@ -361,10 +361,10 @@ Class Master extends DBConnection {
 		$update = $this->conn->query("UPDATE `order_list` set `status` = '{$status}' where id = '{$id}'");
 		if($update){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Order Status has been updated successfully.";
+			$resp['msg'] = " Trạng thái đơn hàng cập nhật thành công";
 		}else{
 			$resp['status'] = 'success';
-			$resp['msg'] = " Order Status has failed to update.";
+			$resp['msg'] = " Trạng thái đơn hàng cập nhật không thành công";
 			$resp['error'] = $this->conn->error;
 		}
 		if($resp['status'] == 'success')

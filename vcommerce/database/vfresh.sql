@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 06:04 PM
+-- Generation Time: Oct 18, 2022 at 05:42 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -33,13 +33,6 @@ CREATE TABLE `cart_list` (
   `product_id` int(30) NOT NULL,
   `quantity` float NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart_list`
---
-
-INSERT INTO `cart_list` (`id`, `client_id`, `product_id`, `quantity`) VALUES
-(18, 3, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -117,6 +110,17 @@ CREATE TABLE `order_items` (
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`, `date_created`) VALUES
+(5, 10, 1, 10000000, '2022-10-18 21:31:13'),
+(6, 14, 1, 3000000, '2022-10-18 21:31:13'),
+(6, 12, 1, 5000000, '2022-10-18 21:31:13'),
+(7, 17, 1, 7000000, '2022-10-18 21:31:13'),
+(8, 11, 1, 8000000, '2022-10-18 21:33:54');
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +138,16 @@ CREATE TABLE `order_list` (
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_list`
+--
+
+INSERT INTO `order_list` (`id`, `code`, `client_id`, `vendor_id`, `total_amount`, `delivery_address`, `status`, `date_created`, `date_updated`) VALUES
+(5, '202210-00001', 3, 8, 10000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:31:13', '2022-10-18 21:31:13'),
+(6, '202210-00002', 3, 5, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:31:13', '2022-10-18 21:31:13'),
+(7, '202210-00003', 3, 6, 7000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 5, '2022-10-18 21:31:13', '2022-10-18 21:34:19'),
+(8, '202210-00004', 3, 8, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:33:54', '2022-10-18 21:33:54');
 
 -- --------------------------------------------------------
 
@@ -182,6 +196,7 @@ INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `descripti
 CREATE TABLE `shop_type_list` (
   `id` int(30) NOT NULL,
   `name` text NOT NULL,
+  `description` text DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `delete_flag` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
@@ -192,10 +207,11 @@ CREATE TABLE `shop_type_list` (
 -- Dumping data for table `shop_type_list`
 --
 
-INSERT INTO `shop_type_list` (`id`, `name`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(6, 'Nông sản cơ bản', 1, 0, '2022-10-14 18:37:43', '2022-10-17 22:02:58'),
-(7, 'Nông sản phái sinh ', 1, 0, '2022-10-14 18:38:07', '2022-10-14 19:43:49'),
-(8, 'Nông sản chế biến ', 1, 0, '2022-10-14 18:38:43', '2022-10-14 19:43:59');
+INSERT INTO `shop_type_list` (`id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
+(6, 'Nông sản cơ bản', 'lúa gạo, lúa mì, bột mì, sữa, động vật tươi sống (trừ cá và các sản phẩm từ cá), cà phê, hồ tiêu, hạt điều, chè, rau quả tươi,…', 1, 0, '2022-10-14 18:37:43', '2022-10-18 13:19:27'),
+(7, 'Nông sản phái sinh ', 'bánh mì, bơ, dầu ăn, thịt,…..', 1, 0, '2022-10-14 18:38:07', '2022-10-18 13:20:17'),
+(8, 'Nông sản chế biến ', 'bánh kẹo, sản phẩm từ sữa, xúc xích, nước ngọt, rượu, bia, thuốc lá, bông xơ, da động vật thô...', 1, 0, '2022-10-14 18:38:43', '2022-10-18 13:43:02'),
+(9, 'Lê hưng', 'dsfrdsfdsf', 0, 1, '2022-10-18 13:35:23', '2022-10-18 13:36:11');
 
 -- --------------------------------------------------------
 
@@ -215,10 +231,11 @@ CREATE TABLE `system_info` (
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 (1, 'name', ''),
-(6, 'short_name', 'VFresh'),
+(6, 'short_name', 'BkFresh'),
 (11, 'logo', 'uploads/VFRESH.png'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
-(14, 'cover', 'uploads/banner_img2.jpg');
+(14, 'cover', 'uploads/banner_img2.jpg'),
+(15, 'small_logo', 'uploads/sheaf-of-rice.png');
 
 -- --------------------------------------------------------
 
@@ -276,7 +293,7 @@ CREATE TABLE `vendor_list` (
 --
 
 INSERT INTO `vendor_list` (`id`, `code`, `shop_type_id`, `shop_name`, `shop_owner`, `contact`, `email`, `tax_id`, `username`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(5, '202210-00001', 6, 'Nông sản Lê Hưng', 'Lê Tuấn Hưng', '0912345678', 'hung.lechpro@hcmut.edu.vn', '0710200022', 'shop01', '6f253286e4e82bcc67d95a527bd5ffc4', 'uploads/vendors/5.png?v=1665816024', 1, 0, '2022-10-14 18:40:27', '2022-10-15 14:10:33'),
+(5, '202210-00001', 6, 'Nông sản Lê Hưng', 'Lê Tuấn Hưng', '0912345678', 'hung.lechpro@hcmut.edu.vn', '0710200022', 'shop01', '6f253286e4e82bcc67d95a527bd5ffc4', 'uploads/vendors/5.png?v=1666107634', 1, 0, '2022-10-14 18:40:27', '2022-10-18 22:40:34'),
 (6, '202210-00002', 8, 'Đóng hộp Lê Tèo', 'Lê Tèo', '09123234234', 'donghop@leteo.industry.vn', '7777775000', 'shop02', '21c4eab76f0bd3adc06fe15797ced087', 'uploads/vendors/6.png', 1, 0, '2022-10-14 18:50:30', '2022-10-15 14:05:34'),
 (7, '202210-00003', 7, 'Gia súc Thăng Thiên', 'Nguyễn An Lành', '0897563412', 'anlanh@luagao.shop03.org', '8943955000', 'shop03', 'c086acef9556f08fa796b3787c46eaa0', 'uploads/vendors/7.png', 1, 0, '2022-10-14 18:56:37', '2022-10-15 14:05:56'),
 (8, '202210-00004', 6, 'Lúa gạo Nevermind', 'Lê Thành Thái', '1800922345', 'thanhthai@chongphap.vn', '8943954321', 'shop04', 'aa12af4466408a9f5950cb5efe935a85', 'uploads/vendors/8.png', 1, 0, '2022-10-14 19:10:22', '2022-10-15 14:06:16');
@@ -362,7 +379,7 @@ ALTER TABLE `vendor_list`
 -- AUTO_INCREMENT for table `cart_list`
 --
 ALTER TABLE `cart_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `category_list`
@@ -380,7 +397,7 @@ ALTER TABLE `client_list`
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_list`
@@ -392,13 +409,13 @@ ALTER TABLE `product_list`
 -- AUTO_INCREMENT for table `shop_type_list`
 --
 ALTER TABLE `shop_type_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `system_info`
 --
 ALTER TABLE `system_info`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -6,11 +6,19 @@
         object-fit:scale-down;
         object-position:center center
     }
+
+    .cong_tru{
+        background-color:#54c577;
+        border-color:#54c577;
+    }
+    .cong_tru:hover{
+        background-color:#558b4b;
+    }
 </style>
 <div class="content py-3">
     <div class="card card-outline card-primary rounded-0 shadow-0">
         <div class="card-header">
-            <h5 class="card-title">Cart List</h5>
+            <h5 class="card-title">Giỏ hàng của tôi</h5>
         </div>
         <div class="card-body">
             <div id="cart-list">
@@ -21,7 +29,7 @@
                 while($vrow=$vendors->fetch_assoc()):                
                 ?>
                     <div class="col-12 border">
-                        <span>Vendor: <b><?= $vrow['code']. " - " . $vrow['shop_name'] ?></b></span>
+                        <span>Người bán: <b><?= $vrow['code']. " - " . $vrow['shop_name'] ?></b></span>
                     </div>
                     <div class="col-12 border p-0">
                         <?php 
@@ -39,22 +47,22 @@
                             <div class="col-auto flex-shrink-1 flex-grow-1">
                                 <h4><b><?= $prow['name'] ?></b></h4>
                                 <div class="d-flex">
-                                    <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
+                                    <div class="col-auto px-0"><small class="text-muted">Giá: </small></div>
                                     <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($prow['price']) ?></small></p></div>
                                 </div>
                                 <div class="d-flex">
-                                    <div class="col-auto px-0"><small class="text-muted">Qty: </small></div>
+                                    <div class="col-auto px-0"><small class="text-muted">Số lượng: </small></div>
                                     <div class="col-auto">
                                         <div class="" style="width:10em">
                                             <div class="input-group input-group-sm">
-                                                <div class="input-group-prepend"><button class="btn btn-primary min-qty" data-id="<?= $prow['id'] ?>" type="button"><i class="fa fa-minus"></i></button></div>
+                                                <div class="input-group-prepend"><button class="btn btn-primary min-qty cong_tru" data-id="<?= $prow['id'] ?>" type="button"><i class="fa fa-minus"></i></button></div>
                                                 <input type="text" value="<?= $prow['quantity'] ?>" class="form-control text-center" readonly="readonly">
-                                                <div class="input-group-append"><button class="btn btn-primary plus-qty" data-id="<?= $prow['id'] ?>" type="button"><i class="fa fa-plus"></i></button></div>
+                                                <div class="input-group-append"><button class="btn btn-primary plus-qty cong_tru" data-id="<?= $prow['id'] ?>" type="button"><i class="fa fa-plus"></i></button></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-auto flex-shrink-1 flex-grow-1">
-                                        <button class="btn btn-flat btn-outline-danger btn-sm rem_item"  data-id="<?= $prow['id'] ?>"><i class="fa fa-times"></i> Remove</button>
+                                        <button class="btn btn-flat btn-outline-danger btn-sm rem_item"  data-id="<?= $prow['id'] ?>"><i class="fa fa-times"></i> Xóa</button>
                                     </div>
                                 </div>
                             </div>
@@ -64,14 +72,14 @@
                     </div>
                     <div class="col-12 border">
                         <div class="d-flex">
-                            <div class="col-9 text-right font-weight-bold text-muted">Total</div>
+                            <div class="col-9 text-right font-weight-bold text-muted">Tổng</div>
                             <div class="col-3 text-right font-weight-bold"><?= format_num($vtotal) ?></div>
                         </div>
                     </div>
                 <?php endwhile; ?>
                     <div class="col-12 border">
                         <div class="d-flex">
-                            <div class="col-9 h4 font-weight-bold text-right text-muted">Grand Total</div>
+                            <div class="col-9 h4 font-weight-bold text-right text-muted">Tổng đơn</div>
                             <div class="col-3 h4 font-weight-bold text-right"><?= format_num($gtotal) ?></div>
                         </div>
                     </div>
@@ -81,7 +89,7 @@
     </div>
     <div class="clear-fix mb-2"></div>
     <div class="text-right">
-        <a href="./?page=orders/checkout" class="btn btn-flat btn-primary btn-sm"><i class="fa fa-money-bill-wave"></i> Checkout</a>
+        <a href="./?page=orders/checkout" class="btn btn-flat btn-primary btn-sm cong_tru"><i class="fa fa-money-bill-wave"></i> Thanh toán</a>
     </div>
 </div>
 <script>
@@ -166,7 +174,7 @@
             
         })
         $('.rem_item').click(function(){
-        _conf("Are you sure delete this item from cart list?",'delete_cart',[$(this).attr('data-id')])
+        _conf("Bạn chắc chắn xóa sản phẩm này khỏi giỏ hàng?",'delete_cart',[$(this).attr('data-id')])
         })
     })
     function delete_cart($id){

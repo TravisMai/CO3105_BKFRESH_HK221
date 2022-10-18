@@ -1,25 +1,25 @@
 <div class="content py-3">
     <div class="card card-outline card-primary shadow rounded-0">
         <div class="card-header">
-            <div class="h5 card-title">Checkout</div>
+            <div class="h5 card-title">Thanh toán</div>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-8">
                     <form action="" id="checkout-form">
                         <div class="form-group">
-                            <label for="delivery_address" class="control-label">Delivery Address</label>
+                            <label for="delivery_address" class="control-label">Địa chỉ giao hàng</label>
                             <textarea name="delivery_address" id="delivery_address" rows="4" class="form-control rounded-0" required><?= $_settings->userdata('address') ?></textarea>
                         </div>
                         <div class="form-group text-right">
-                            <button class="btn btn-flat btn-default btn-sm bg-navy">Place Order</button>
+                            <button class="btn btn-flat btn-default btn-sm bg-navy">Xác nhận</button>
                         </div>
                     </form>
                 </div>
                 <div class="col-md-4">
                     <div class="row" id="summary">
                     <div class="col-12 border">
-                        <h2 class="text-center"><b>Summary</b></h2>
+                        <h2 class="text-center"><b>Tóm tắt đơn</b></h2>
                     </div>
                     <?php 
                     $gtotal = 0;
@@ -36,7 +36,7 @@
                     </div>
                     <?php endwhile; ?>
                     <div class="col-12 border">
-                        <b class="text-muted">Grand Total</b>
+                        <b class="text-muted">Tổng thanh toán</b>
                         <div class="text-right h3" id="total"><b><?= format_num($gtotal) ?></b></div>
                     </div>
                     </div>

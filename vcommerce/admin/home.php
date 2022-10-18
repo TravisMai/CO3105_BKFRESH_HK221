@@ -1,4 +1,4 @@
-<h1 class="">Welcome to <?php echo $_settings->info('name') ?> - Admin Side</h1>
+<h1 class="">Chào mừng đến <?php echo $_settings->info('name') ?> - Trang quản trị</h1>
 <style>
   #cover-image{
     width:calc(100%);

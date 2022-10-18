@@ -33,37 +33,41 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         object-fit:scale-down;
         object-position:center center
     }
+    .tablecolor{
+        background-color:#54c577;
+        color:#fff;
+    }
 </style>
 <div class="container-fluid">
 	<div class="row">
-        <div class="col-3 border bg-gradient-primary"><span class="">Reference Code</span></div>
+        <div class="col-3 border tablecolor"><span class="">Mã đơn</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($code) ? $code : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Vendor</span></div>
+        <div class="col-3 border tablecolor"><span class="">Người bán</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($shop_name) ? $vcode.' - '.$shop_name : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Delivery Address</span></div>
+        <div class="col-3 border tablecolor"><span class="">Địa chỉ giao hàng</span></div>
         <div class="col-9 border"><span class="font-weight-bolder"><?= isset($delivery_address) ? $delivery_address : '' ?></span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Status</span></div>
+        <div class="col-3 border tablecolor"><span class="">Trạng thái</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
             <?php 
             $status = isset($status) ? $status : '';
                 switch($status){
                     case 0:
-                        echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
+                        echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Đang chờ</span>';
                         break;
                     case 1:
-                        echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
+                        echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Xác nhận</span>';
                         break;
                     case 2:
-                        echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
+                        echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Đóng gói</span>';
                         break;
                     case 3:
-                        echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
+                        echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Đang giao</span>';
                         break;
                     case 4:
-                        echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
+                        echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Đã giao</span>';
                         break;
                     case 5:
-                        echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
+                        echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Đã hủy</span>';
                         break;
                     default:
                         echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';

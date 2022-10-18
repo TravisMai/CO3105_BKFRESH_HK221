@@ -2,9 +2,9 @@
 <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>admin" class="brand-link bg-primary text-sm">
-        <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3" style="opacity: .8;width: 1.6rem;height: 1.6rem;max-height: unset">
-        <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
+        <a href="<?php echo base_url ?>admin" class="brand-link text-sm" style="background-color:#54c577">
+        <img src="<?php echo validate_image($_settings->info('small_logo'))?>" alt="Store Logo" class="brand-image" style="opacity: .8;width: 1.6rem;height: 1.6rem;max-height: unset">
+        <span class="brand-text"><?php echo $_settings->info('short_name') ?></span>
         </a>
         <!-- Sidebar -->
         <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">

@@ -1,6 +1,31 @@
 <?php require_once('../config.php'); ?>
  <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/favicons/sheaf-of-rice.png" height="57" width="57">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/favicons/sheaf-of-rice.png" height="60" width="60">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/favicons/sheaf-of-rice.png" height="72" width="72">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/favicons/sheaf-of-rice.png" height="76" width="76">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/favicons/sheaf-of-rice.png" height="114" width="114">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/favicons/sheaf-of-rice.png" height="120" width="120">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/favicons/sheaf-of-rice.png" height="144" width="144">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/favicons/sheaf-of-rice.png" height="152" width="152">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicons/sheaf-of-rice.png" height="180" width="180">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../images/favicons/sheaf-of-rice.png" sizes="16x16">
+    <link rel="manifest" href="../../images/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../../images/favicons/sheaf-of-rice.png">
+    <meta name="msapplication-config" content="../../images/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#66BB6A">
+    <link rel="shortcut icon" href="../../images/favicons/sheaf-of-rice.png">
+    <title>BkFresh | Quản trị</title>
+    <link rel="canonical" href="./">
+</head>
 <?php require_once('inc/header.php') ?>
   <body class="sidebar-mini layout-fixed control-sidebar-slide-open layout-navbar-fixed sidebar-mini-md sidebar-mini-xs" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed="" style="height: auto;">
     <div class="wrapper">
@@ -43,8 +68,8 @@
       <div class="modal-body rounded-0">
       </div>
       <div class="modal-footer rounded-0">
-        <button type="button" class="btn btn-sm btn-flat btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-sm btn-flat btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Lưu</button>
+        <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Hủy</button>
       </div>
       </div>
     </div>
