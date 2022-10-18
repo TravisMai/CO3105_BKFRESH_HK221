@@ -241,9 +241,9 @@ h1, h2, h3, h4, h5, h6 {
                               <!--h3 class="f-title f_600 t_color f_size_18">Kết nối với VFresh</h3-->
                               <br></br>
                               <ul class="list-unstyled f_list">
-                                  <li>Địa chỉ:<br><a href="https://goo.gl/maps/2eB85GuGJEsxATkh7" target="_blank">268 Lý Thường Kiệt, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a></br></li>
-                                  <li>Số điện thoại:<a href="#">&nbsp;+84 28 3864 7256</a></li>
-                                  <li>Email:<a href="mailto:vfresh@fake.demo.com" target="_blank">&nbsp;vfresh@fake.demo.com</a></li>
+                                  <li><a href="https://goo.gl/maps/2eB85GuGJEsxATkh7" target="_blank"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;268 Lý Thường Kiệt, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a></li>
+                                  <li><a href="#"><i class="fas fa-phone-volume"></i>&nbsp;&nbsp;+84 28 3864 7256</a></li>
+                                  <li><a href="mailto:vfresh@fake.demo.com" target="_blank"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;vfresh@fake.demo.com</a></li>
                               </ul>
                           </div>
                         </div>

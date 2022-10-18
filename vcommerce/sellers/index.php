@@ -151,7 +151,7 @@ $vendor_ids = isset($_GET['vids']) ? $_GET['vids'] : 'all';
                             </div>
                         </div>
                         <?php 
-                        $vendors = $conn->query("SELECT * FROM `shop_type_list` where delete_flag = 0 and status = 1 order by `name` asc ");
+                        $vendors = $conn->query("SELECT * FROM `shop_type_list` where delete_flag = 0 and status = 1 order by `id` asc ");
                         while($row = $vendors->fetch_assoc()):
                         ?>
                         <div class="list-group-item list-group-item-action">
@@ -185,7 +185,7 @@ $vendor_ids = isset($_GET['vids']) ? $_GET['vids'] : 'all';
                             $swhere = "";
                             if(!empty($vendor_ids)):
                             if($vendor_ids !='all'){
-                                $swhere = "in ({$vendor_ids}) ";
+                                $swhere = "and v.shop_type_id in ({$vendor_ids}) ";
                             }
                             if(isset($_GET['search']) && !empty($_GET['search'])){
                                 $swhere .= " and (v.shop_name LIKE '%{$_GET['search']}%' or v.shop_owner LIKE '%{$_GET['search']}%' or v.contact LIKE '%{$_GET['search']}%' or v.email LIKE '%{$_GET['search']}%') ";
@@ -225,7 +225,7 @@ $vendor_ids = isset($_GET['vids']) ? $_GET['vids'] : 'all';
                             <?php endwhile; ?>
                             <?php else: ?>
                                 <div class="col-12 text-center">
-                                    Xin chọn ít nhất 1 sản phẩm.
+                                    Xin chọn ít nhất 1 danh mục.
                                 </div>
                             <?php endif; ?>
                         </div>
