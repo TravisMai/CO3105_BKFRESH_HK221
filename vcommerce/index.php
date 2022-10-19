@@ -138,14 +138,14 @@
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header rounded-0">
-        <h5 class="modal-title">Confirmation</h5>
+        <h5 class="modal-title">Xác nhận</h5>
       </div>
       <div class="modal-body rounded-0">
         <div id="delete_content"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id='confirm' onclick="">Tiếp tục</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
       </div>
       </div>
     </div>
@@ -176,4 +176,5 @@
       <!-- /.content-wrapper -->
       <?php require_once('inc/footer.php') ?>
   </body>
+  <!--script src="//w.trazk.com/v9/widgets.js" async="true" data-key="43237"></script-->
 </html>

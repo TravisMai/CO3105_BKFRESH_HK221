@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2022 at 05:42 PM
+-- Generation Time: Oct 19, 2022 at 02:48 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -144,10 +144,10 @@ CREATE TABLE `order_list` (
 --
 
 INSERT INTO `order_list` (`id`, `code`, `client_id`, `vendor_id`, `total_amount`, `delivery_address`, `status`, `date_created`, `date_updated`) VALUES
-(5, '202210-00001', 3, 8, 10000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:31:13', '2022-10-18 21:31:13'),
-(6, '202210-00002', 3, 5, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:31:13', '2022-10-18 21:31:13'),
+(5, '202210-00001', 3, 8, 10000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 3, '2022-10-18 21:31:13', '2022-10-18 22:52:21'),
+(6, '202210-00002', 3, 5, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 1, '2022-10-18 21:31:13', '2022-10-18 22:50:06'),
 (7, '202210-00003', 3, 6, 7000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 5, '2022-10-18 21:31:13', '2022-10-18 21:34:19'),
-(8, '202210-00004', 3, 8, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:33:54', '2022-10-18 21:33:54');
+(8, '202210-00004', 3, 8, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 2, '2022-10-18 21:33:54', '2022-10-18 22:52:09');
 
 -- --------------------------------------------------------
 

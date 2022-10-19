@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT  p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.id = '{$_GET['id']}'");
+    $qry = $conn->query("SELECT  p.*, v.shop_name as vendor, v.id as shop_id,  c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.id = '{$_GET['id']}'");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
@@ -30,6 +30,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     #prod-img-holder:hover #prod-img{
         transform:scale(1.2);
     }
+    .hah{}
+    .hah:hover{
+        background-color:#C7F2A4;
+    }
 </style>
 <div class="content py-3">
     <div class="card card-outline card-primary rounded-0 shadow">
@@ -48,15 +52,17 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <h3><b><?= $name ?></b></h3>
                         <div class="d-flex w-100">
-                            <div class="col-auto px-0"><small class="text-muted">Người bán: </small></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $vendor ?></small></p></div>
+                            <div class="col-auto px-0"><small class="text-muted">Người bán: &nbsp; </small></div>
+                            <a href="./?page=sellers/view_seller&id=<?= $vendor_id ?>">
+                            <h5 class="card-title text-truncate w-100 hah"><small class="text-muted"><?= $vendor ?> &nbsp;</small><i class="fas fa-user-tie fa-spin" style="color:#54c577"></i></h5>
+                            </a>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Danh mục: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Danh mục: &nbsp; </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $category ?></small></p></div>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Giá mong muốn: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Giá mong muốn: &nbsp; </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($price) ?></small></p></div>
                         </div>
                         <div class="row align-items-end">

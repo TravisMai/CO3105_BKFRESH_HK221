@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['id']) > 0){
-    $qry = $conn->query("SELECT *, st.name as'shop_type', v.id as 'vendor_id'  FROM `vendor_list` v inner join shop_type_list st on st.id = v.shop_type_id where v.delete_flag = 0 and v.id = '{$_GET['id']}'");
+    $qry = $conn->query("SELECT *, st.name as'shop_type', p.name as 'product_name', v.id as 'vendor_id'  FROM `vendor_list` v inner join `product_list` p on p.vendor_id = v.id inner join `shop_type_list` st on st.id = v.shop_type_id where v.delete_flag = 0 and v.id = '{$_GET['id']}'");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
@@ -30,6 +30,10 @@ if(isset($_GET['id']) > 0){
     #prod-img-holder:hover #prod-img{
         transform:scale(1.5);
     }
+    .hah{}
+    .hah:hover{
+        color:#54c577;
+    }
 </style>
 <div class="content py-3">
     <div class="card card-outline card-primary rounded-0 shadow">
@@ -45,7 +49,7 @@ if(isset($_GET['id']) > 0){
                             <img src="<?= validate_image(isset($avatar) ? $avatar : "") ?>" alt="<?= $row['avatar'] ?>" id="prod-img" class="img-thumbnail" style="background-color:#f2faf4">
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-7 col-sm-12">
+                    <div class="col-lg-4 col-md-7 col-sm-12">
                         <h3><b><?= $shop_name ?></b></h3>
                         <div class="d-flex w-100">
                             <div class="col-auto px-0"><small class="text-muted">Chủ doanh nghiệp: &nbsp; </small></div>
@@ -109,6 +113,17 @@ if(isset($_GET['id']) > 0){
                                     -moz-transition: all ease 0.5s;"><i class="fa fa-spinner"></i> &nbsp; Bắt đầu kết nối</span>
                             </a>
                         <?php endif; ?>
+                    </div>
+                    <div class="col-lg-4 col-md-7 col-sm-12">
+                        <h3><b>Nhà cung cấp có gì?</b></h3>
+                        <?php 
+                        $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 and v.id = '{$_GET['id']}'");
+                        while($row = $products->fetch_assoc()):
+                        ?>
+                            <a href="./?page=products/view_product&id=<?= $row['id'] ?>">
+                                <h5 class="card-title text-truncate w-100 hah"><i class="fas fa-seedling fa-spin" style="color:#54c577"></i> &nbsp; <?= $row['name'] ?></h5>
+                            </a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
