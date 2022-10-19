@@ -95,7 +95,7 @@
 <div class=" py-5">
     <div class="contain-fluid">
         <div class="clear-fix mb-3"></div>
-        <h3 class="text-center" style="color:#54c577"><b>BkFresh ở đâu ?</b></h3>
+        <h3 class="text-center" style="color:#54c577"><b><i class="	fas fa-route"></i>&nbsp; BkFresh ở đâu ?</b></h3>
         <center><hr class="w-25"></center>
         <div align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2046.5192422326704!2d106.65690861992293!3d10.772420648932444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec3c161a3fb%3A0xef77cd47a1cc691e!2sHo%20Chi%20Minh%20City%20University%20of%20Technology%20(HCMUT)!5e0!3m2!1sen!2s!4v1665920802261!5m2!1sen!2s" width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe></div>
     </div>

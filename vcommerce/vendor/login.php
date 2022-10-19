@@ -23,7 +23,7 @@
     <meta name="msapplication-config" content="../../images/favicons/browserconfig.xml">
     <meta name="theme-color" content="#66BB6A">
     <link rel="shortcut icon" href="../../images/favicons/sheaf-of-rice.png">
-    <title>Vfresh | Người bán</title>
+    <title>BkFresh | Người bán</title>
     <link rel="canonical" href="./">
 </head>
  <?php require_once('inc/header.php') ?>

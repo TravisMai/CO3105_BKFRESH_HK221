@@ -74,7 +74,7 @@ if(isset($_GET['id']) > 0){
                                     position: relative;
                                     transition: all ease 0.5s;
                                     -webkit-transition: all ease 0.5s;
-                                    -moz-transition: all ease 0.5s;"><i class="	fa fa-times"></i> &nbsp; Đăng nhập để kết nối</span>
+                                    -moz-transition: all ease 0.5s;"><i class="fas fa-user-lock"></i> &nbsp; Đăng nhập để kết nối</span>
                             </a>
                         <?php endif; ?>
 
@@ -96,7 +96,7 @@ if(isset($_GET['id']) > 0){
                                 <button class="btn btn-primary btn-flat" type="button" href="../" style="margin:10px; background-color:#54c577"><i class="fa fa-spinner"></i> &nbsp;Kết nối với doanh nghiệp</button>
                             </div>
                         </div-->
-                            <a href="<?php echo base_url ?>">
+                            <a href="<?php echo base_url ?>../comingsoon">
                                 <span style="text-decoration: none;
                                     font-size: 17px;
                                     background: #54c577;
@@ -110,7 +110,7 @@ if(isset($_GET['id']) > 0){
                                     position: relative;
                                     transition: all ease 0.5s;
                                     -webkit-transition: all ease 0.5s;
-                                    -moz-transition: all ease 0.5s;"><i class="fa fa-spinner"></i> &nbsp; Bắt đầu kết nối</span>
+                                    -moz-transition: all ease 0.5s;"><i class="	fas fa-circle-notch fa-spin"></i> &nbsp; Bắt đầu kết nối</span>
                             </a>
                         <?php endif; ?>
                     </div>
