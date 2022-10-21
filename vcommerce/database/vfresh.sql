@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2022 at 02:48 PM
+-- Generation Time: Oct 21, 2022 at 03:15 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -119,7 +119,8 @@ INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`, `date_
 (6, 14, 1, 3000000, '2022-10-18 21:31:13'),
 (6, 12, 1, 5000000, '2022-10-18 21:31:13'),
 (7, 17, 1, 7000000, '2022-10-18 21:31:13'),
-(8, 11, 1, 8000000, '2022-10-18 21:33:54');
+(8, 11, 1, 8000000, '2022-10-18 21:33:54'),
+(9, 23, 1, 2580000, '2022-10-20 11:47:24');
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,8 @@ INSERT INTO `order_list` (`id`, `code`, `client_id`, `vendor_id`, `total_amount`
 (5, '202210-00001', 3, 8, 10000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 3, '2022-10-18 21:31:13', '2022-10-18 22:52:21'),
 (6, '202210-00002', 3, 5, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 1, '2022-10-18 21:31:13', '2022-10-18 22:50:06'),
 (7, '202210-00003', 3, 6, 7000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 5, '2022-10-18 21:31:13', '2022-10-18 21:34:19'),
-(8, '202210-00004', 3, 8, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 2, '2022-10-18 21:33:54', '2022-10-18 22:52:09');
+(8, '202210-00004', 3, 8, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 2, '2022-10-18 21:33:54', '2022-10-18 22:52:09'),
+(9, '202210-00005', 3, 7, 2580000, '138/1 Ngo Quyen Street, Ward 05, District 10', 5, '2022-10-20 11:47:24', '2022-10-20 11:47:42');
 
 -- --------------------------------------------------------
 
@@ -180,12 +182,13 @@ INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `descripti
 (13, 5, 13, 'Húng quế', '&lt;p&gt;&lt;span style=&quot;color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;L&aacute; rau h&uacute;ng quế c&oacute; khả năng&nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;thanh lọc cơ thể&lt;/b&gt;&lt;span style=&quot;color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;&nbsp;rất hiệu quả. Khi ăn sống loại gia vị n&agrave;y, ch&uacute;ng sẽ lọc sạch m&aacute;u cung cấp cho da, mang lại cho bạn một l&agrave;n da s&aacute;ng b&oacute;ng v&agrave; ngăn ngừa hiệu quả sự xuất hiện của mụn.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', 4000000, 'uploads/products/3.png', 1, 0, '2022-10-14 19:26:31', '2022-10-14 19:36:05'),
 (14, 5, 13, 'Mồng tơi', '&lt;div class=&quot;co8aDb&quot; aria-level=&quot;3&quot; role=&quot;heading&quot; style=&quot;margin-bottom: 12px; font-family: &amp;quot;Google Sans&amp;quot;, arial, sans-serif; color: rgb(32, 33, 36);&quot;&gt;&lt;b&gt;&lt;span style=&quot;font-family: Arial;&quot;&gt;8&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: Arial;&quot;&gt;lợi &iacute;ch&lt;/span&gt;&lt;span style=&quot;font-family: Arial;&quot;&gt;&amp;nbsp;bất ngờ khi ăn&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: Arial;&quot;&gt;rau mồng tơi&lt;/span&gt;&lt;span style=&quot;font-family: Arial;&quot;&gt;&amp;nbsp;mỗi ng&agrave;y&lt;/span&gt;&lt;/b&gt;&lt;/div&gt;&lt;p style=&quot;padding: 0px 20px; color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;padding: 0px 20px; color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;&lt;ul class=&quot;i8Z77e&quot; style=&quot;margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px;&quot;&gt;&lt;ul&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/p&gt;&lt;ul&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;L&agrave;m đẹp da. ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Ngăn ngừa lo&atilde;ng xương. ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Giảm nguy cơ thiếu sắt. ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Hỗ trợ sự ph&aacute;t triển của em b&eacute; ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Giữ cho đ&ocirc;i mắt khỏe mạnh. ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Gi&agrave;u chất chống oxy h&oacute;a. ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Hỗ trợ sức khỏe tim mạch. ...&lt;/li&gt;&lt;li style=&quot;margin: 0px 0px 4px; padding: 0px; list-style-type: disc;&quot;&gt;Phục hồi vết thương.&lt;/li&gt;&lt;/ul&gt;', 3000000, 'uploads/products/1.png', 1, 0, '2022-10-14 19:31:04', '2022-10-14 19:36:17'),
 (15, 5, 14, 'Bí ngô', '&lt;p&gt;&lt;span style=&quot;color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;B&iacute; ng&ocirc; cũng l&agrave; một trong những nguồn lutein v&agrave; zeaxanthin, hai hợp chất c&oacute; khả năng&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;l&agrave;m giảm nguy cơ tho&aacute;i h&oacute;a điểm v&agrave;ng li&ecirc;n quan đến tuổi t&aacute;c (AMD) v&agrave; đục thủy tinh thể&lt;/b&gt;&lt;span style=&quot;color: rgb(32, 33, 36); font-family: arial, sans-serif;&quot;&gt;. Ngo&agrave;i ra, b&iacute; ng&ocirc; chứa nhiều vitamin C v&agrave; E, c&oacute; chức năng như chất chống oxy h&oacute;a v&agrave; c&oacute; thể ngăn chặn c&aacute;c gốc tự do g&acirc;y tổn hại cho c&aacute;c tế b&agrave;o mắt.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', 6000000, 'uploads/products/6.png', 1, 0, '2022-10-14 19:38:23', '2022-10-14 19:38:52'),
-(16, 5, 12, 'Lê Hưng', '&lt;p&gt;Miễn ph&iacute; free ship&lt;/p&gt;', 0, 'uploads/products/11.png', 1, 0, '2022-10-14 19:39:43', '2022-10-14 19:40:12'),
+(16, 5, 12, 'Lê Hưng', '&lt;p&gt;Miễn ph&iacute; free ship&lt;/p&gt;', -20000000, 'uploads/products/11.png', 1, 0, '2022-10-14 19:39:43', '2022-10-20 10:32:13'),
 (17, 6, 15, 'Hạt điều', '&lt;p&gt;t&ocirc;i biết n&oacute; rất ngon&lt;/p&gt;', 7000000, 'uploads/products/7.png', 1, 0, '2022-10-14 19:49:59', '2022-10-14 19:52:29'),
 (18, 6, 16, 'Nhãn đóng hộp', '&lt;p&gt;đảm bảo tươi&lt;/p&gt;', 3000000, 'uploads/products/8.png', 1, 0, '2022-10-14 19:51:48', '2022-10-14 19:52:44'),
 (19, 7, 17, 'Bò wagyu', '&lt;p&gt;Thượng hạng&lt;/p&gt;', 11000000, 'uploads/products/9.png', 1, 0, '2022-10-14 19:56:13', '2022-10-15 13:37:49'),
-(20, 7, 18, 'Heo ăn chuối ', '&lt;p&gt;Của bầu Đức&lt;/p&gt;', 5000000, 'uploads/products/10.png', 1, 0, '2022-10-14 19:56:46', '2022-10-14 19:58:12'),
-(21, 5, 12, 'test', '&lt;p&gt;test&lt;/p&gt;', 1, 'uploads/products/21.png?v=1665814526', 1, 1, '2022-10-15 13:15:25', '2022-10-15 13:21:01');
+(20, 7, 18, 'Thịt đùi heo Bapi', '&lt;p&gt;Bapi heo ăn chuối&lt;/p&gt;', 5000000, 'uploads/products/20.png?v=1666236251', 1, 0, '2022-10-14 19:56:46', '2022-10-20 10:24:11'),
+(22, 7, 18, 'Xúc xích Đức xông khói Bapi', '&lt;p&gt;N&uacute;c n&iacute;ch Đức x&ocirc;ng kh&oacute;i Bapi&lt;br&gt;&lt;/p&gt;', 3000000, 'uploads/products/22.png?v=1666236405', 1, 0, '2022-10-20 10:26:44', '2022-10-20 10:27:08'),
+(23, 7, 18, 'Sườn non  Bapi', '&lt;h1 class=&quot;pd-s-title&quot; style=&quot;margin-right: auto; margin-bottom: 0px; margin-left: auto; padding: 0px 0px 8px; font-weight: 600; line-height: 30px; font-size: 24px; color: rgb(79, 79, 79); font-family: Arial;&quot;&gt;Sườn non - heo ăn chuối - Bapi&lt;/h1&gt;', 2580000, 'uploads/products/23.png?v=1666236578', 1, 0, '2022-10-20 10:29:38', '2022-10-20 10:29:38');
 
 -- --------------------------------------------------------
 
@@ -379,7 +382,7 @@ ALTER TABLE `vendor_list`
 -- AUTO_INCREMENT for table `cart_list`
 --
 ALTER TABLE `cart_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `category_list`
@@ -397,13 +400,13 @@ ALTER TABLE `client_list`
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product_list`
 --
 ALTER TABLE `product_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `shop_type_list`

@@ -15,10 +15,11 @@
         <center><hr class="w-25"></center>
         <div class="row" id="product_list">
             <?php 
-            $products = $conn->query("SELECT DISTINCT v.*, s.name as shop_type_name FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join shop_type_list s on s.id = v.shop_type_id where v.delete_flag = 0 and v.`status` =1 order by RAND() limit 4");
+            $products = $conn->query("SELECT DISTINCT v.*, s.name as shop_type_name, p.vendor_id as 'seller_id' FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join shop_type_list s on s.id = v.shop_type_id where v.delete_flag = 0 and v.`status` =1 order by RAND() limit 4");
             while($row = $products->fetch_assoc()):
             ?>
             <div class="col-lg-3 col-md-6 col-sm-12 product-item">
+                <a href="./?page=sellers/view_seller&id=<?= $row['seller_id'] ?>" class="card shadow rounded-0 text-reset text-decoration-none">
                 <div class="product-img-holder position-relative">
                     <img src="<?= validate_image($row['avatar']) ?>" alt="Product-image" class="img-top product-img" style="background-color:#f2faf4">
                 </div>
@@ -46,6 +47,9 @@
                 </a>
             </div>
             <?php endwhile; ?>
+        </div>
+        <div class="text-center">
+            <a href="./?page=sellers" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12" style="background-color:#54c577; border-color:#54c577">Khám phá thêm sản phẩm</a>
         </div>
     </div>
 </div>
@@ -87,7 +91,7 @@
         </div>
         <div class="clear-fix mb-2"></div>
         <div class="text-center">
-            <a href="./?page=products" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12" style="background-color:#54c577">Khám phá thêm sản phẩm</a>
+            <a href="./?page=products" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12" style="background-color:#54c577; border-color:#54c577">Khám phá thêm sản phẩm</a>
         </div>
     </div>
 </div>
