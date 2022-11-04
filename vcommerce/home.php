@@ -8,6 +8,77 @@
     }
 </script>
 
+<div class="row">
+    <div class="contain-fluid col-md-6">
+    <div class="clear-fix mb-3"></div>
+    <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Sản phẩm trên BkFresh</b></h3>
+    <center><hr class="w-25"></center>
+        <?php
+            $link = mysqli_connect("localhost", "root", "");
+            mysqli_select_db($link,"vfresh");
+            $test=array();
+            $count=0;
+            $res=mysqli_query($link, "SELECT * FROM `shop_type_list`");
+            while ($row=mysqli_fetch_array($res))
+            {
+                $test[$count]["label"]=$row["name"];
+                $test[$count]["y"]=$row["id"];
+                $count=$count+1;
+            }
+        ?>
+        <!DOCTYPE HTML>
+        <html>
+        <head>  
+        <script>
+        window.onload = function () {
+        
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            exportEnabled: true,
+            data: [{
+                fontFamily: "Times New Roman",
+                type: "pie",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - #percent%",
+                yValueFormatString: "",
+                dataPoints: <?php echo json_encode($test, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        var chart2 = new CanvasJS.Chart("chartContainer2", {
+            animationEnabled: true,
+            exportEnabled: true,
+            data: [{
+                fontFamily: "Times New Roman",
+                type: "pie",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - #percent%",
+                yValueFormatString: "",
+                dataPoints: <?php echo json_encode($test, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart1.render();
+        chart2.render();
+        }
+        </script>
+        </head>
+        <body>
+        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </body>
+        </html>                              
+    </div>
+    <div class="contain-fluid col-md-6">
+        <div class="clear-fix mb-3"></div>
+        <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Các đối tác của BkFresh</b></h3>
+        <center><hr class="w-25"></center>
+        <div id="chartContainer2" style="height: 370px; width: 100%;"></div>    
+    </div>
+</div>
+
 <div class=" py-5">
     <div class="contain-fluid">
         <div class="clear-fix mb-3"></div>

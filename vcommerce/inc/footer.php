@@ -295,6 +295,20 @@ h1, h2, h3, h4, h5, h6 {
                                     <a href="https://www.instagram.com/bachkhoa.hcmut/" target="_blank"  class="fab fa-instagram fa-spin"></a>
                                 </div>
                             </div>
+                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                            <?php
+                              $sql = "UPDATE Counter SET visits = visits+1 WHERE id = 1";
+                              $result = mysqli_query($conn, $sql);
+                                
+                              $sql = "SELECT visits FROM Counter WHERE id = 1";
+                              $result = mysqli_query($conn, $sql);
+                                
+                              while($row = $result->fetch_assoc()):
+                            ?>
+                            <br></br>
+                            <h3 class="f-title f_600 t_color f_size_18" style="color:#54c577">Tổng lượt truy cập: <?= $row['visits'] ?>&nbsp;&nbsp;<i class="fas fa-user fa-spin" style="color:#54c577"></i></h3>
+                            <?php endwhile; ?>    
+                          </div>
                         </div>
                     </div>
                 </div>

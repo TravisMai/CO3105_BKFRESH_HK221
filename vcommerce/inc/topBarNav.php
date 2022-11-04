@@ -10,6 +10,11 @@
   .btn-rounded{
         border-radius: 50px;
   }
+  .fa-spin.spin-reverse{
+  -webkit-animation-direction:reverse;
+     -moz-animation-direction:reverse;
+          animation-direction:reverse;
+}
 </style>
 <!-- Navbar -->
       <style>
@@ -29,10 +34,11 @@
       </style>
       <nav class="w-100 px-2 py-1 position-fixed top-0 bg-white text-dark" id="login-nav">
         <div class="d-flex justify-content-between w-100"  >
-          <div>
-            <p class="m-0 truncate-1"><small><?= $_settings->info('name') ?></small></p>
+          <div class="d-flex justify-content-start w-75">
+            <!--p class="m-0 truncate-1"><small><?= $_settings->info('name') ?></small></p-->
+            <marquee width="100%" id="marquee-banner" scrollamount="7" style="width: 100%;" loop=""><div class="flex space-x-8"><i class="fas fa-seedling fa-spin spin-reverse" style="color:#54c577"></i><a target="_blank" href="#" style="color:#54c577">&nbsp;<?= $_settings->info('banner') ?>&nbsp;</a><i class="fas fa-seedling fa-spin" style="color:#54c577"></i></div></marquee>
           </div>
-          <div>
+          <div class="d-flex justify-content-center">
             <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') ==3): ?>
               
               <!-- <span class="mx-2">Howdy, <?= !empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
@@ -47,8 +53,8 @@
                 </div>
               </div>
             <?php else: ?>
-              <a href="./login.php" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách mua</a> | 
-              <a href="./vendor" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách bán</a> | 
+              <a href="./login.php" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách mua</a>
+              <a href="./vendor" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách bán</a>
               <a href="./admin" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Quản trị</a>
             <?php endif; ?>
           </div>

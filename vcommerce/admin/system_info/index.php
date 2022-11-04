@@ -37,6 +37,10 @@
 					<label for="short_name" class="control-label">Tên hệ thống</label>
 					<input type="text" class="form-control form-control-sm" name="short_name" id="short_name" value="<?php echo  $_settings->info('short_name') ?>">
 				</div>
+				<div class="form-group">
+					<label for="banner" class="control-label">Banner</label>
+					<input type="text" class="form-control form-control-sm" name="banner" id="banner" value="<?php echo  $_settings->info('banner') ?>">
+				</div>
 			<!--div class="form-group">
 				<label for="" class="control-label">Welcome</label>
 	             <textarea name="content[welcome]" id="" cols="30" rows="2" class="form-control summernote"><?php echo  is_file(base_app.'welcome.html') ? file_get_contents(base_app.'welcome.html') : "" ?></textarea>

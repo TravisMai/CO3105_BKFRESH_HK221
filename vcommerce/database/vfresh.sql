@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2022 at 03:15 AM
+-- Generation Time: Nov 04, 2022 at 01:12 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -95,6 +95,24 @@ CREATE TABLE `client_list` (
 
 INSERT INTO `client_list` (`id`, `code`, `firstname`, `middlename`, `lastname`, `gender`, `contact`, `address`, `email`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
 (3, '202210-00001', 'Huu Nghia', '', 'Mai', 'Male', '0942262713', '138/1 Ngo Quyen Street, Ward 05, District 10', 'emches1976@gmail.com', '098f6bcd4621d373cade4e832627b4f6', 'uploads/clients/3.png?v=1665815716', 1, 0, '2022-10-15 13:35:16', '2022-10-15 13:35:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `counter`
+--
+
+CREATE TABLE `counter` (
+  `id` int(15) NOT NULL,
+  `visits` int(15) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `counter`
+--
+
+INSERT INTO `counter` (`id`, `visits`) VALUES
+(1, 60);
 
 -- --------------------------------------------------------
 
@@ -238,7 +256,8 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 (11, 'logo', 'uploads/VFRESH.png'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
 (14, 'cover', 'uploads/banner_img2.jpg'),
-(15, 'small_logo', 'uploads/sheaf-of-rice.png');
+(15, 'small_logo', 'uploads/sheaf-of-rice.png'),
+(16, 'banner', 'Dự án BkFresh - Cách mạng hóa chuỗi cung ứng hàng hóa nông sản');
 
 -- --------------------------------------------------------
 
@@ -327,6 +346,12 @@ ALTER TABLE `client_list`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `counter`
+--
+ALTER TABLE `counter`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `order_items`
 --
 ALTER TABLE `order_items`
@@ -382,7 +407,7 @@ ALTER TABLE `vendor_list`
 -- AUTO_INCREMENT for table `cart_list`
 --
 ALTER TABLE `cart_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `category_list`
@@ -395,6 +420,12 @@ ALTER TABLE `category_list`
 --
 ALTER TABLE `client_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `counter`
+--
+ALTER TABLE `counter`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_list`
@@ -418,7 +449,7 @@ ALTER TABLE `shop_type_list`
 -- AUTO_INCREMENT for table `system_info`
 --
 ALTER TABLE `system_info`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
