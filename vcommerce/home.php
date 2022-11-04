@@ -8,6 +8,15 @@
     }
 </script>
 
+<div class=" py-5">
+    <div class="contain-fluid">
+        <div class="clear-fix mb-3"></div>
+        <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Tin tức nông sản</b></h3>
+        <center><hr class="w-25"></center>
+        <div align="center"><iframe width=100% height="450" src="https://rss.app/embed/v1/imageboard/rfC2c57RoZ5h2Xc2" frameborder="0"></iframe></div>
+    </div>
+</div>
+
 <div class="col-lg-12 py-5">
     <div class="contain-fluid">
         <div class="clear-fix mb-3"></div>
@@ -49,7 +58,7 @@
             <?php endwhile; ?>
         </div>
         <div class="text-center">
-            <a href="./?page=sellers" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12" style="background-color:#54c577; border-color:#54c577">Khám phá thêm sản phẩm</a>
+            <a href="./?page=sellers" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12" style="background-color:#54c577; border-color:#54c577">Khám phá thêm doanh nghiệp</a>
         </div>
     </div>
 </div>
