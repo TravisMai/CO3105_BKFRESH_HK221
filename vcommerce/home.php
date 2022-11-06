@@ -8,83 +8,12 @@
     }
 </script>
 
-<div class="row">
-    <div class="contain-fluid col-md-6">
-    <div class="clear-fix mb-3"></div>
-    <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Sản phẩm trên BkFresh</b></h3>
-    <center><hr class="w-25"></center>
-        <?php
-            $link = mysqli_connect("localhost", "root", "");
-            mysqli_select_db($link,"vfresh");
-            $test=array();
-            $count=0;
-            $res=mysqli_query($link, "SELECT * FROM `shop_type_list`");
-            while ($row=mysqli_fetch_array($res))
-            {
-                $test[$count]["label"]=$row["name"];
-                $test[$count]["y"]=$row["id"];
-                $count=$count+1;
-            }
-        ?>
-        <!DOCTYPE HTML>
-        <html>
-        <head>  
-        <script>
-        window.onload = function () {
-        
-        var chart1 = new CanvasJS.Chart("chartContainer1", {
-            animationEnabled: true,
-            exportEnabled: true,
-            data: [{
-                fontFamily: "Times New Roman",
-                type: "pie",
-                showInLegend: "true",
-                legendText: "{label}",
-                indexLabelFontSize: 16,
-                indexLabel: "{label} - #percent%",
-                yValueFormatString: "",
-                dataPoints: <?php echo json_encode($test, JSON_NUMERIC_CHECK); ?>
-            }]
-        });
-        var chart2 = new CanvasJS.Chart("chartContainer2", {
-            animationEnabled: true,
-            exportEnabled: true,
-            data: [{
-                fontFamily: "Times New Roman",
-                type: "pie",
-                showInLegend: "true",
-                legendText: "{label}",
-                indexLabelFontSize: 16,
-                indexLabel: "{label} - #percent%",
-                yValueFormatString: "",
-                dataPoints: <?php echo json_encode($test, JSON_NUMERIC_CHECK); ?>
-            }]
-        });
-        chart1.render();
-        chart2.render();
-        }
-        </script>
-        </head>
-        <body>
-        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        </body>
-        </html>                              
-    </div>
-    <div class="contain-fluid col-md-6">
-        <div class="clear-fix mb-3"></div>
-        <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Các đối tác của BkFresh</b></h3>
-        <center><hr class="w-25"></center>
-        <div id="chartContainer2" style="height: 370px; width: 100%;"></div>    
-    </div>
-</div>
-
 <div class=" py-5">
     <div class="contain-fluid">
         <div class="clear-fix mb-3"></div>
         <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Tin tức nông sản</b></h3>
         <center><hr class="w-25"></center>
-        <div align="center"><iframe width=100% height="450" src="https://rss.app/embed/v1/imageboard/rfC2c57RoZ5h2Xc2" frameborder="0"></iframe></div>
+        <div align="center"><iframe width=100% height="500" src="https://rss.app/embed/v1/carousel/OasTpOGOQkwlAW79" frameborder="0"></iframe></div>
     </div>
 </div>
 
@@ -173,6 +102,89 @@
         <div class="text-center">
             <a href="./?page=products" class="btn btn-large btn-primary rounded-pill col-lg-3 col-md-5 col-sm-12" style="background-color:#54c577; border-color:#54c577">Khám phá thêm sản phẩm</a>
         </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="contain-fluid col-md-6">
+    <div class="clear-fix mb-3"></div>
+    <h3 class="text-center" style="color:#54c577"><b>Sản phẩm trên BkFresh</b></h3>
+    <center><hr class="w-25"></center>
+        <?php
+            $link = mysqli_connect("localhost", "root", "");
+            mysqli_select_db($link,"vfresh");
+            $test=array();
+            $count=0;
+            $res=mysqli_query($link, "SELECT stl.name, count(*) FROM product_list pl join vendor_list vl on pl.vendor_id = vl.id join shop_type_list stl on vl.shop_type_id = stl.id GROUP BY stl.name;");
+            while ($row=mysqli_fetch_array($res))
+            {
+                $test[$count]["label"]=$row["name"];
+                $test[$count]["y"]=$row["count(*)"];
+                $count=$count+1;
+            }
+            $test1=array();
+            $count1=0;
+            $res1=mysqli_query($link, "SELECT stl.name, count(*) FROM vendor_list vl join shop_type_list stl on vl.shop_type_id = stl.id GROUP BY stl.name;");
+            while ($row1=mysqli_fetch_array($res1))
+            {
+                $test1[$count1]["label"]=$row1["name"];
+                $test1[$count1]["y"]=$row1["count(*)"];
+                $count1=$count1+1;
+            }
+        ?>
+        <!DOCTYPE HTML>
+        <html>
+        <head>  
+        <script>
+        window.onload = function () {
+        
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            exportEnabled: false,
+            backgroundColor: "#f4f6f9",
+            fontFamily: "Times New Roman",
+            data: [{
+                type: "doughnut",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - #percent%",
+                yValueFormatString: "####### sản phẩm",
+                dataPoints: <?php echo json_encode($test, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        var chart2 = new CanvasJS.Chart("chartContainer2", {
+            animationEnabled: true,
+            exportEnabled: false,
+            backgroundColor: "#f4f6f9",
+            fontFamily: "Times New Roman",
+            data: [{
+                type: "doughnut",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - #percent%",
+                yValueFormatString: "####### đối tác",
+                dataPoints: <?php echo json_encode($test1, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart1.render();
+        chart2.render();
+        }
+        </script>
+        </head>
+        <body>
+        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </body>
+        </html>                              
+    </div>
+    <div class="contain-fluid col-md-6">
+        <div class="clear-fix mb-3"></div>
+        <h3 class="text-center" style="color:#54c577"><b>Các đối tác của BkFresh</b></h3>
+        <center><hr class="w-25"></center>
+        <div id="chartContainer2" style="height: 370px; width: 100%;"></div>    
     </div>
 </div>
 

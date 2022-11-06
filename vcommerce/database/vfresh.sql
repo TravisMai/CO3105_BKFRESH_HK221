@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2022 at 01:12 PM
+-- Generation Time: Nov 06, 2022 at 02:16 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -112,7 +112,7 @@ CREATE TABLE `counter` (
 --
 
 INSERT INTO `counter` (`id`, `visits`) VALUES
-(1, 60);
+(1, 267);
 
 -- --------------------------------------------------------
 
@@ -231,8 +231,7 @@ CREATE TABLE `shop_type_list` (
 INSERT INTO `shop_type_list` (`id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
 (6, 'Nông sản cơ bản', 'lúa gạo, lúa mì, bột mì, sữa, động vật tươi sống (trừ cá và các sản phẩm từ cá), cà phê, hồ tiêu, hạt điều, chè, rau quả tươi,…', 1, 0, '2022-10-14 18:37:43', '2022-10-18 13:19:27'),
 (7, 'Nông sản phái sinh ', 'bánh mì, bơ, dầu ăn, thịt,…..', 1, 0, '2022-10-14 18:38:07', '2022-10-18 13:20:17'),
-(8, 'Nông sản chế biến ', 'bánh kẹo, sản phẩm từ sữa, xúc xích, nước ngọt, rượu, bia, thuốc lá, bông xơ, da động vật thô...', 1, 0, '2022-10-14 18:38:43', '2022-10-18 13:43:02'),
-(9, 'Lê hưng', 'dsfrdsfdsf', 0, 1, '2022-10-18 13:35:23', '2022-10-18 13:36:11');
+(8, 'Nông sản chế biến ', 'bánh kẹo, sản phẩm từ sữa, xúc xích, nước ngọt, rượu, bia, thuốc lá, bông xơ, da động vật thô...', 1, 0, '2022-10-14 18:38:43', '2022-10-18 13:43:02');
 
 -- --------------------------------------------------------
 

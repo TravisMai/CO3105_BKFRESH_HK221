@@ -291,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
                                 <div class="f_social_icon">
                                     <a href="https://www.facebook.com/cse.hcmut" target="_blank" class="fab fa-facebook"></a>
                                     <a href="https://github.com/TravisMai" target="_blank" class="fab fa-github"></a>
-                                    <a href="https://www.linkedin.com/school/hcmut-bachkhoa/" target="_blank"  class="fab fa-linkedin"></a>
+                                    <a href="https://www.google.com.vn/search?q=hcmut&ie=UTF-8&oe=UTF-8&hl=en-vn" target="_blank"  class="fab fa-google"></a>
                                     <a href="https://www.instagram.com/bachkhoa.hcmut/" target="_blank"  class="fab fa-instagram fa-spin"></a>
                                 </div>
                             </div>
