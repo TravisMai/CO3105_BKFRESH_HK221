@@ -234,7 +234,7 @@ h1, h2, h3, h4, h5, h6 {
                         <div class="col-lg-3 col-md-6">
                             <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
                               <a href="<?php echo base_url ?>">
-                                <img src="<?php echo base_url ?>../images/VFRESH.png" style="width:65%; height:auto;"/>
+                                <img src="<?php echo base_url ?>./uploads/VFRESH.png" style="width:65%; height:auto;"/>
                               </a>
                               <!--h3 class="f-title f_600 t_color f_size_18">Kết nối với VFresh</h3-->
                               <br></br>
