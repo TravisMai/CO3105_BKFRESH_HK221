@@ -76,6 +76,9 @@
                 <a href="./" class="nav-link <?= isset($page) && $page =='home' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='home' ? "#54c577" : "#000" ?>">Trang chủ</a>
               </li>
               <li class="nav-item">
+                <a href="./?page=about" class="nav-link <?= isset($page) && $page =='about' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='about' ? "#54c577" : "#000" ?>">Giới thiệu</a>
+              </li>
+              <li class="nav-item">
                 <a href="./?page=products" class="nav-link <?= isset($page) && $page =='products' ? "active" : "" ?>" style="color: <?= isset($page) && $page =='products' ? "#54c577" : "#000" ?>">Sản phẩm</a>
               </li>
               <li class="nav-item">

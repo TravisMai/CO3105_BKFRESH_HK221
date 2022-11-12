@@ -8,14 +8,14 @@
     }
 </script>
 
-<div class=" py-5">
+<!--div class=" py-5">
     <div class="contain-fluid">
         <div class="clear-fix mb-3"></div>
         <h3 class="text-center" style="color:#54c577"><b><i class="fa fa-newspaper"></i>&nbsp; Tin tức nông sản</b></h3>
         <center><hr class="w-25"></center>
         <div align="center"><iframe width=100% height="500" src="https://rss.app/embed/v1/carousel/OasTpOGOQkwlAW79" frameborder="0"></iframe></div>
     </div>
-</div>
+</div-->
 
 <div class="col-lg-12 py-5">
     <div class="contain-fluid">
