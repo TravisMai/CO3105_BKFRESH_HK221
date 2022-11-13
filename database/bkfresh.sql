@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2022 at 02:16 PM
+-- Generation Time: Nov 13, 2022 at 03:14 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `vfresh`
+-- Database: `bkfresh`
 --
 
 -- --------------------------------------------------------
@@ -112,7 +112,7 @@ CREATE TABLE `counter` (
 --
 
 INSERT INTO `counter` (`id`, `visits`) VALUES
-(1, 267);
+(1, 600);
 
 -- --------------------------------------------------------
 

@@ -113,7 +113,7 @@
     <center><hr class="w-25"></center>
         <?php
             $link = mysqli_connect("localhost", "root", "");
-            mysqli_select_db($link,"vfresh");
+            mysqli_select_db($link,"bkfresh");
             $test=array();
             $count=0;
             $res=mysqli_query($link, "SELECT stl.name, count(*) FROM product_list pl join vendor_list vl on pl.vendor_id = vl.id join shop_type_list stl on vl.shop_type_id = stl.id GROUP BY stl.name;");

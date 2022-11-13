@@ -134,7 +134,6 @@
     height: 100%;
     padding: 50px 100px 50px 50px;
     position: relative;
-    background: url("../images/trustus_direct_bg.png") 0 0 no-repeat #f4f6f9;
     background-size: cover;
     box-shadow: -1px 13px 20px #e4e5e6;
     border-radius: 5px;
@@ -415,7 +414,7 @@
     <center><hr class="w-25"></center>
         <?php
             $link = mysqli_connect("localhost", "root", "");
-            mysqli_select_db($link,"vfresh");
+            mysqli_select_db($link,"bkfresh");
             $test=array();
             $count=0;
             $res=mysqli_query($link, "SELECT stl.name, count(*) FROM product_list pl join vendor_list vl on pl.vendor_id = vl.id join shop_type_list stl on vl.shop_type_id = stl.id GROUP BY stl.name;");
