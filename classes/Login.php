@@ -1,69 +1,76 @@
 <?php
 require_once '../config.php';
-class Login extends DBConnection {
+class Login extends DBConnection
+{
 	private $settings;
-	public function __construct(){
+	public function __construct()
+	{
 		global $_settings;
 		$this->settings = $_settings;
 
 		parent::__construct();
 		ini_set('display_error', 1);
 	}
-	public function __destruct(){
+	public function __destruct()
+	{
 		parent::__destruct();
 	}
-	public function index(){
-		echo "<h1>Access Denied</h1> <a href='".base_url."'>Go Back.</a>";
+	public function index()
+	{
+		echo "<h1>Access Denied</h1> <a href='" . base_url . "'>Go Back.</a>";
 	}
-	public function login(){
+	public function login()
+	{
 		extract($_POST);
 		$password = md5($password);
 		$stmt = $this->conn->prepare("SELECT * from users where username = ? and `password` = ? ");
-		$stmt->bind_param("ss",$username,$password);
+		$stmt->bind_param("ss", $username, $password);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		if($result->num_rows > 0){
-			foreach($result->fetch_array() as $k => $v){
-				if(!is_numeric($k) && $k != 'password'){
-					$this->settings->set_userdata($k,$v);
+		if ($result->num_rows > 0) {
+			foreach ($result->fetch_array() as $k => $v) {
+				if (!is_numeric($k) && $k != 'password') {
+					$this->settings->set_userdata($k, $v);
 				}
 
 			}
-			$this->settings->set_userdata('login_type',1);
-		return json_encode(array('status'=>'success'));
-		}else{
-		return json_encode(array('status'=>'incorrect','last_qry'=>"SELECT * from users where username = '$username' and `password` = md5('$password') "));
+			$this->settings->set_userdata('login_type', 1);
+			return json_encode(array('status' => 'success'));
+		} else {
+			return json_encode(array('status' => 'incorrect', 'last_qry' => "SELECT * from users where username = '$username' and `password` = md5('$password') "));
 		}
 	}
-	public function logout(){
-		if($this->settings->sess_des()){
+	public function logout()
+	{
+		if ($this->settings->sess_des()) {
 			redirect('admin/login.php');
 		}
 	}
-	public function login_vendor(){
+	public function login_vendor()
+	{
 		extract($_POST);
 		$password = md5($password);
 		$stmt = $this->conn->prepare("SELECT * from vendor_list where username = ? and `password` =? and delete_flag = ?  ");
 		$delete_flag = 0;
-		$stmt->bind_param("ssi",$username,$password,$delete_flag);
+		$stmt->bind_param("ssi", $username, $password, $delete_flag);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		if($result->num_rows > 0){
+		if ($result->num_rows > 0) {
 			$data = $result->fetch_array();
-			if($data['status'] == 1){
-				foreach($data as $k => $v){
-					if(!is_numeric($k) && $k != 'password'){
-						$this->settings->set_userdata($k,$v);
+			if ($data['status'] == 1) {
+				foreach ($data as $k => $v) {
+					if (!is_numeric($k) && $k != 'password') {
+						$this->settings->set_userdata($k, $v);
 					}
 
 				}
-				$this->settings->set_userdata('login_type',2);
+				$this->settings->set_userdata('login_type', 2);
 				$resp['status'] = 'success';
-			}else{
+			} else {
 				$resp['status'] = 'failed';
 				$resp['msg'] = ' Your Account has been blocked by the management.';
 			}
-		}else{
+		} else {
 			$resp['status'] = 'failed';
 			$resp['msg'] = ' Incorrect Username or Password.';
 			$resp['error'] = $this->conn->error;
@@ -71,35 +78,37 @@ class Login extends DBConnection {
 		}
 		return json_encode($resp);
 	}
-	public function logout_vendor(){
-		if($this->settings->sess_des()){
+	public function logout_vendor()
+	{
+		if ($this->settings->sess_des()) {
 			redirect('vendor');
 		}
 	}
-	public function login_client(){
+	public function login_client()
+	{
 		extract($_POST);
 		$password = md5($password);
 		$stmt = $this->conn->prepare("SELECT * from client_list where email = ? and `password` =? and delete_flag = ?  ");
 		$delete_flag = 0;
-		$stmt->bind_param("ssi",$email,$password,$delete_flag);
+		$stmt->bind_param("ssi", $email, $password, $delete_flag);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		if($result->num_rows > 0){
+		if ($result->num_rows > 0) {
 			$data = $result->fetch_array();
-			if($data['status'] == 1){
-				foreach($data as $k => $v){
-					if(!is_numeric($k) && $k != 'password'){
-						$this->settings->set_userdata($k,$v);
+			if ($data['status'] == 1) {
+				foreach ($data as $k => $v) {
+					if (!is_numeric($k) && $k != 'password') {
+						$this->settings->set_userdata($k, $v);
 					}
 
 				}
-				$this->settings->set_userdata('login_type',3);
+				$this->settings->set_userdata('login_type', 3);
 				$resp['status'] = 'success';
-			}else{
+			} else {
 				$resp['status'] = 'failed';
 				$resp['msg'] = ' Your Account has been blocked by the management.';
 			}
-		}else{
+		} else {
 			$resp['status'] = 'failed';
 			$resp['msg'] = ' Incorrect Username or Password.';
 			$resp['error'] = $this->conn->error;
@@ -107,8 +116,9 @@ class Login extends DBConnection {
 		}
 		return json_encode($resp);
 	}
-	public function logout_client(){
-		if($this->settings->sess_des()){
+	public function logout_client()
+	{
+		if ($this->settings->sess_des()) {
 			redirect('?');
 		}
 	}
@@ -138,4 +148,3 @@ switch ($action) {
 		echo $auth->index();
 		break;
 }
-

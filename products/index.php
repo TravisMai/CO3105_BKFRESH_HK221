@@ -1,4 +1,4 @@
-<?php 
+<?php
 $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
 ?>
 <div class="content py-3">
@@ -9,18 +9,27 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                     <div class="list-group">
                         <div class="list-group-item list-group-item-action">
                             <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input custom-control-input-primary custom-control-input-outline cat_all" type="checkbox" id="cat_all" <?= !is_array($category_ids) && $category_ids =='all' ? "checked" : "" ?>>
+                                <input
+                                    class="custom-control-input custom-control-input-primary custom-control-input-outline cat_all"
+                                    type="checkbox" id="cat_all" <?=!is_array($category_ids) && $category_ids== 'all' ?
+                                    "checked" : "" ?>>
                                 <label for="cat_all" class="custom-control-label"> Tất cả</label>
                             </div>
                         </div>
-                        <?php 
+                        <?php
                         $categories = $conn->query("SELECT * FROM `category_list` where delete_flag = 0 and status = 1 order by `name` asc ");
-                        while($row = $categories->fetch_assoc()):
+                        while ($row = $categories->fetch_assoc()):
                         ?>
                         <div class="list-group-item list-group-item-action">
                             <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input custom-control-input-primary custom-control-input-outline cat_item" type="checkbox" id="cat_item<?= $row['id'] ?>" <?= in_array($row['id'],explode(',',$category_ids)) ? "checked" : '' ?> value="<?= $row['id'] ?>">
-                                <label for="cat_item<?= $row['id'] ?>" class="custom-control-label"> <?= $row['name'] ?></label>
+                                <input
+                                    class="custom-control-input custom-control-input-primary custom-control-input-outline cat_item"
+                                    type="checkbox" id="cat_item<?= $row['id'] ?>" <?=
+                                    in_array($row['id'], explode(',', $category_ids)) ? "checked" : '' ?> value="<?=
+                                    $row['id'] ?>">
+                                    <label for="cat_item<?= $row['id'] ?>" class="custom-control-label">
+                                        <?= $row['name'] ?>
+                                    </label>
                             </div>
                         </div>
                         <?php endwhile; ?>
@@ -37,55 +46,80 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                             <div class="col-lg-8 col-md-10 col-sm-12">
                                 <form action="" id="search-frm">
                                     <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text" style="background-color:#C7F2A4">Tìm kiếm</span></div>
-                                        <input type="search" id="search" class="form-control" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
-                                        <div class="input-group-append"><span class="input-group-text" style="background-color:#C7F2A4"><i class="fa fa-search"></i></span></div>
+                                        <div class="input-group-prepend"><span class="input-group-text"
+                                                style="background-color:#C7F2A4">Tìm kiếm</span></div>
+                                        <input type="search" id="search" class="form-control"
+                                            value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                                        <div class="input-group-append"><span class="input-group-text"
+                                                style="background-color:#C7F2A4"><i class="fa fa-search"></i></span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div class="row" id="product_list">
-                            <?php 
+                            <?php
                             $swhere = "";
-                            if(!empty($category_ids)):
-                            if($category_ids !='all'){
-                                $swhere = " and p.category_id in ({$category_ids}) ";
-                            }
-                            if(isset($_GET['search']) && !empty($_GET['search'])){
-                                $swhere .= " and (p.name LIKE '%{$_GET['search']}%' or p.description LIKE '%{$_GET['search']}%' or c.name LIKE '%{$_GET['search']}%' or v.shop_name LIKE '%{$_GET['search']}%') ";
-                            }
+                            if (!empty($category_ids)):
+                                if ($category_ids != 'all') {
+                                    $swhere = " and p.category_id in ({$category_ids}) ";
+                                }
+                                if (isset($_GET['search']) && !empty($_GET['search'])) {
+                                    $swhere .= " and (p.name LIKE '%{$_GET['search']}%' or p.description LIKE '%{$_GET['search']}%' or c.name LIKE '%{$_GET['search']}%' or v.shop_name LIKE '%{$_GET['search']}%') ";
+                                }
 
-                            $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 {$swhere} order by RAND()");
-                            while($row = $products->fetch_assoc()):
+                                $products = $conn->query("SELECT p.*, v.shop_name as vendor, c.name as `category` FROM `product_list` p inner join vendor_list v on p.vendor_id = v.id inner join category_list c on p.category_id = c.id where p.delete_flag = 0 and p.`status` =1 {$swhere} order by RAND()");
+                                while ($row = $products->fetch_assoc()):
                             ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 product-item">
-                                <a href="./?page=products/view_product&id=<?= $row['id'] ?>" class="card shadow rounded-0 text-reset text-decoration-none">
-                                <div class="product-img-holder position-relative">
-                                    <img src="<?= validate_image($row['image_path']) ?>" alt="Product-image" class="img-top product-img" style="background-color:#f2faf4">
-                                </div>
+                                <a href="./?page=products/view_product&id=<?= $row['id'] ?>"
+                                    class="card shadow rounded-0 text-reset text-decoration-none">
+                                    <div class="product-img-holder position-relative">
+                                        <img src="<?= validate_image($row['image_path']) ?>" alt="Product-image"
+                                            class="img-top product-img" style="background-color:#f2faf4">
+                                    </div>
                                     <div class="card-body border-top border-gray">
-                                        <h5 class="card-title text-truncate w-100"><?= $row['name'] ?></h5>
+                                        <h5 class="card-title text-truncate w-100">
+                                            <?= $row['name'] ?>
+                                        </h5>
                                         <div class="d-flex w-100">
-                                            <div class="col-auto px-0"><small class="text-muted">Người bán: &nbsp </small></div>
-                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['vendor'] ?></small></p></div>
+                                            <div class="col-auto px-0"><small class="text-muted">Người bán: &nbsp
+                                                </small></div>
+                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
+                                                <p class="text-truncate m-0"><small class="text-muted">
+                                                        <?= $row['vendor'] ?>
+                                                    </small></p>
+                                            </div>
                                         </div>
                                         <div class="d-flex">
-                                            <div class="col-auto px-0"><small class="text-muted">Danh mục: &nbsp </small></div>
-                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['category'] ?></small></p></div>
+                                            <div class="col-auto px-0"><small class="text-muted">Danh mục: &nbsp
+                                                </small></div>
+                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
+                                                <p class="text-truncate m-0"><small class="text-muted">
+                                                        <?= $row['category'] ?>
+                                                    </small></p>
+                                            </div>
                                         </div>
                                         <div class="d-flex">
-                                            <div class="col-auto px-0"><small class="text-muted">Giá mong muốn:  &nbsp</small></div>
-                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($row['price']) ?></small></p></div>
+                                            <div class="col-auto px-0"><small class="text-muted">Giá mong muốn:
+                                                    &nbsp</small></div>
+                                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
+                                                <p class="m-0 pl-3"><small class="text-primary">
+                                                        <?= format_num($row['price']) ?>
+                                                    </small></p>
+                                            </div>
                                         </div>
-                                        <p class="card-text truncate-3 w-100"><?= strip_tags(html_entity_decode($row['description'])) ?></p>
+                                        <p class="card-text truncate-3 w-100">
+                                            <?= strip_tags(html_entity_decode($row['description'])) ?>
+                                        </p>
                                     </div>
                                 </a>
                             </div>
                             <?php endwhile; ?>
                             <?php else: ?>
-                                <div class="col-12 text-center">
-                                    Xin chọn ít nhất 1 sản phẩm.
-                                </div>
+                            <div class="col-12 text-center">
+                                Xin chọn ít nhất 1 sản phẩm.
+                            </div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -95,35 +129,35 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
     </div>
 </div>
 <script>
-    $(function(){
-        if($('#cat_all').is(':checked') == true){
-            $('.cat_item').prop('checked',true)
+    $(function () {
+        if ($('#cat_all').is(':checked') == true) {
+            $('.cat_item').prop('checked', true)
         }
-        if($('.cat_item:checked').length == $('.cat_item').length){
-            $('#cat_all').prop('checked',true)
+        if ($('.cat_item:checked').length == $('.cat_item').length) {
+            $('#cat_all').prop('checked', true)
         }
-        $('.cat_item').change(function(){
+        $('.cat_item').change(function () {
             var ids = [];
-            $('.cat_item:checked').each(function(){
+            $('.cat_item:checked').each(function () {
                 ids.push($(this).val())
             })
-            location.href="./?page=products&cids="+(ids.join(","))
+            location.href = "./?page=products&cids=" + (ids.join(","))
         })
-        $('#cat_all').change(function(){
-            if($(this).is(':checked') == true){
-                $('.cat_item').prop('checked',true)
-            }else{
-                $('.cat_item').prop('checked',false)
+        $('#cat_all').change(function () {
+            if ($(this).is(':checked') == true) {
+                $('.cat_item').prop('checked', true)
+            } else {
+                $('.cat_item').prop('checked', false)
             }
             $('.cat_item').trigger('change')
         })
-        $('#search-frm').submit(function(e){
+        $('#search-frm').submit(function (e) {
             e.preventDefault()
-            var q = "search="+$('#search').val()
-            if('<?= !empty($category_ids) && $category_ids !='all' ?>' == 1){
+            var q = "search=" + $('#search').val()
+            if ('<?=!empty($category_ids) && $category_ids != 'all' ?>' == 1) {
                 q += "&cids=<?= $category_ids ?>"
             }
-            location.href="./?page=products&"+q;
+            location.href = "./?page=products&" + q;
 
         })
     })
