@@ -22,7 +22,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         exit;
     }
 }
-        ?>
+?>
 <style>
     #uni_modal .modal-footer {
         display: none
@@ -58,42 +58,42 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         <div class="col-3 border tablecolor"><span class="">Trạng thái</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
                 <?php
-            $status = isset($status) ? $status : '';
-            switch ($status) {
-                case 0:
-                    echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Đang chờ</span>';
-                    break;
-                case 1:
-                    echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Xác nhận</span>';
-                    break;
-                case 2:
-                    echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Đóng gói</span>';
-                    break;
-                case 3:
-                    echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Đang giao</span>';
-                    break;
-                case 4:
-                    echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Đã giao</span>';
-                    break;
-                case 5:
-                    echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Đã hủy</span>';
-                    break;
-                default:
-                    echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
-                    break;
-            }
-            ?>
+                $status = isset($status) ? $status : '';
+                switch ($status) {
+                    case 0:
+                        echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Đang chờ</span>';
+                        break;
+                    case 1:
+                        echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Xác nhận</span>';
+                        break;
+                    case 2:
+                        echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Đóng gói</span>';
+                        break;
+                    case 3:
+                        echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Đang giao</span>';
+                        break;
+                    case 4:
+                        echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Đã giao</span>';
+                        break;
+                    case 5:
+                        echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Đã hủy</span>';
+                        break;
+                    default:
+                        echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
+                        break;
+                }
+                ?>
         </div>
     </div>
     <div class="clear-fix mb-2"></div>
     <div id="order-list" class="row">
         <?php
-    $gtotal = 0;
-    $products = $conn->query("SELECT o.*, p.name as `name`, p.price,p.image_path FROM `order_items` o inner join product_list p on o.product_id = p.id where o.order_id='{$id}' order by p.name asc");
-    while ($prow = $products->fetch_assoc()):
-        $total = $prow['price'] * $prow['quantity'];
-        $gtotal += $total;
-    ?>
+        $gtotal = 0;
+        $products = $conn->query("SELECT o.*, p.name as `name`, p.price,p.image_path FROM `order_items` o inner join product_list p on o.product_id = p.id where o.order_id='{$id}' order by p.name asc");
+        while ($prow = $products->fetch_assoc()):
+            $total = $prow['price'] * $prow['quantity'];
+            $gtotal += $total;
+        ?>
         <div class="col-12 border">
             <div class="d-flex align-items-center p-2">
                 <div class="col-2 text-center">
@@ -124,25 +124,54 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                 </div>
             </div>
         </div>
-        <?php endwhile; ?>
+        <?php if ($status == 4): ?>
         <div class="col-12 border">
-            <div class="d-flex">
-                <div class="col-9 h4 font-weight-bold text-right text-muted">Tổng</div>
-                <div class="col-3 h4 font-weight-bold text-right">
-                    <?= format_num($gtotal) ?>
+            <div class="modal-header">
+                <h5 class="modal-title">Viết nhận xét sản phẩm</h5>
+            </div>
+            <div class="modal-body">
+                <h4 class="text-center mt-2 mb-4">
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                </h4>
+                <div class="form-group">
+                    <input type="text" name="user_name" id="user_name" class="form-control"
+                        placeholder="Enter Your Name" />
+                </div>
+                <div class="form-group">
+                    <textarea name="user_review" id="user_review" class="form-control"
+                        placeholder="Type Review Here"></textarea>
+                </div>
+                <div class="form-group text-center mt-4">
+                    <button type="button" class="btn btn-primary" id="save_review" style="background-color:#54c577; border-color: #54c577;">Nhận xét</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="clear-fix mb-3"></div>
-    <div class="text-right">
-        <?php if (isset($status) && $status == 0): ?>
-        <button class="btn btn-default bg-gradient-danger text-light btn-sm btn-flat" type="button"
-            id="cancel_order">Hủy đơn</button>
-        <?php endif; ?>
-        <button class="btn btn-default bg-gradient-dark text-light btn-sm btn-flat" type="button"
-            data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
+</div>
+<?php endif; ?>
+<?php endwhile; ?>
+<div class="col-12 border">
+    <div class="d-flex">
+        <div class="col-9 h4 font-weight-bold text-right text-muted">Tổng</div>
+        <div class="col-3 h4 font-weight-bold text-right">
+            <?= format_num($gtotal) ?>
+        </div>
     </div>
+</div>
+</div>
+<div class="clear-fix mb-3"></div>
+<div class="text-right">
+    <?php if (isset($status) && $status == 0): ?>
+    <button class="btn btn-default bg-gradient-danger text-light btn-sm btn-flat" type="button" id="cancel_order">Hủy
+        đơn</button>
+    <?php endif; ?>
+    <button class="btn btn-default bg-gradient-dark text-light btn-sm btn-flat" type="button" data-dismiss="modal"><i
+            class="fa fa-times"></i> Đóng</button>
+</div>
 </div>
 <script>
     $(function () {
