@@ -106,7 +106,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                             <?= $prow['name'] ?>
                         </b></h4>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
+                        <div class="col-auto px-0"><small class="text-muted">Giá: </small></div>
                         <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
                             <p class="m-0 pl-3"><small class="text-primary">
                                     <?= format_num($prow['price']) ?>
@@ -114,7 +114,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                         </div>
                     </div>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Qty: </small></div>
+                        <div class="col-auto px-0"><small class="text-muted">Số lượng: </small></div>
                         <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
                             <p class="m-0 pl-3"><small class="text-primary">
                                     <?= format_num($prow['quantity']) ?>
@@ -127,7 +127,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         <?php endwhile; ?>
         <div class="col-12 border">
             <div class="d-flex">
-                <div class="col-9 h4 font-weight-bold text-right text-muted">Total</div>
+                <div class="col-9 h4 font-weight-bold text-right text-muted">Tổng</div>
                 <div class="col-3 h4 font-weight-bold text-right">
                     <?= format_num($gtotal) ?>
                 </div>
@@ -138,16 +138,16 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     <div class="text-right">
         <?php if (isset($status) && $status == 0): ?>
         <button class="btn btn-default bg-gradient-danger text-light btn-sm btn-flat" type="button"
-            id="cancel_order">Cancel Order</button>
+            id="cancel_order">Hủy đơn</button>
         <?php endif; ?>
         <button class="btn btn-default bg-gradient-dark text-light btn-sm btn-flat" type="button"
-            data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+            data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
     </div>
 </div>
 <script>
     $(function () {
         $('#cancel_order').click(function () {
-            _conf("Are you sure to cancel this order?", "cancel_order", ['<?= isset($id) ? $id : '' ?>'])
+            _conf("Bạn có chắc muốn hủy đơn này?", "cancel_order", ['<?= isset($id) ? $id : '' ?>'])
         })
     })
     function cancel_order($id) {
