@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2022 at 03:14 AM
+-- Generation Time: Nov 16, 2022 at 03:28 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -63,7 +63,8 @@ INSERT INTO `category_list` (`id`, `vendor_id`, `name`, `description`, `status`,
 (15, 6, 'Hạt sấy khô', 'Hạt sấy khô khô quá là khô', 1, 0, '2022-10-14 19:48:06', NULL),
 (16, 6, 'Hoa quả tươi đóng lon', 'Hoa quả tươi đóng lon', 1, 0, '2022-10-14 19:48:20', NULL),
 (17, 7, 'Thịt bò', 'Thịt từ con bò', 1, 0, '2022-10-14 19:54:28', NULL),
-(18, 7, 'Thịt heo', 'thịt từ con heo', 1, 0, '2022-10-14 19:54:50', NULL);
+(18, 7, 'Thịt heo', 'thịt từ con heo', 1, 0, '2022-10-14 19:54:50', NULL),
+(19, 8, 'Sản phẩm gạo', 'bún, sữa,...', 1, 0, '2022-11-16 21:15:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ CREATE TABLE `counter` (
 --
 
 INSERT INTO `counter` (`id`, `visits`) VALUES
-(1, 600);
+(1, 1016);
 
 -- --------------------------------------------------------
 
@@ -163,9 +164,9 @@ CREATE TABLE `order_list` (
 --
 
 INSERT INTO `order_list` (`id`, `code`, `client_id`, `vendor_id`, `total_amount`, `delivery_address`, `status`, `date_created`, `date_updated`) VALUES
-(5, '202210-00001', 3, 8, 10000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 3, '2022-10-18 21:31:13', '2022-10-18 22:52:21'),
-(6, '202210-00002', 3, 5, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 1, '2022-10-18 21:31:13', '2022-10-18 22:50:06'),
-(7, '202210-00003', 3, 6, 7000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 5, '2022-10-18 21:31:13', '2022-10-18 21:34:19'),
+(5, '202210-00001', 3, 8, 10000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 4, '2022-10-18 21:31:13', '2022-11-15 21:39:43'),
+(6, '202210-00002', 3, 5, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 4, '2022-10-18 21:31:13', '2022-11-16 14:40:57'),
+(7, '202210-00003', 3, 6, 7000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 0, '2022-10-18 21:31:13', '2022-11-15 15:19:18'),
 (8, '202210-00004', 3, 8, 8000000, '138/1 Ngo Quyen Street, Ward 05, District 10', 2, '2022-10-18 21:33:54', '2022-10-18 22:52:09'),
 (9, '202210-00005', 3, 7, 2580000, '138/1 Ngo Quyen Street, Ward 05, District 10', 5, '2022-10-20 11:47:24', '2022-10-20 11:47:42');
 
@@ -206,7 +207,60 @@ INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `descripti
 (19, 7, 17, 'Bò wagyu', '&lt;p&gt;Thượng hạng&lt;/p&gt;', 11000000, 'uploads/products/9.png', 1, 0, '2022-10-14 19:56:13', '2022-10-15 13:37:49'),
 (20, 7, 18, 'Thịt đùi heo Bapi', '&lt;p&gt;Bapi heo ăn chuối&lt;/p&gt;', 5000000, 'uploads/products/20.png?v=1666236251', 1, 0, '2022-10-14 19:56:46', '2022-10-20 10:24:11'),
 (22, 7, 18, 'Xúc xích Đức xông khói Bapi', '&lt;p&gt;N&uacute;c n&iacute;ch Đức x&ocirc;ng kh&oacute;i Bapi&lt;br&gt;&lt;/p&gt;', 3000000, 'uploads/products/22.png?v=1666236405', 1, 0, '2022-10-20 10:26:44', '2022-10-20 10:27:08'),
-(23, 7, 18, 'Sườn non  Bapi', '&lt;h1 class=&quot;pd-s-title&quot; style=&quot;margin-right: auto; margin-bottom: 0px; margin-left: auto; padding: 0px 0px 8px; font-weight: 600; line-height: 30px; font-size: 24px; color: rgb(79, 79, 79); font-family: Arial;&quot;&gt;Sườn non - heo ăn chuối - Bapi&lt;/h1&gt;', 2580000, 'uploads/products/23.png?v=1666236578', 1, 0, '2022-10-20 10:29:38', '2022-10-20 10:29:38');
+(23, 7, 18, 'Sườn non  Bapi', '&lt;h1 class=&quot;pd-s-title&quot; style=&quot;margin-right: auto; margin-bottom: 0px; margin-left: auto; padding: 0px 0px 8px; font-weight: 600; line-height: 30px; font-size: 24px; color: rgb(79, 79, 79); font-family: Arial;&quot;&gt;Sườn non - heo ăn chuối - Bapi&lt;/h1&gt;', 2580000, 'uploads/products/23.png?v=1666236578', 1, 0, '2022-10-20 10:29:38', '2022-10-20 10:29:38'),
+(24, 8, 19, 'Bún gạo lứt', '&lt;p&gt;b&uacute;n l&agrave;m từ gạo lứt tốt cho sức khỏe&lt;/p&gt;', 2000000, 'uploads/products/24.png?v=1668608515', 1, 0, '2022-11-16 21:18:44', '2022-11-16 21:22:56'),
+(25, 8, 19, 'Sữa gạo lứt', '&lt;p&gt;Sữa từ thương hiệu TH true milk&lt;/p&gt;', 1000000, 'uploads/products/25.png?v=1668608650', 1, 0, '2022-11-16 21:24:10', '2022-11-16 21:24:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `order_id` int(30) NOT NULL,
+  `product_id` int(30) NOT NULL,
+  `user_name` varchar(200) NOT NULL,
+  `user_rating` int(1) NOT NULL,
+  `user_review` text NOT NULL,
+  `datetime` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`order_id`, `product_id`, `user_name`, `user_rating`, `user_review`, `datetime`) VALUES
+(5, 10, 'ABC', 3, 'Fake', 1234567890),
+(6, 14, 'CDE', 3, 'Real', 1234567890),
+(6, 12, 'EBD', 4, 'Nice', 123456789),
+(7, 17, 'IOH', 1, 'Bad', 987654321);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review_table`
+--
+
+CREATE TABLE `review_table` (
+  `review_id` int(11) NOT NULL,
+  `user_name` varchar(200) NOT NULL,
+  `user_rating` int(1) NOT NULL,
+  `user_review` text NOT NULL,
+  `datetime` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `review_table`
+--
+
+INSERT INTO `review_table` (`review_id`, `user_name`, `user_rating`, `user_review`, `datetime`) VALUES
+(6, 'John Smith', 4, 'Nice Product, Value for money', 1621935691),
+(7, 'Peter Parker', 5, 'Nice Product with Good Feature.', 1621939888),
+(8, 'Donna Hubber', 1, 'Worst Product, lost my money.', 1621940010),
+(9, 'test', 2, 'test', 1668498222),
+(10, 'vcbc', 0, 'dfgdfg', 1668589575),
+(11, 'vcbc', 4, 'dfgdfg', 1668589674);
 
 -- --------------------------------------------------------
 
@@ -374,6 +428,19 @@ ALTER TABLE `product_list`
   ADD KEY `category_id` (`category_id`) USING BTREE;
 
 --
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `review_table`
+--
+ALTER TABLE `review_table`
+  ADD PRIMARY KEY (`review_id`);
+
+--
 -- Indexes for table `shop_type_list`
 --
 ALTER TABLE `shop_type_list`
@@ -412,7 +479,7 @@ ALTER TABLE `cart_list`
 -- AUTO_INCREMENT for table `category_list`
 --
 ALTER TABLE `category_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `client_list`
@@ -436,7 +503,13 @@ ALTER TABLE `order_list`
 -- AUTO_INCREMENT for table `product_list`
 --
 ALTER TABLE `product_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `review_table`
+--
+ALTER TABLE `review_table`
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `shop_type_list`
@@ -499,6 +572,13 @@ ALTER TABLE `order_list`
 ALTER TABLE `product_list`
   ADD CONSTRAINT `product_list_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor_list` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `product_list_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category_list` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order_list` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product_list` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `vendor_list`
