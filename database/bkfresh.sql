@@ -31,7 +31,8 @@ CREATE TABLE `cart_list` (
   `id` int(30) NOT NULL,
   `client_id` int(30) NOT NULL,
   `product_id` int(30) NOT NULL,
-  `quantity` float NOT NULL DEFAULT 0
+  `quantity` float NOT NULL DEFAULT 0,
+  `price` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

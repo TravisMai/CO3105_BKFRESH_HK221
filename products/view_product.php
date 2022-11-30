@@ -77,9 +77,10 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                         <div class="d-flex">
                             <div class="col-auto px-0"><small class="text-muted">Giá mong muốn: &nbsp; </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
-                                <p class="m-0 pl-3"><small class="text-primary">
-                                        <?= format_num($price) ?>
-                                    </small></p>
+                                <form action="">
+                                    <input type="number" id="dprice" value=<?= $price ?>><br>
+                                </form> 
+                                <br>        
                             </div>
                         </div>
                         <div class="row align-items-end">
@@ -106,6 +107,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     function add_to_cart() {
         var pid = '<?= isset($id) ? $id : '' ?>';
         var qty = $('#qty').val();
+        var pri = $('#dprice').val();
         var el = $('<div>')
         el.addClass('alert alert-danger')
         el.hide()
@@ -114,7 +116,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         $.ajax({
             url: _base_url_ + 'classes/Master.php?f=add_to_cart',
             method: 'POST',
-            data: { product_id: pid, quantity: qty },
+            data: { product_id: pid, quantity: qty, price: pri },
             dataType: 'json',
             error: err => {
                 console.error(err)

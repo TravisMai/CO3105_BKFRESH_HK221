@@ -79,7 +79,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     <div id="order-list" class="row">
     <?php 
         $gtotal = 0;
-        $products = $conn->query("SELECT o.*, p.name as `name`, p.price,p.image_path FROM `order_items` o inner join product_list p on o.product_id = p.id where o.order_id='{$id}' order by p.name asc");
+        $products = $conn->query("SELECT o.*, p.name as `name`, o.price,p.image_path FROM `order_items` o inner join product_list p on o.product_id = p.id where o.order_id='{$id}' order by p.name asc");
         while($prow = $products->fetch_assoc()):
             $total = $prow['price'] * $prow['quantity'];
             $gtotal += $total;

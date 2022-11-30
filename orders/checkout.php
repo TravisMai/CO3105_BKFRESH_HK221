@@ -27,7 +27,7 @@
                     $gtotal = 0;
                     $vendors = $conn->query("SELECT * FROM `vendor_list` where id in (SELECT vendor_id from product_list where id in (SELECT product_id FROM `cart_list` where client_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
                     while ($vrow = $vendors->fetch_assoc()):
-                        $vtotal = $conn->query("SELECT sum(c.quantity * p.price) FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}'")->fetch_array()[0];
+                        $vtotal = $conn->query("SELECT sum(c.quantity * c.price) FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}'")->fetch_array()[0];
                         $vtotal = $vtotal > 0 ? $vtotal : 0;
                         $gtotal += $vtotal;
 

@@ -37,7 +37,7 @@
                     <div class="col-12 border p-0">
                         <?php
                     $vtotal = 0;
-                    $products = $conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}' order by p.name asc");
+                    $products = $conn->query("SELECT c.*, p.name as `name`, c.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}' order by p.name asc");
                     while ($prow = $products->fetch_assoc()):
                         $total = $prow['price'] * $prow['quantity'];
                         $gtotal += $total;

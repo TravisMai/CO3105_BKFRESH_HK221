@@ -240,9 +240,9 @@ class Master extends DBConnection
 				$data .= " `{$k}`='{$this->conn->real_escape_string($v)}' ";
 			}
 		}
-		$check = $this->conn->query("SELECT * FROM cart_list where product_id = '{$product_id}' && client_id = '{$client_id}'")->num_rows;
+		$check = $this->conn->query("SELECT * FROM cart_list where product_id = '{$product_id}' && client_id = '{$client_id}' && price = '{$price}'")->num_rows;
 		if ($check > 0) {
-			$sql = "UPDATE cart_list set quantity = quantity + {$quantity} where product_id = '{$product_id}' && client_id = '{$client_id}' ";
+			$sql = "UPDATE cart_list set quantity = quantity + {$quantity} where product_id = '{$product_id}' && client_id = '{$client_id}' && price = '{$price}'";
 		} else {
 			$sql = "INSERT INTO cart_list set {$data}";
 		}
@@ -321,7 +321,7 @@ class Master extends DBConnection
 				$inserted[] = $oid;
 				$data = "";
 				$gtotal = 0;
-				$products = $this->conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$this->settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}' order by p.name asc");
+				$products = $this->conn->query("SELECT c.*, p.name as `name`, c.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$this->settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}' order by p.name asc");
 				while ($prow = $products->fetch_assoc()):
 					$total = $prow['price'] * $prow['quantity'];
 					$gtotal += $total;
