@@ -73,26 +73,6 @@ if (isset($_GET['id']) > 0) {
                                     </small></p>
                             </div>
                         </div>
-                        <?php if ($_settings->userdata('id') <= 0): ?>
-                        <a href="<?php echo base_url ?>login.php">
-                            <span style="text-decoration: none;
-                                    font-size: 17px;
-                                    background: #D2001A;
-                                    border-radius: 5px;
-                                    margin:10px;
-                                    color: #fff;
-                                    text-decoration: none;
-                                    padding: 16px 25px;
-                                    display: inline-block;
-                                    font-size: 16px;
-                                    position: relative;
-                                    transition: all ease 0.5s;
-                                    -webkit-transition: all ease 0.5s;
-                                    -moz-transition: all ease 0.5s;"><i class="fas fa-user-lock"></i> &nbsp; Đăng nhập
-                                để kết nối</span>
-                        </a>
-                        <?php endif; ?>
-
                         <?php if ($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
                         <div class="d-flex">
                             <div class="col-auto px-0"><small class="text-muted">Điện thoại: &nbsp; </small></div>
@@ -123,23 +103,6 @@ if (isset($_GET['id']) > 0) {
                                 <button class="btn btn-primary btn-flat" type="button" href="../" style="margin:10px; background-color:#54c577"><i class="fa fa-spinner"></i> &nbsp;Kết nối với doanh nghiệp</button>
                             </div>
                         </div-->
-                        <a href="<?php echo base_url ?>../comingsoon">
-                            <span style="text-decoration: none;
-                                    font-size: 17px;
-                                    background: #54c577;
-                                    border-radius: 5px;
-                                    margin:10px;
-                                    color: #fff;
-                                    text-decoration: none;
-                                    padding: 16px 25px;
-                                    display: inline-block;
-                                    font-size: 16px;
-                                    position: relative;
-                                    transition: all ease 0.5s;
-                                    -webkit-transition: all ease 0.5s;
-                                    -moz-transition: all ease 0.5s;"><i class="	fas fa-circle-notch fa-spin"></i>
-                                &nbsp; Bắt đầu kết nối</span>
-                        </a>
                         <?php endif; ?>
                     </div>
                     <div class="col-lg-4 col-md-7 col-sm-12">

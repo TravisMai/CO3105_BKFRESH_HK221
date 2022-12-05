@@ -115,7 +115,7 @@
     <div class="clear-fix mb-2"></div>
     <div class="text-right">
         <a href="./?page=orders/checkout" class="btn btn-flat btn-primary btn-sm cong_tru"><i
-                class="fa fa-money-bill-wave"></i> Thanh toán</a>
+                class="fa fa-money-bill-wave"></i>  Đặt hàng</a>
     </div>
 </div>
 <script>

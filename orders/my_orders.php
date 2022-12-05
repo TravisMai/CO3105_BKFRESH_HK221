@@ -78,16 +78,9 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu" role="menu">
-                                    <?php if ($row['status'] != 4): ?>
                                     <a class="dropdown-item view_data" href="javascript:void(0)"
                                         data-id="<?= $row['id'] ?>" data-code="<?= $row['code'] ?>"><span
                                             class="fa fa-eye text-dark"></span> Chi tiết</a>
-                                    <?php endif; ?>
-                                    <?php if ($row['status'] == 4): ?>
-                                    <a class="dropdown-item view_data" href="javascript:void(0)"
-                                        data-id="<?= $row['id'] ?>" data-code="<?= $row['code'] ?>"><span
-                                            class="fa fa-thumbs-up text-dark"></span> Nhận xét</a>
-                                    <?php endif; ?>
                                 </div>
                             </td>
                         </tr>
