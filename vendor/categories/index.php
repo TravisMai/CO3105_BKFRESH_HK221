@@ -5,9 +5,9 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Categories</h3>
+		<h3 class="card-title">Danh sách danh mục</h3>
 		<div class="card-tools">
-			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -25,11 +25,11 @@
 				<thead>
 					<tr class="bg-gradient-secondary">
 						<th>#</th>
-						<th>Date Created</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>Ngày tạo</th>
+						<th>Sản phẩm</th>
+						<th>Mô tả</th>
+						<th>Trạng thái</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,22 +45,22 @@
 							<td><p class="m-0 truncate-1"><?php echo $row['description'] ?></p></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
+                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Hoạt động</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Không hoạt động</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Thao tác
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+				                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> Xem</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Chỉnh sửa</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
 							</td>
 						</tr>
@@ -74,16 +74,16 @@
 <script>
 	$(document).ready(function(){
 		$('#create_new').click(function(){
-			uni_modal('Add New Category',"categories/manage_category.php")
+			uni_modal('Thêm danh mục',"categories/manage_category.php")
 		})
 		$('.view_data').click(function(){
-			uni_modal('View Category Details',"categories/view_category.php?id="+$(this).attr('data-id'))
+			uni_modal('Chi tiết danh mục',"categories/view_category.php?id="+$(this).attr('data-id'))
 		})
 		$('.edit_data').click(function(){
-			uni_modal('Update Category',"categories/manage_category.php?id="+$(this).attr('data-id'))
+			uni_modal('Cập nhật danh mục',"categories/manage_category.php?id="+$(this).attr('data-id'))
 		})
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this Category permanently?","delete_category",[$(this).attr('data-id')])
+			_conf("Bạn có chắc muốn xóa vĩnh viễn danh mục này?","delete_category",[$(this).attr('data-id')])
 		})
 		$('table .th,table .td').addClass('align-middle px-2 py-1')
 		$('.table').dataTable();

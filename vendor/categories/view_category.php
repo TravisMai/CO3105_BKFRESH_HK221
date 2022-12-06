@@ -15,7 +15,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			}
 		</style>
 		<div class="text-right">
-			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
 		</div>
 		<?php
 		exit;
@@ -29,21 +29,21 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </style>
 <div class="container-fluid">
 	<dl>
-        <dt class="text-muted">Category</dt>
+        <dt class="text-muted">Danh mục</dt>
         <dd class="pl-3"><?= isset($name) ? $name : "" ?></dd>
-        <dt class="text-muted">Description</dt>
+        <dt class="text-muted">Mô tả</dt>
         <dd class="pl-3"><?= isset($description) ? $description : "" ?></dd>
-        <dt class="text-muted">Status</dt>
+        <dt class="text-muted">Trạng thái</dt>
         <dd class="pl-3">
             <?php if($status == 1): ?>
-                <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
+                <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Hoạt động</span>
             <?php else: ?>
-                <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
+                <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Không hoạt động</span>
             <?php endif; ?>
         </dd>
     </dl>
 	<div class="clear-fix mb-3"></div>
 	<div class="text-right">
-		<button class="btn btn-default bg-gradient-dark btn-sm btn-flat" type="button" data-dismiss="modal"><i class="fa f-times"></i> Close</button>
+		<button class="btn btn-default bg-gradient-dark btn-sm btn-flat" type="button" data-dismiss="modal"><i class="fa f-times"></i> Đóng</button>
 	</div>
 </div>

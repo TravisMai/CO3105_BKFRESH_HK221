@@ -15,7 +15,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			}
 		</style>
 		<div class="text-right">
-			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
 		</div>
 		<?php
 		exit;
@@ -28,12 +28,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <div class="form-group">
             <label for="status" class="control-label">Status</label>
             <select name="status" id="status" class="form-control rounded-0" required>
-                <option <?= isset($status) && $status == 0 ? 'selected' : '' ?> value="0">Pending</option>
-                <option <?= isset($status) && $status == 1 ? 'selected' : '' ?> value="1">Confirmed</option>
-                <option <?= isset($status) && $status == 2 ? 'selected' : '' ?> value="2">Packed</option>
-                <option <?= isset($status) && $status == 3 ? 'selected' : '' ?> value="3">Out for Delivery</option>
-                <option <?= isset($status) && $status == 4 ? 'selected' : '' ?> value="4">Delivered</option>
-                <option <?= isset($status) && $status == 5 ? 'selected' : '' ?> value="5">Cancelled</option>
+                <option <?= isset($status) && $status == 0 ? 'selected' : '' ?> value="0">Đang chờ</option>
+                <option <?= isset($status) && $status == 1 ? 'selected' : '' ?> value="1">Xác nhận</option>
+                <option <?= isset($status) && $status == 2 ? 'selected' : '' ?> value="2">Đóng gói</option>
+                <option <?= isset($status) && $status == 3 ? 'selected' : '' ?> value="3">Đang giao</option>
+                <option <?= isset($status) && $status == 4 ? 'selected' : '' ?> value="4">Đã giao</option>
+                <option <?= isset($status) && $status == 5 ? 'selected' : '' ?> value="5">Đã hủy</option>
             </select>
         </div>
     </form>

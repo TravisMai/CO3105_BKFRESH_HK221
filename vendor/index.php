@@ -46,8 +46,8 @@
             </div>
             <div class="modal-footer rounded-0">
               <button type="button" class="btn btn-sm btn-flat btn-primary" id='submit'
-                onclick="$('#uni_modal form').submit()">Save</button>
-              <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Cancel</button>
+                onclick="$('#uni_modal form').submit()">Lưu</button>
+              <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Hủy</button>
             </div>
           </div>
         </div>
@@ -62,8 +62,8 @@
             </div>
             <div class="modal-footer rounded-0">
               <button type="button" class="btn btn-sm btn-flat btn-primary" id='submit'
-                onclick="$('#uni_modal_second form').submit()">Save</button>
-              <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Cancel</button>
+                onclick="$('#uni_modal_second form').submit()">Lưu</button>
+              <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Hủy</button>
             </div>
           </div>
         </div>
@@ -94,14 +94,14 @@
         <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
           <div class="modal-content">
             <div class="modal-header rounded-0">
-              <h5 class="modal-title">Confirmation</h5>
+              <h5 class="modal-title">Xác nhận</h5>
             </div>
             <div class="modal-body rounded-0">
               <div id="delete_content"></div>
             </div>
             <div class="modal-footer rounded-0">
-              <button type="button" class="btn btn-sm btn-flat btn-primary" id='confirm' onclick="">Continue</button>
-              <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-sm btn-flat btn-primary" id='confirm' onclick="">Tiếp tục</button>
+              <button type="button" class="btn btn-sm btn-flat btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
           </div>
         </div>

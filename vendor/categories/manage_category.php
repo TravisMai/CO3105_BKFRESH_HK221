@@ -15,7 +15,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			}
 		</style>
 		<div class="text-right">
-			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
 		</div>
 		<?php
 		exit;
@@ -28,18 +28,18 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
 		<input type="hidden" name ="vendor_id" value="<?= $_settings->userdata('id') ?>">
 		<div class="form-group">
-			<label for="name" class="control-label">Name</label>
+			<label for="name" class="control-label">Tên danh mục</label>
 			<input name="name" id="name" type="text"class="form-control form-control-sm form-control-border" value="<?php echo isset($name) ? $name : ''; ?>" required>
 		</div>
 		<div class="form-group">
-			<label for="description" class="control-label">Description</label>
+			<label for="description" class="control-label">Mô tả</label>
 			<textarea name="description" id="description" rows="4"class="form-control form-control-sm rounded-0" required><?php echo isset($description) ? $description : ''; ?></textarea>
 		</div>
 		<div class="form-group">
-			<label for="status" class="control-label">Status</label>
+			<label for="status" class="control-label">Trạng thái</label>
 			<select name="status" id="status" class="custom-select selevt" required>
-			<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-			<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
+			<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Hoạt động</option>
+			<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không hoạt động</option>
 			</select>
 		</div>
 		

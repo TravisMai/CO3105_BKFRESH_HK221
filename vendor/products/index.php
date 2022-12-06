@@ -40,7 +40,7 @@
 						<th>Tên</th>
 						<th>Giá</th>
 						<th>Trạng thái</th>
-						<th>Hành động</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,7 +64,7 @@
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Thao tác
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
@@ -86,16 +86,16 @@
 <script>
 	$(document).ready(function(){
 		$('#create_new').click(function(){
-			uni_modal('Add New Product',"products/manage_product.php",'large')
+			uni_modal('Thêm sản phẩm mới',"products/manage_product.php",'large')
 		})
 		$('.view_data').click(function(){
-			uni_modal('View Product Details',"products/view_product.php?id="+$(this).attr('data-id'),'large')
+			uni_modal('Xem chi tiết sản phẩm',"products/view_product.php?id="+$(this).attr('data-id'),'large')
 		})
 		$('.edit_data').click(function(){
-			uni_modal('Update Product',"products/manage_product.php?id="+$(this).attr('data-id'),'large')
+			uni_modal('Cập nhật sản phẩm',"products/manage_product.php?id="+$(this).attr('data-id'),'large')
 		})
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this product permanently?","delete_product",[$(this).attr('data-id')])
+			_conf("Bạn có chắc xóa vĩnh viễn sản phẩm này?","delete_product",[$(this).attr('data-id')])
 		})
 		$('table th,table td').addClass('align-middle px-2 py-1')
 		$('.table').dataTable();

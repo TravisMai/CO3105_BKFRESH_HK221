@@ -2,7 +2,7 @@
 <div class="content py-3">
     <div class="card card-outline card-navy shadow rounded-0">
         <div class="card-header">
-            <h5 class="card-title">Monthly Order Reports</h5>
+            <h5 class="card-title">Báo cáo theo từng tháng</h5>
         </div>
         <div class="card-body">
             <div class="container-fluid">
@@ -11,14 +11,14 @@
                         <div class="row align-items-end">
                             <div class="col-lg-3 col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <label for="month" class="control-label">Month</label>
+                                    <label for="month" class="control-label">Tháng</label>
                                     <input type="month" name="month" id="month" value="<?= $month ?>" class="form-control rounded-0" required>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-4 col-sm-12">
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-flat btn-sm"><i class="fa fa-filter"></i> Filter</button>
-                                    <button class="btn btn-light border btn-flat btn-sm" type="button" id="print"><i class="fa fa-print"></i> Print</button>
+                                    <button class="btn btn-primary btn-flat btn-sm"><i class="fa fa-filter"></i> Lọc</button>
+                                    <button class="btn btn-light border btn-flat btn-sm" type="button" id="print"><i class="fa fa-print"></i> In</button>
                                 </div>
                             </div>
                         </div>
@@ -37,11 +37,11 @@
                         <thead>
                             <tr class="">
                                 <th class="text-center align-middle py-1">#</th>
-                                <th class="text-center align-middle py-1">Date Created</th>
-                                <th class="text-center align-middle py-1">Ref. Code</th>
-                                <th class="text-center align-middle py-1">Client</th>
-                                <th class="text-center align-middle py-1">Status</th>
-                                <th class="text-center align-middle py-1">Total Amount</th>
+                                <th class="text-center align-middle py-1">Ngày tạo</th>
+                                <th class="text-center align-middle py-1">Mã đặt</th>
+                                <th class="text-center align-middle py-1">Khách hàng</th>
+                                <th class="text-center align-middle py-1">Trạng thái</th>
+                                <th class="text-center align-middle py-1">Tổng giá trị</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,22 +61,22 @@
                                         <?php 
                                             switch($row['status']){
                                                 case 0:
-                                                    echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
+                                                    echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Đang chờ</span>';
                                                     break;
                                                 case 1:
-                                                    echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
+                                                    echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Xác nhận</span>';
                                                     break;
                                                 case 2:
-                                                    echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
+                                                    echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Đóng gói</span>';
                                                     break;
                                                 case 3:
-                                                    echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
+                                                    echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Đang giao</span>';
                                                     break;
                                                 case 4:
-                                                    echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
+                                                    echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Đã giao</span>';
                                                     break;
                                                 case 5:
-                                                    echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
+                                                    echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Đã hủy</span>';
                                                     break;
                                                 default:
                                                     echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
@@ -90,7 +90,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th class="text-center px-1 py-1 align-middel" colspan="5">Total</th>
+                                <th class="text-center px-1 py-1 align-middel" colspan="5">Tổng</th>
                                 <th class="text-right px-1 py-1 align-middel"><?= format_num($total) ?></th>
                             </tr>
                         </tfoot>
