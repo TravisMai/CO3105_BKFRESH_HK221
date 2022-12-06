@@ -15,7 +15,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			}
 		</style>
 		<div class="text-right">
-			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+			<button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
 		</div>
 		<?php
 		exit;
@@ -30,11 +30,11 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="name" class="control-label">Name</label>
+					<label for="name" class="control-label">Sản phẩm</label>
 					<input name="name" id="name" type="text"class="form-control form-control-sm form-control-border" value="<?php echo isset($name) ? $name : ''; ?>" required>
 				</div>
 				<div class="form-group">
-						<label for="category_id" class="control-label">Category</label>
+						<label for="category_id" class="control-label">Danh mục</label>
 						<select type="text" id="category_id" name="category_id" class="form-control form-control-sm form-control-border select2" required>
 							<option value="" disabled <?= !isset($category_id) ? 'selected' : "" ?>></option>
 							<?php 
@@ -46,17 +46,17 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						</select>
 				</div>
 				<div class="form-group">
-					<label for="description" class="control-label">Description</label>
+					<label for="description" class="control-label">Mô tả</label>
 					<textarea name="description" id="description" rows="4"class="form-control form-control-sm rounded-0 summernote" required><?php echo isset($description) ? html_entity_decode($description) : ''; ?></textarea>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="price" class="control-label">Cost</label>
+					<label for="price" class="control-label">Giá</label>
 					<input name="price" id="price" type="number" step="any" class="form-control form-control-sm form-control-border" value="<?php echo isset($price) ? $price : ''; ?>" required>
 				</div>
 				<div class="form-group">
-					<label for="logo" class="control-label">Shop Logo</label>
+					<label for="logo" class="control-label">Logo shop</label>
 					<input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" <?= !isset($id) ? 'required' : '' ?>>
 				</div>
 				<div class="form-group col-md-6 text-center">
@@ -65,8 +65,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				<div class="form-group">
 					<label for="status" class="control-label">Status</label>
 					<select name="status" id="status" class="custom-select selevt" required>
-					<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-					<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
+					<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Hoạt động</option>
+					<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không hoạt động</option>
 					</select>
 				</div>
 			</div>

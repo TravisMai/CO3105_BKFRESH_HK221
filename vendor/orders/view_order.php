@@ -87,7 +87,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <div class="col-12 border">
             <div class="d-flex align-items-center p-2">
                 <div class="col-2 text-center">
-                    <a href="./?page=products/view_product&id=<?= $prow['product_id'] ?>"><img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray"></a>
+                    <img src="<?= validate_image($prow['image_path']) ?>" alt="" class="img-center prod-img border bg-gradient-gray">
                 </div>
                 <div class="col-auto flex-shrink-1 flex-grow-1">
                     <h4><b><?= $prow['name'] ?></b></h4>
