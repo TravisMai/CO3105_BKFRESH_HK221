@@ -40,13 +40,85 @@
             object-fit: scale-down;
             object-position: center center
         }
+
+        a:hover {
+            color: #66BB6A;
+        }
+
+        .green_btn {
+            background: #66BB6A;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .green_btn_text {
+            border-radius: 5px;
+            color: #66BB6A;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .green_btn_text:hover {
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+            color: #558b4b;
+        }
+
+        .green_btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            background-color: rgba(40, 95, 43, 0.5);
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+            -webkit-transform: scale(0.5, 1);
+            transform: scale(0.5, 1);
+        }
+
+        .green_btn:hover::before {
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+        }
+
+        .green_btn:hover {
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+            background-color: #558b4b;
+        }
+
+        .green_btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        input:hover {
+            border-color: #54c577
+        }
     </style>
     <script>
     </script>
     <div class="d-flex justify-content-center align-items-center flex-row h-80">
         <div class="col-7 h-100 bg-gradient-light px-4">
             <div class="d-flex justify-content-center align-items-center w-100 h-100">
-                <div class="card card-outline card-primary col-12 rounded-0 shadow">
+                <div class="card card-outline card-primary col-12 rounded-0 shadow" style="border-color:#54c577">
                     <div class="card-body">
                         <p class="login-box-msg">Đăng ký để bắt đầu</p>
 
@@ -86,9 +158,9 @@
                                         class="form-control form-control-sm form-control-border select2" required>
                                         <option value="" disabled selected></option>
                                         <?php
-                                    $types = $conn->query("SELECT * FROM `shop_type_list` where delete_flag = 0 and `status` = 1 order by `name` asc ");
-                                    while ($row = $types->fetch_assoc()):
-                                    ?>
+                                        $types = $conn->query("SELECT * FROM `shop_type_list` where delete_flag = 0 and `status` = 1 order by `name` asc ");
+                                        while ($row = $types->fetch_assoc()):
+                                        ?>
                                         <option value="<?= $row['id'] ?>">
                                             <?= $row['name'] ?>
                                         </option>
@@ -153,15 +225,15 @@
                             </div>
                             <div class="row align-item-end">
                                 <div class="col-8">
-                                    <a href="<?= base_url ?>">Quay về trang chủ</a>
+                                    <a href="<?= base_url ?>" class="green_btn_text">Quay về trang chủ</a>
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-4">
-                                    <button type="submit" class="btn btn-primary btn-block btn-flat">Tạo tài
+                                    <button type="submit" class="btn btn-primary btn-block btn-flat green_btn">Tạo tài
                                         khoản</button>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <a href="<?= base_url . 'vendor/login.php' ?>">Đã có tài khoản rồi</a>
+                                    <a href="<?= base_url . 'vendor/login.php' ?>" class="green_btn_text">Đã có tài khoản?</a>
                                 </div>
                                 <!-- /.col -->
                             </div>

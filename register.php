@@ -40,15 +40,87 @@
             object-fit: scale-down;
             object-position: center center
         }
+
+        a:hover {
+            color: #66BB6A;
+        }
+
+        .green_btn {
+            background: #66BB6A;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .green_btn_text {
+            border-radius: 5px;
+            color: #66BB6A;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .green_btn_text:hover {
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+            color: #558b4b;
+        }
+
+        .green_btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            background-color: rgba(40, 95, 43, 0.5);
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+            -webkit-transform: scale(0.5, 1);
+            transform: scale(0.5, 1);
+        }
+
+        .green_btn:hover::before {
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+        }
+
+        .green_btn:hover {
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+            background-color: #558b4b;
+        }
+
+        .green_btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        input:hover {
+            border-color: #54c577
+        }
     </style>
     <script>
     </script>
     <div class="d-flex justify-content-center align-items-center flex-row h-70">
         <div class="col-7 h-100 bg-gradient-light px-4">
             <div class="d-flex justify-content-center align-items-center w-100 h-100">
-                <div class="card card-outline card-primary col-12 rounded-0 shadow">
+                <div class="card card-outline card-primary col-12 rounded-0 shadow" style="border-color:#54c577">
                     <div class="card-body">
-                        <p class="login-box-msg">Sign in to start your session</p>
+                        <p class="login-box-msg">Đăng ký để bắt đầu</p>
 
                         <form id="cregister-frm" action="" method="post">
                             <input type="hidden" name="id">
@@ -58,22 +130,22 @@
                             <div class="row">
 
                                 <div class="form-group col-md-4">
-                                    <label for="firstname" class="control-label">First Name</label>
+                                    <label for="firstname" class="control-label">Tên</label>
                                     <input type="text" id="firstname" autofocus name="firstname"
                                         class="form-control form-control-sm form-control-border" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="middlename" class="control-label">Middle Name</label>
+                                    <label for="middlename" class="control-label">Tên lót</label>
                                     <input type="text" id="middlename" name="middlename"
                                         class="form-control form-control-sm form-control-border" placeholder="optional">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="lastname" class="control-label">Last Name</label>
+                                    <label for="lastname" class="control-label">Họ</label>
                                     <input type="text" id="lastname" name="lastname"
                                         class="form-control form-control-sm form-control-border" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="gender" class="control-label">Gender</label>
+                                    <label for="gender" class="control-label">Giới tính</label>
                                     <select type="text" id="gender" name="gender"
                                         class="form-control form-control-sm form-control-border select2" required>
                                         <option>Male</option>
@@ -81,14 +153,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="contact" class="control-label">Contact #</label>
+                                    <label for="contact" class="control-label">Điện thoại</label>
                                     <input type="text" id="contact" name="contact"
                                         class="form-control form-control-sm form-control-border" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label for="address" class="control-label">Address</label>
+                                    <label for="address" class="control-label">Địa chỉ</label>
                                     <textarea rows="3" id="address" name="address"
                                         class="form-control form-control-sm rounded-0" required></textarea>
                                 </div>
@@ -102,7 +174,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="password" class="control-label">Password</label>
+                                    <label for="password" class="control-label">Mật khẩu</label>
                                     <div class="input-group input-group-sm">
                                         <input type="password" id="password" name="password"
                                             class="form-control form-control-sm form-control-border" required>
@@ -118,7 +190,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="cpassword" class="control-label">Confirm Password</label>
+                                    <label for="cpassword" class="control-label">Xác nhận mật khẩu</label>
                                     <div class="input-group input-group-sm">
                                         <input type="password" id="cpassword"
                                             class="form-control form-control-sm form-control-border" required>
@@ -136,7 +208,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="logo" class="control-label">Image</label>
+                                    <label for="logo" class="control-label">Hình ảnh</label>
                                     <input type="file" id="logo" name="img"
                                         class="form-control form-control-sm form-control-border"
                                         onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
@@ -150,15 +222,15 @@
                             </div>
                             <div class="row align-item-end">
                                 <div class="col-8">
-                                    <a href="<?= base_url ?>">Back to Site</a>
+                                    <a href="<?= base_url ?>" class="green_btn_text">Quay về trang chủ</a>
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-4">
-                                    <button type="submit" class="btn btn-primary btn-block btn-flat">Create
-                                        Account</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-flat green_btn">Tạo tài
+                                        khoản</button>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <a href="<?= base_url . './login.php' ?>">Already have an Account</a>
+                                    <a href="<?= base_url . './login.php' ?>" class="green_btn_text">Đã có tài khoản?</a>
                                 </div>
                                 <!-- /.col -->
                             </div>
