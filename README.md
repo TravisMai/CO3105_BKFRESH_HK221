@@ -19,14 +19,14 @@ Website selling agricultural products under the B2B model (Vietnamese interface)
 
 ## Vendor site login information:
 * Username: `shop01`
-* Password: `shop01`
+* Password: `shop01`  
 
 * Username: `shop02`
-* Password: `shop02`
+* Password: `shop02`  
 
 * Username: `shop03`
-* Password: `shop03`
+* Password: `shop03`  
 
 * Username: `shop04`
-* Password: `shop04`
+* Password: `shop04`  
 
