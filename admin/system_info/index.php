@@ -1,17 +1,18 @@
-<?php if($_settings->chk_flashdata('success')): ?>
+<?php if ($_settings->chk_flashdata('success')): ?>
 <script>
-	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+	alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
 </script>
-<?php endif;?>
+<?php endif; ?>
 
 <style>
-	img#cimg{
+	img#cimg {
 		height: 15vh;
 		width: 15vh;
 		object-fit: cover;
 		border-radius: 100% 100%;
 	}
-	img#cimg2{
+
+	img#cimg2 {
 		height: 50vh;
 		width: 100%;
 		object-fit: contain;
@@ -21,10 +22,7 @@
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-header">
-			<h5 class="card-title">System Information</h5>
-			<!-- <div class="card-tools">
-				<a class="btn btn-block btn-sm btn-default btn-flat border-primary new_department" href="javascript:void(0)"><i class="fa fa-plus"></i> Add New</a>
-			</div> -->
+			<h5 class="card-title">Thông tin hệ thống</h5>
 		</div>
 		<div class="card-body">
 			<form action="" id="system-frm">
@@ -35,52 +33,52 @@
 				</div-->
 				<div class="form-group">
 					<label for="short_name" class="control-label">Tên hệ thống</label>
-					<input type="text" class="form-control form-control-sm" name="short_name" id="short_name" value="<?php echo  $_settings->info('short_name') ?>">
+					<input type="text" class="form-control form-control-sm" name="short_name" id="short_name"
+						value="<?php echo $_settings->info('short_name') ?>">
 				</div>
 				<div class="form-group">
 					<label for="banner" class="control-label">Banner</label>
-					<input type="text" class="form-control form-control-sm" name="banner" id="banner" value="<?php echo  $_settings->info('banner') ?>">
+					<input type="text" class="form-control form-control-sm" name="banner" id="banner"
+						value="<?php echo $_settings->info('banner') ?>">
 				</div>
-			<!--div class="form-group">
-				<label for="" class="control-label">Welcome</label>
-	             <textarea name="content[welcome]" id="" cols="30" rows="2" class="form-control summernote"><?php echo  is_file(base_app.'welcome.html') ? file_get_contents(base_app.'welcome.html') : "" ?></textarea>
-			</div>
-			<div class="form-group">
-				<label for="" class="control-label">About Us</label>
-	             <textarea name="content[about]" id="" cols="30" rows="2" class="form-control summernote"><?php echo  is_file(base_app.'about.html') ? file_get_contents(base_app.'about.html') : "" ?></textarea>
-			</div-->
-			<div class="form-group">
-				<label for="" class="control-label">Logo hệ thống</label>
-				<div class="custom-file">
-	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg2(this,$(this))">
-	              <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-	            </div>
-			</div>
-			<div class="form-group d-flex justify-content-center">
-				<img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="" id="cimg2" class="img-fluid img-thumbnail" style="max-width:300px; height:auto;">
-			</div>
+				<div class="form-group">
+					<label for="" class="control-label">Logo hệ thống</label>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img"
+							onchange="displayImg2(this,$(this))">
+						<label class="custom-file-label" for="customFile">Chọn ảnh</label>
+					</div>
+				</div>
+				<div class="form-group d-flex justify-content-center">
+					<img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="" id="cimg2"
+						class="img-fluid img-thumbnail" style="max-width:300px; height:auto;">
+				</div>
 
-			<div class="form-group">
-				<label for="" class="control-label">Logo thay thế</label>
-				<div class="custom-file">
-	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg2(this,$(this))">
-	              <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-	            </div>
-			</div>
-			<div class="form-group d-flex justify-content-center">
-				<img src="<?php echo validate_image($_settings->info('small_logo')) ?>" alt="" id="cimg2" class="img-fluid img-thumbnail" style="max-width:100px; height:auto;">
-			</div>
+				<div class="form-group">
+					<label for="" class="control-label">Logo thay thế</label>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img"
+							onchange="displayImg2(this,$(this))">
+						<label class="custom-file-label" for="customFile">Chọn ảnh</label>
+					</div>
+				</div>
+				<div class="form-group d-flex justify-content-center">
+					<img src="<?php echo validate_image($_settings->info('small_logo')) ?>" alt="" id="cimg2"
+						class="img-fluid img-thumbnail" style="max-width:100px; height:auto;">
+				</div>
 
-			<div class="form-group">
-				<label for="" class="control-label">Trang bìa của website</label>
-				<div class="custom-file">
-	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="cover" onchange="displayImg2(this,$(this))">
-	              <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-	            </div>
-			</div>
-			<div class="form-group d-flex justify-content-center">
-				<img src="<?php echo validate_image($_settings->info('cover')) ?>" alt="" id="cimg2" class="img-fluid img-thumbnail">
-			</div>
+				<div class="form-group">
+					<label for="" class="control-label">Trang bìa của website</label>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input rounded-circle" id="customFile" name="cover"
+							onchange="displayImg2(this,$(this))">
+						<label class="custom-file-label" for="customFile">Chọn ảnh</label>
+					</div>
+				</div>
+				<div class="form-group d-flex justify-content-center">
+					<img src="<?php echo validate_image($_settings->info('cover')) ?>" alt="" id="cimg2"
+						class="img-fluid img-thumbnail">
+				</div>
 			</form>
 		</div>
 		<div class="card-footer">
@@ -94,52 +92,52 @@
 	</div>
 </div>
 <script>
-	function displayImg(input,_this) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	        	$('#cimg').attr('src', e.target.result);
-	        	_this.siblings('.custom-file-label').html(input.files[0].name)
-	        }
+	function displayImg(input, _this) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				$('#cimg').attr('src', e.target.result);
+				_this.siblings('.custom-file-label').html(input.files[0].name)
+			}
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
+			reader.readAsDataURL(input.files[0]);
+		}
 	}
-	function displayImg2(input,_this) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	        	_this.siblings('.custom-file-label').html(input.files[0].name)
-	        	$('#cimg2').attr('src', e.target.result);
-	        }
+	function displayImg2(input, _this) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				_this.siblings('.custom-file-label').html(input.files[0].name)
+				$('#cimg2').attr('src', e.target.result);
+			}
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
+			reader.readAsDataURL(input.files[0]);
+		}
 	}
-	function displayImg3(input,_this) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	        	_this.siblings('.custom-file-label').html(input.files[0].name)
-	        	$('#cimg3').attr('src', e.target.result);
-	        }
+	function displayImg3(input, _this) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				_this.siblings('.custom-file-label').html(input.files[0].name)
+				$('#cimg3').attr('src', e.target.result);
+			}
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
+			reader.readAsDataURL(input.files[0]);
+		}
 	}
-	$(document).ready(function(){
-		 $('.summernote').summernote({
-		        height: 200,
-		        toolbar: [
-		            [ 'style', [ 'style' ] ],
-		            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
-		            [ 'fontname', [ 'fontname' ] ],
-		            [ 'fontsize', [ 'fontsize' ] ],
-		            [ 'color', [ 'color' ] ],
-		            [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
-		            [ 'table', [ 'table' ] ],
-		            [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
-		        ]
-		    })
+	$(document).ready(function () {
+		$('.summernote').summernote({
+			height: 200,
+			toolbar: [
+				['style', ['style']],
+				['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+				['fontname', ['fontname']],
+				['fontsize', ['fontsize']],
+				['color', ['color']],
+				['para', ['ol', 'ul', 'paragraph', 'height']],
+				['table', ['table']],
+				['view', ['undo', 'redo', 'fullscreen', 'codeview', 'help']]
+			]
+		})
 	})
 </script>

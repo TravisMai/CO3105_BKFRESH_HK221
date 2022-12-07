@@ -15,7 +15,7 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Vlients</h3>
+		<h3 class="card-title">Danh sách khách hàng</h3>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">
@@ -33,12 +33,12 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Avatar</th>
-						<th>Code</th>
-						<th>Name</th>
+						<th>Ảnh</th>
+						<th>Mã khách hàng</th>
+						<th>Họ và tên</th>
 						<th>Email</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>Trạng thái</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -55,20 +55,20 @@
 							<td><?php echo ucwords($row['email']) ?></td>
 							<td class="text-center">
 								<?php if($row['status'] == 1): ?>
-									<span class="bage badge-primary px-3 rounded-pill">Active</span>
+									<span class="badge badge-primary px-3 rounded-pill">Hoạt động</span>
 								<?php else: ?>
-									<span class="bage badge-danger px-3 rounded-pill">Inactive</span>
+									<span class="badge badge-danger px-3 rounded-pill">Không hoạt động</span>
 								<?php endif; ?>
 							</td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Thao tác
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=clients/manage_client&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item" href="?page=clients/manage_client&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Chỉnh sửa</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
 							</td>
 						</tr>
@@ -82,7 +82,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this client permanently?","delete_client",[$(this).attr('data-id')])
+			_conf("Bạn muốn xóa khách hàng này vĩnh viễn?","delete_client",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})

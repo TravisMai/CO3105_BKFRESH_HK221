@@ -137,7 +137,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="middlename" class="control-label">Tên lót</label>
                                     <input type="text" id="middlename" name="middlename"
-                                        class="form-control form-control-sm form-control-border" placeholder="optional">
+                                        class="form-control form-control-sm form-control-border" placeholder="Không bắt buộc">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="lastname" class="control-label">Họ</label>
@@ -148,8 +148,8 @@
                                     <label for="gender" class="control-label">Giới tính</label>
                                     <select type="text" id="gender" name="gender"
                                         class="form-control form-control-sm form-control-border select2" required>
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                        <option>Nam</option>
+                                        <option>Nữ</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">

@@ -32,25 +32,25 @@ if (isset($_GET['id'])) {
 				<input type="hidden" name="id" value="<?= isset($id) ? $id : '' ?>">
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="shop_name" class="control-label">Shop Name</label>
+						<label for="shop_name" class="control-label">Tên doanh nghiệp</label>
 						<input type="text" id="shop_name" autofocus name="shop_name"
 							class="form-control form-control-sm form-control-border"
 							value="<?= isset($shop_name) ? $shop_name : "" ?>" required>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="shop_owner" class="control-label">Shop Owner Fullname</label>
+						<label for="shop_owner" class="control-label">Tên chủ sở hữu</label>
 						<input type="text" id="shop_owner" name="shop_owner"
 							class="form-control form-control-sm form-control-border"
 							value="<?= isset($shop_owner) ? $shop_owner : "" ?>" required>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="contact" class="control-label">Contact #</label>
+						<label for="contact" class="control-label">Liên lạc</label>
 						<input type="text" id="contact" name="contact"
 							class="form-control form-control-sm form-control-border"
 							value="<?= isset($contact) ? $contact : "" ?>" required>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="shop_type_id" class="control-label">Shop Type</label>
+						<label for="shop_type_id" class="control-label">Loại hình doanh nghiệp</label>
 						<select type="text" id="shop_type_id" name="shop_type_id"
 							class="form-control form-control-sm form-control-border select2" required>
 							<option value="" disabled selected></option>
@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="username" class="control-label">Username</label>
+						<label for="username" class="control-label">Tên đăng nhập</label>
 						<input type="text" id="username" name="username"
 							class="form-control form-control-sm form-control-border"
 							value="<?= isset($username) ? $username : "" ?>" required>
@@ -75,7 +75,7 @@ if (isset($_GET['id'])) {
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="password" class="control-label">New Password</label>
+						<label for="password" class="control-label">Mật khẩu mới</label>
 						<div class="input-group input-group-sm">
 							<input type="password" id="password" name="password"
 								class="form-control form-control-sm form-control-border">
@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
 						</div>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="cpassword" class="control-label">Confirm New Password</label>
+						<label for="cpassword" class="control-label">Xác nhận mật khẩu mới</label>
 						<div class="input-group input-group-sm">
 							<input type="password" id="cpassword"
 								class="form-control form-control-sm form-control-border">
@@ -104,11 +104,11 @@ if (isset($_GET['id'])) {
 							</div>
 						</div>
 					</div>
-					<small class="text-muted">Leave the New Password Field Blank if you don't wish to update it.</small>
+					<small class="text-muted">Để trống nếu như bạn không muốn thay đổi.</small>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="logo" class="control-label">Shop Logo</label>
+						<label for="logo" class="control-label">Logo doanh nghiệp</label>
 						<input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border"
 							onchange="displayImg(this,$(this))" accept="image/png, image/jpeg">
 					</div>
@@ -121,11 +121,11 @@ if (isset($_GET['id'])) {
 				</div>
 				<div class="row">
 					<div class="form-group col-md-4">
-						<label for="status" class="control-label">Status</label>
+						<label for="status" class="control-label">Trạng thái</label>
 						<select type="text" id="status" name="status"
 							class="form-control form-control-sm form-control-border select2" required>
-							<option value="1" <?= isset($status) && $status==1 ? 'selected' : '' ?>>Active</option>
-							<option value="0" <?= isset($status) && $status==0 ? 'selected' : '' ?>>Inactive</option>
+							<option value="1" <?= isset($status) && $status==1 ? 'selected' : '' ?>>Hoạt động</option>
+							<option value="0" <?= isset($status) && $status==0 ? 'selected' : '' ?>>Không hoạt động</option>
 						</select>
 					</div>
 				</div>
@@ -135,7 +135,7 @@ if (isset($_GET['id'])) {
 	<div class="card-footer">
 		<div class="col-md-12">
 			<div class="row">
-				<button class="btn btn-sm btn-primary" form="manage-user">Update</button>
+				<button class="btn btn-sm btn-primary" form="manage-user">Cập nhật</button>
 			</div>
 		</div>
 	</div>

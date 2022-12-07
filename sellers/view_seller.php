@@ -58,7 +58,7 @@ if (isset($_GET['id']) > 0) {
                                 <?= $shop_name ?>
                             </b></h3>
                         <div class="d-flex w-100">
-                            <div class="col-auto px-0"><small class="text-muted">Chủ doanh nghiệp: &nbsp; </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Chủ sở hữu: &nbsp; </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
                                 <p class="m-0"><small class="text-muted">
                                         <?= $shop_owner ?>

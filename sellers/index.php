@@ -109,7 +109,7 @@ $vendor_ids = isset($_GET['vids']) ? $_GET['vids'] : 'all';
                                             <?= $row['shop_name'] ?>
                                         </h5>
                                         <div class="d-flex w-100">
-                                            <div class="col-auto px-0"><small class="text-muted">Chủ doanh nghiệp: &nbsp
+                                            <div class="col-auto px-0"><small class="text-muted">Chủ sở hữu: &nbsp
                                                 </small></div>
                                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
                                                 <p class="text-truncate m-0"><small class="text-muted">

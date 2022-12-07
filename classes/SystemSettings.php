@@ -128,7 +128,7 @@ class SystemSettings extends DBConnection
 		}
 
 		$update = $this->update_system_info();
-		$flash = $this->set_flashdata('success', 'System Info Successfully Updated.');
+		$flash = $this->set_flashdata('success', ' Thông tin đã được cập nhật thành công.');
 		if ($update && $flash) {
 			// var_dump($_SESSION);
 			return true;

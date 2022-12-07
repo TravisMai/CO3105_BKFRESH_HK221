@@ -16,7 +16,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 </style>
 <div class="text-right">
     <button class="btn btndefault bg-gradient-dark btn-flat" data-dismiss="modal"><i class="fa fa-times"></i>
-        Close</button>
+        Đóng</button>
 </div>
 <?php
         exit;
@@ -38,53 +38,50 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 </style>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3 border bg-gradient-primary"><span class="">Reference Code</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Mã đơn đặt</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
                 <?= isset($code) ? $code : '' ?>
             </span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Vendor</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Doanh nghiệp bán</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
                 <?= isset($vendor) ? $vendor : '' ?>
             </span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Client</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Khách hàng</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
                 <?= isset($client) ? $ccode . ' - ' . $client : '' ?>
             </span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Delivery Address</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Địa chỉ</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
                 <?= isset($delivery_address) ? $delivery_address : '' ?>
             </span></div>
-        <div class="col-3 border bg-gradient-primary"><span class="">Status</span></div>
+        <div class="col-3 border bg-gradient-primary"><span class="">Trạng thái</span></div>
         <div class="col-9 border"><span class="font-weight-bolder">
                 <?php
             $status = isset($status) ? $status : '';
             switch ($status) {
                 case 0:
-                    echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
+                    echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Đang chờ</span>';
                     break;
                 case 1:
-                    echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
+                    echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Xác nhận</span>';
                     break;
                 case 2:
-                    echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
+                    echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Đóng gói</span>';
                     break;
                 case 3:
-                    echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
+                    echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Đang giao</span>';
                     break;
                 case 4:
-                    echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
+                    echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Đã giao</span>';
                     break;
                 case 5:
-                    echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
+                    echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Đã hủy</span>';
                     break;
                 default:
                     echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
                     break;
             }
             ?>
-                <?php if ($status != 5): ?>
-                <span class="pl-2"><a href="javascript:void(0)" id="update_status">Update Status</a></span>
-                <?php endif; ?>
         </div>
     </div>
     <div class="clear-fix mb-2"></div>
@@ -108,7 +105,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                             <?= $prow['name'] ?>
                         </b></h4>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
+                        <div class="col-auto px-0"><small class="text-muted">Giá: </small></div>
                         <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
                             <p class="m-0 pl-3"><small class="text-primary">
                                     <?= format_num($prow['price']) ?>
@@ -116,7 +113,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                         </div>
                     </div>
                     <div class="d-flex">
-                        <div class="col-auto px-0"><small class="text-muted">Qty: </small></div>
+                        <div class="col-auto px-0"><small class="text-muted">Số lượng: </small></div>
                         <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
                             <p class="m-0 pl-3"><small class="text-primary">
                                     <?= format_num($prow['quantity']) ?>
@@ -129,7 +126,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         <?php endwhile; ?>
         <div class="col-12 border">
             <div class="d-flex">
-                <div class="col-9 h4 font-weight-bold text-right text-muted">Total</div>
+                <div class="col-9 h4 font-weight-bold text-right text-muted">Tổng</div>
                 <div class="col-3 h4 font-weight-bold text-right">
                     <?= format_num($gtotal) ?>
                 </div>
@@ -139,14 +136,6 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     <div class="clear-fix mb-3"></div>
     <div class="text-right">
         <button class="btn btn-default bg-gradient-dark text-light btn-sm btn-flat" type="button"
-            data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+            data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
     </div>
 </div>
-<script>
-    $(function () {
-        $('#update_status').click(function () {
-            uni_modal_second("Update Order Status - <b><?= isset($code) ? $code : '' ?></b>", "orders/update_status.php?id=<?= isset($id) ? $id : '' ?>")
-        })
-    })
-
-</script>

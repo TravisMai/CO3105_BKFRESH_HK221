@@ -82,7 +82,7 @@ class Users extends DBConnection
 		} else {
 			$qry = $this->conn->query("UPDATE users set $data where id = {$id}");
 			if ($qry) {
-				$this->settings->set_flashdata('success', 'User Details successfully updated.');
+				$this->settings->set_flashdata('success', 'Cập nhật thành công.');
 				foreach ($_POST as $k => $v) {
 					if ($k != 'id') {
 						if (!empty($data))
@@ -202,15 +202,15 @@ class Users extends DBConnection
 				$vid = empty($id) ? $this->conn->insert_id : $id;
 				if (empty($id)) {
 					if (strpos($_SERVER['HTTP_REFERER'], 'vendor/register.php') > -1) {
-						$resp['msg'] = " Your account has been registered successfully.";
+						$resp['msg'] = " Tạo tài khoản thành công";
 					} else {
-						$resp['msg'] = " Vendor's Account has been registered successfully.";
+						$resp['msg'] = " Tài khoản doanh nghiệp bán cập nhật thành công";
 					}
 				} else {
 					if ($this->settings->userdata('login_type') == 2) {
-						$resp['msg'] = " Your account details has been updated successfully.";
+						$resp['msg'] = " Chi tiết tài khoản được cập nhật thành công";
 					} else {
-						$resp['msg'] = " Vendor's Account Details has been updated successfully.";
+						$resp['msg'] = " Chi tiết tài khoản doanh nghiệp bán cập nhật thành công";
 					}
 				}
 

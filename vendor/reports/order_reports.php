@@ -112,12 +112,11 @@
 </style>
 <div class="d-flex align-items-center">
     <div class="col-auto text-center pl-4">
-        <img src="<?= validate_image($_settings->info('logo')) ?>" alt=" System Logo" id="sys_logo" class="img-circle border border-dark">
+        <img src="<?= validate_image($_settings->info('small_logo')) ?>" alt=" System Logo" id="sys_logo">
     </div>
     <div class="col-auto flex-shrink-1 flex-grow-1 px-4">
-        <h4 class="text-center m-0"><?= $_settings->info('name') ?></h4>
-        <h3 class="text-center m-0"><b>Order Report</b></h3>
-        <h5 class="text-center m-0">For the Month of</h5>
+        <h4 class="text-center m-0"><?= $_settings->info('short_name') ?></h4>
+        <h3 class="text-center m-0"><b>Báo cáo tháng</b></h3>
         <h5 class="text-center m-0"><?= date("F Y", strtotime($month)) ?></h5>
     </div>
 </div>

@@ -1,8 +1,9 @@
+<style>
 </style>
 <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>admin" class="brand-link text-sm" style="background-color:#54c577">
+        <a href="<?php echo base_url ?>admin" class="brand-link bg-primary text-sm">
         <img src="<?php echo validate_image($_settings->info('small_logo'))?>" alt="Store Logo" class="brand-image" style="opacity: .8;width: 1.6rem;height: 1.6rem;max-height: unset">
         <span class="brand-text"><?php echo $_settings->info('short_name') ?></span>
         </a>
@@ -27,7 +28,7 @@
                       <a href="./" class="nav-link nav-home">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                          Dashboard
+                          Trang chủ
                         </p>
                       </a>
                     </li> 
@@ -35,7 +36,7 @@
                       <a href="<?php echo base_url ?>admin/?page=products" class="nav-link nav-products">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
-                          Product List
+                          Sản phẩm
                         </p>
                       </a>
                     </li>
@@ -43,7 +44,7 @@
                       <a href="<?php echo base_url ?>admin/?page=orders" class="nav-link nav-orders">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
-                          Order List
+                          Đơn hàng
                         </p>
                       </a>
                     </li>
@@ -51,7 +52,7 @@
                       <a href="<?php echo base_url ?>admin/?page=vendors" class="nav-link nav-vendors">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                          Vendor List
+                          Doanh nghiệp bán
                         </p>
                       </a>
                     </li>
@@ -59,26 +60,33 @@
                       <a href="<?php echo base_url ?>admin/?page=clients" class="nav-link nav-clients">
                         <i class="nav-icon fas fa-user-friends"></i>
                         <p>
-                          Client List
+                          Khách hàng mua
                         </p>
                       </a>
                     </li>
-                    <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=reports/order_reports" class="nav-link nav-reports_order_reports">
                         <i class="nav-icon fas fa-calendar"></i>
                         <p>
-                          Monthly Order Report
+                          Báo cáo tháng
                         </p>
                       </a>
                     </li>
                     <?php if($_settings->userdata('type') == 1): ?>
-                    <li class="nav-header">Maintenance</li>
+                    <li class="nav-header">Hệ thống</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=shop_types" class="nav-link nav-shop_types">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Shop Type list
+                          Danh mục nông sản
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=user" class="nav-link nav-user">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>
+                          Tài khoản
                         </p>
                       </a>
                     </li>
@@ -86,7 +94,7 @@
                       <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                          User List
+                          Nhân viên
                         </p>
                       </a>
                     </li>
@@ -94,7 +102,7 @@
                       <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                          Settings
+                          Cài đặt
                         </p>
                       </a>
                     </li>

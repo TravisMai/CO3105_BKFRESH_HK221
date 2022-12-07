@@ -14,12 +14,12 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Products</h3>
+		<h3 class="card-title">Danh sách sản phẩm</h3>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">
         <div class="container-fluid">
-			<table class="table table-bordered table-stripped">
+			<table class="table table-bordered table-stripped center">
 				<colgroup>
 					<col width="5%">
 					<col width="15%">
@@ -32,12 +32,12 @@
 				<thead>
 					<tr class="bg-gradient-secondary">
 						<th>#</th>
-						<th>Date Created</th>
-						<th>Image</th>
-						<th>Vendor/Product</th>
-						<th>Cost</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>Ngày tạo</th>
+						<th>Hình ảnh</th>
+						<th>Sản phẩm</th>
+						<th>Giá mong muốn</th>
+						<th>Trạng thái</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -57,18 +57,18 @@
 							<td class="text-right"><?php echo format_num($row['price']) ?></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
+                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Hoạt động</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Không hoạt động</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Thao tác
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+				                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> Xem</a>
 				                  </div>
 							</td>
 						</tr>
@@ -85,13 +85,13 @@
 			uni_modal('Add New Product',"products/manage_product.php",'large')
 		})
 		$('.view_data').click(function(){
-			uni_modal('View Product Details',"products/view_product.php?id="+$(this).attr('data-id'),'large')
+			uni_modal('Chi tiết sản phẩm',"products/view_product.php?id="+$(this).attr('data-id'),'large')
 		})
 		$('.edit_data').click(function(){
-			uni_modal('Update Product',"products/manage_product.php?id="+$(this).attr('data-id'),'large')
+			uni_modal('Cập nhật sản phẩm',"products/manage_product.php?id="+$(this).attr('data-id'),'large')
 		})
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this product permanently?","delete_product",[$(this).attr('data-id')])
+			_conf("Bạn muốn xóa sản phẩm này vĩnh viễn?","delete_product",[$(this).attr('data-id')])
 		})
 		$('table th,table td').addClass('align-middle px-2 py-1')
 		$('.table').dataTable();

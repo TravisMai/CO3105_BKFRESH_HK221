@@ -68,11 +68,11 @@ class Login extends DBConnection
 				$resp['status'] = 'success';
 			} else {
 				$resp['status'] = 'failed';
-				$resp['msg'] = ' Your Account has been blocked by the management.';
+				$resp['msg'] = ' Tài khoản đã bị khóa bởi quản trị hệ thống';
 			}
 		} else {
 			$resp['status'] = 'failed';
-			$resp['msg'] = ' Incorrect Username or Password.';
+			$resp['msg'] = ' Tên đăng nhập/mật khẩu sai';
 			$resp['error'] = $this->conn->error;
 			$resp['res'] = $result;
 		}
@@ -106,7 +106,7 @@ class Login extends DBConnection
 				$resp['status'] = 'success';
 			} else {
 				$resp['status'] = 'failed';
-				$resp['msg'] = ' Your Account has been blocked by the management.';
+				$resp['msg'] = ' Tài khoản đã bị khóa bởi quản trị hệ thống';
 			}
 		} else {
 			$resp['status'] = 'failed';
