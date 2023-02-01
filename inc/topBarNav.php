@@ -43,32 +43,40 @@
       <!--p class="m-0 truncate-1"><small><?= $_settings->info('name') ?></small></p-->
       <marquee width="100%" id="marquee-banner" scrollamount="7" style="width: 100%;" loop="">
         <div class="flex space-x-8"><i class="fas fa-seedling fa-spin spin-reverse" style="color:#54c577"></i><a
-            href="#" style="color:#54c577">&nbsp;<?= $_settings->info('banner') ?>&nbsp;</a><i
-            class="fas fa-seedling fa-spin" style="color:#54c577"></i></div>
+            href="#" style="color:#54c577">&nbsp;
+            <?= $_settings->info('banner') ?>&nbsp;
+          </a><i class="fas fa-seedling fa-spin" style="color:#54c577"></i></div>
       </marquee>
     </div>
     <div class="d-flex justify-content-center">
       <?php if ($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
 
-      <!-- <span class="mx-2">Howdy, <?=!empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
-              <span class="mx-1"><a href="<?= base_url . 'classes/Login.php?f=logout_client' ?>"><i class="fa fa-power-off"></i></a></span> -->
-      <div class="dropdown">
-        <a href="javascript:void(0)" class="dropdown-toggle text-reset text-decoration-none" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>"
-              class="img-thumbnail rounded-circle" alt="User Avatar" id="client-img-avatar"> <span class="mx-2">Xin
-              chào, <?=!empty($_settings->userdata('username')) ? $_settings->userdata('username') :
-          $_settings->userdata('email') ?></span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="./?page=manage_account">Tài khoản của tôi</a>
-          <a class="dropdown-item" href="<?= base_url . 'classes/Login.php?f=logout_client' ?>">Đăng xuất</a>
+        <!-- <span class="mx-2">Howdy, <?=!empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
+                <span class="mx-1"><a href="<?= base_url . 'classes/Login.php?f=logout_client' ?>"><i class="fa fa-power-off"></i></a></span> -->
+        <div class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle text-reset text-decoration-none" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>"
+                class="img-thumbnail rounded-circle" alt="User Avatar" id="client-img-avatar"> <span class="mx-2">Xin
+                chào, <?=!empty($_settings->userdata('username')) ? $_settings->userdata('username') :
+                  $_settings->userdata('email') ?></span>
+          </a>
+          <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item" href="<?php echo base_url . '/?page=manage_account' ?>"><span class="fa fa-user"></span> Tài
+              khoản của tôi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo base_url . 'classes/Login.php?f=logout_client' ?>"><span
+                class="fas fa-sign-out-alt"></span> Đăng xuất</a>
+          </div>
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="./?page=manage_account">Tài khoản của tôi</a>
+            <a class="dropdown-item" href="<?= base_url . 'classes/Login.php?f=logout_client' ?>">Đăng xuất</a>
+          </div> -->
         </div>
-      </div>
       <?php else: ?>
-      <a href="./login.php" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách mua</a>
-      <a href="./vendor" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách bán</a>
-      <a href="./admin" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Quản trị</a>
+        <a href="./login.php" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách mua</a>
+        <a href="./vendor" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách bán</a>
+        <a href="./admin" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Quản trị</a>
       <?php endif; ?>
     </div>
   </div>
@@ -103,22 +111,22 @@
             style="color: <?= isset($page) && $page == 'sellers' ? "#54c577" : "#000" ?>">Doanh nghiệp</a>
         </li>
         <?php if ($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
-        <li class="nav-item">
-          <?php
-          $cart_count = $conn->query("SELECT sum(quantity) FROM `cart_list` where client_id = '{$_settings->userdata('id')}'")->fetch_array()[0];
-          $cart_count = $cart_count > 0 ? $cart_count : 0;
-          ?>
-          <a href="./?page=orders/cart" class="nav-link <?= isset($page) && $page == 'orders/cart' ? "active" : "" ?>"
-            style="color: <?= isset($page) && $page == 'orders/cart' ? "#54c577" : "#000" ?>"><span
-              class="badge badge-secondary rounded-cirlce" style="background-color:#54c577">
-              <?= format_num($cart_count) ?>
-            </span> Giỏ hàng</a>
-        </li>
-        <li class="nav-item">
-          <a href="./?page=orders/my_orders"
-            class="nav-link <?= isset($page) && $page == 'orders/my_orders' ? "active" : "" ?>"
-            style="color: <?= isset($page) && $page == 'orders/my_orders' ? "#54c577" : "#000" ?>">Đơn hàng của tôi</a>
-        </li>
+          <li class="nav-item">
+            <?php
+            $cart_count = $conn->query("SELECT sum(quantity) FROM `cart_list` where client_id = '{$_settings->userdata('id')}'")->fetch_array()[0];
+            $cart_count = $cart_count > 0 ? $cart_count : 0;
+            ?>
+            <a href="./?page=orders/cart" class="nav-link <?= isset($page) && $page == 'orders/cart' ? "active" : "" ?>"
+              style="color: <?= isset($page) && $page == 'orders/cart' ? "#54c577" : "#000" ?>"><span
+                class="badge badge-secondary rounded-cirlce" style="background-color:#54c577">
+                <?= format_num($cart_count) ?>
+              </span> Giỏ hàng</a>
+          </li>
+          <li class="nav-item">
+            <a href="./?page=orders/my_orders"
+              class="nav-link <?= isset($page) && $page == 'orders/my_orders' ? "active" : "" ?>"
+              style="color: <?= isset($page) && $page == 'orders/my_orders' ? "#54c577" : "#000" ?>">Đơn hàng của tôi</a>
+          </li>
         <?php endif; ?>
       </ul>
     </div>
