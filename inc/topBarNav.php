@@ -51,28 +51,25 @@
     <div class="d-flex justify-content-center">
       <?php if ($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3): ?>
 
-        <!-- <span class="mx-2">Howdy, <?=!empty($_settings->userdata('username')) ? $_settings->userdata('username') : $_settings->userdata('email') ?></span>
-                <span class="mx-1"><a href="<?= base_url . 'classes/Login.php?f=logout_client' ?>"><i class="fa fa-power-off"></i></a></span> -->
         <div class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle text-reset text-decoration-none" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-rounded badge badge-light dropdown-toggle dropdown-icon"
+            data-toggle="dropdown">
             <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>"
                 class="img-thumbnail rounded-circle" alt="User Avatar" id="client-img-avatar"> <span class="mx-2">Xin
                 chào, <?=!empty($_settings->userdata('username')) ? $_settings->userdata('username') :
                   $_settings->userdata('email') ?></span>
-          </a>
+              <span class="sr-only">Toggle Dropdown</span>
+          </button>
           <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="<?php echo base_url . '/?page=manage_account' ?>"><span class="fa fa-user"></span> Tài
+            <a class="dropdown-item" href="<?php echo base_url . '/?page=manage_account' ?>"><span class="fa fa-user"></span>
+              Tài
               khoản của tôi</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="<?php echo base_url . 'classes/Login.php?f=logout_client' ?>"><span
+            <a class="dropdown-item" href="<?php echo base_url . '/classes/Login.php?f=logout_client' ?>"><span
                 class="fas fa-sign-out-alt"></span> Đăng xuất</a>
           </div>
-          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="./?page=manage_account">Tài khoản của tôi</a>
-            <a class="dropdown-item" href="<?= base_url . 'classes/Login.php?f=logout_client' ?>">Đăng xuất</a>
-          </div> -->
         </div>
+        <!--  -->
       <?php else: ?>
         <a href="./login.php" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách mua</a>
         <a href="./vendor" class="mx-2 text-decoration-none font-weight-bolder" style="color:#54c577">Khách bán</a>
