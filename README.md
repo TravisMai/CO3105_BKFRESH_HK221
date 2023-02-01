@@ -27,3 +27,5 @@ Demo: [!! Please note that because I deploy it on EC2 Ubuntu so some functions a
 
 * Username: `shop04` | Password: `shop04`  
 
+## Bonus:   
+If you have any interest about Lê Hưng, he is currently available via this [LINK](http://ec2-52-221-206-198.ap-southeast-1.compute.amazonaws.com/CO3105_BKFRESH_HK221/?page=products/view_product&id=16)
