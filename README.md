@@ -1,5 +1,6 @@
 # PROGRAMMING INTERGRATION PROJECT
-Website selling agricultural products under the B2B model (Vietnamese interface)
+Website selling agricultural products under the B2B model (Vietnamese interface)   
+Demo: [!! Please note that because I deploy it on EC2 Ubuntu so some functions are not compatible with the ubuntu environment such as the dropdown button on the client site (the vendor and admin function perfectly) !!](http://ec2-52-221-206-198.ap-southeast-1.compute.amazonaws.com/CO3105_BKFRESH_HK221/)
 
 ## Technologies use:
 * PHP
